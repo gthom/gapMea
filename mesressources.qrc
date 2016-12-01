@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/images">
+        <file alias="move">arrow-move.png</file>
+        <file alias="doublons">doublons.png</file>
+        <file alias="flecheBas">downSort.xpm</file>
+        <file alias="save">filesave.png</file>
+        <file alias="icone">gapQBE.png</file>
+        <file alias="add">list-add.png</file>
+        <file alias="relier">tables-relation.png</file>
+        <file alias="open">fileOpen.png</file>
+        <file alias="cif">cif.png</file>
+        <file alias="association">association.png</file>
+        <file alias="zoomBestFit">zoom-fit-best.png</file>
+        <file alias="zoomPlus">zoom+.png</file>
+        <file alias="zoomMoins">zoom-.png</file>
+        <file alias="leakRelation">leakRelation.png</file>
+        <file alias="quit">quit.jpg</file>
+        <file alias="fileNew">filenew.png</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file>fonts/DejaVuSerif.ttf</file>
+        <file>fonts/verdana.ttf</file>
+    </qresource>
+</RCC>

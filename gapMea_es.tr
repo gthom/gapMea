@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="es_ES">
+<context>
+    <name>DialogAboutMe</name>
+    <message>
+        <location filename="dialogaboutme.ui" line="14"/>
+        <source>About Me</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dialogaboutme.ui" line="27"/>
+        <source>Licence</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dialogaboutme.ui" line="33"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; text-decoration: underline;&quot;&gt;CLUF&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:14pt; font-weight:600; text-decoration: underline;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le contrat de licence d&apos;utilisateur final (appelé dans les présentes le « Contrat ») vise le logiciel Sialouze de CIOBCNV Software (appelé dans les présentes le « Logiciel sous licence »). Le concédant du Logiciel sous licence est &lt;span style=&quot; font-weight:600;&quot;&gt;Mr Gilles Thomassin&lt;/span&gt;, un particulier dont le bureau principal se situe au Collet 05110 Lardier et Valença (France) que l&apos;on appellera dans la présente &amp;quot;CIOBCNV Software&amp;quot;.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; Le présent Contrat constitue un accord ayant force obligatoire liant le propriétaire de licence et  CIOBCNV Software conformément à l&apos;octroi par CIOBCNV Software de la licence d&apos;utilisation du Logiciel sous licence au propriétaire de la licence (appelé dans les présentes le « Propriétaire »). Veuillez le lire attentivement. Pour toute question concernant le présent Contrat, veuillez vous adresser à CIOBCNV Software.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;En installant le Logiciel sous licence, en le copiant, en y accédant ou en l&apos;utilisant, vous (appelé dans les présentes le « Propriétaire ») acceptez les conditions d&apos;utilisation du présent contrat et vous engagez à les respecter.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;CONDITIONS D&apos;UTILISATION&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;MATÉRIEL ET LOGICIEL&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le « Logiciel sous licence » comprend les fichiers, les disques, les CD-ROM, les DVD et les autres supports auxquels s&apos;applique le présent Contrat, notamment :&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;les données informatiques ou les logiciels provenant d&apos;un tiers et utilisés sous licence par CIOBCNV Software dans l&apos;inclusion au Logiciel sous licence;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;la documentation ou les fichiers rédigés pour le Logiciel sous licence (appelés dans les présentes la « Documentation »);&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;les polices de caractères;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;les mises à niveau, les versions modifiées, les mises à jour, les ajouts et les copies du Logiciel sous licence, le cas échéant (appelés collectivement dans les présentes les « Mises à jour »).&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;INSTALLATION&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le présent Contrat accorde au Propriétaire le droit d&apos;installer une (1) seule copie du Logiciel sous licence sur un (1) seul ordinateur à la fois, en tant que principal utilisateur de cet ordinateur. Le Propriétaire peut également être autorisé à installer une deuxième ou une troisième copie du logiciel aux seules fins de son utilisation personnelle sur un ordinateur portable ou sur un ordinateur à son domicile, à condition que le Logiciel sous licence sur ces ordinateurs ne soit pas utilisé en même temps que le Logiciel sous licence installé sur l&apos;ordinateur principal. Le présent Contrat s&apos;applique à toutes les installations du Logiciel sous licence, qu&apos;il en existe une, deux ou trois. L&apos;installation du Logiciel sous licence sur plus de trois ordinateurs est interdite. Étant entendu que CIOBCNV Software autorise l&apos;achat de licences multiples, le Propriétaire est autorisé à installer un nombre de copies du logiciel correspondant au nombre de licences achetées. Tous les frais engagés pour l&apos;installation et l&apos;utilisation du Logiciel sous licence par le Propriétaire sont à la charge exclusive du Propriétaire.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;ACTIVATION&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le Logiciel sous licence comprend des dispositifs techniques visant à prévenir son utilisation illégale ou sans licence. Le Logiciel sous licence peut également comprendre des dispositifs techniques d&apos;exécution visant à limiter la capacité du Propriétaire à installer ou à désinstaller le Logiciel sous licence sur une machine pour un nombre déterminé de fois et pour un nombre déterminé d&apos;ordinateurs.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le Logiciel sous licence peut nécessiter un processus d&apos;activation, tel qu&apos;il est expliqué pendant son installation et dans la Documentation. Si le processus d&apos;activation, le cas échéant, n&apos;est pas complété adéquatement, l&apos;utilisation du Logiciel sous licence peut être limitée à une période de temps définie. Si l&apos;activation du logiciel est nécessaire, et que le processus d&apos;activation n&apos;est pas complété avant la fin de la période définie dans la Documentation et mentionnée pendant l&apos;installation, le Logiciel sous licence cessera de fonctionner jusqu&apos;à ce que le processus d&apos;activation soit complété, après quoi le logiciel retrouvera toutes ses fonctionnalités. En cas de problème survenant pendant le processus d&apos;activation, quel qu&apos;il soit, le Propriétaire doit en faire part au service d&apos;assistance à la clientèle de CIOBCNV Software.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;COPIE&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le Propriétaire est autorisé à faire une (1) copie du Logiciel sous licence aux fins exclusives de sauvegarde ou d&apos;archivage, à condition que la Documentation ne soit pas reproduite.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TRANSFERT&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le Propriétaire n&apos;est pas autorisé à vendre, à concéder ni à transférer le Logiciel sous licence ou la licence d&apos;utilisation octroyée par CIOBCNV Software selon les termes du présent Contrat sans le consentement écrit de CIOBCNV Software.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;UTILISATION&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;La licence d&apos;utilisation octroyée par le présent Contrat est non exclusive. CIOBCNV Software se réserve le droit d&apos;octroyer à des tiers des licences similaires à celle du présent Contrat.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;INTERDICTIONS D&apos;UTILISATION&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le Propriétaire n&apos;est pas autorisé à modifier, à adapter, à traduire, à céder, à louer ni à prêter toute partie du Logiciel sous licence ou de la Documentation.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le Propriétaire n&apos;est pas autorisé à créer de produits dérivés à partir de toute partie du Logiciel sous licence ou de la Documentation.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le Propriétaire n&apos;est pas autorisé à faire l&apos;ingénierie inverse, à décompiler, à désassembler ou à tenter de découvrir de quelque manière que ce soit le code source du Logiciel sous licence.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le Propriétaire n&apos;est pas autorisé à poursuivre l&apos;utilisation d&apos;une version antérieure du Logiciel sous licence après avoir reçu une copie de remplacement ou une version mise à niveau visant à remplacer la version initiale (le cas échéant, le Propriétaire est dans l&apos;obligation de détruire la version initiale).&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le Propriétaire n&apos;est pas autorisé à utiliser le Logiciel sous licence à des fins d&apos;exploitation commerciale ou dans l&apos;opération d&apos;aéronefs, de navires, d&apos;installations nucléaires, de machines de maintien artificiel des fonctions vitales, de systèmes de communication ou de tout autre équipement dont la défaillance pourrait entraîner des dommages corporels, incluant la mort, ou des dommages matériels.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le Propriétaire n&apos;est pas autorisé à retirer ni à compromettre les avis de droits d&apos;auteur ou de marque de commerce de CIOBCNV Software ou les avis de droits d&apos;auteur ou de marque de commerce de tiers dont les produits ont été utilisés par CIOBCNV Software dans le Logiciel sous licence ou dans sa Documentation.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le Propriétaire n&apos;est pas autorisé à utiliser le Logiciel sous licence aux fins d&apos;hébergement d&apos;applications de tiers, en fonction d&apos;un accord d&apos;infogérance, de partage de temps, de fournisseur de services ou de services bureau.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le Propriétaire n&apos;est pas autorisé à utiliser le Logiciel sous licence à des fins illégales ou qui ne soient pas expressément autorisées par le présent Contrat.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;CONTENU&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le Logiciel sous licence permet au Propriétaire de créer un contenu qui sera enregistré sur l&apos;ordinateur sur lequel le Logiciel sous licence est installé (appelé dans les présentes le « Contenu »). La responsabilité de l&apos;utilisation, du stockage et de la divulgation du Contenu par le Propriétaire incombe directement et exclusivement au Propriétaire. Le Propriétaire est autorisé à utiliser le Contenu de manière responsable, dans les limites de l&apos;exercice de son jugement raisonnable. &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le Propriétaire n&apos;est autorisé à utiliser que le Contenu appartenant au Propriétaire et ne doit pas violer les droits des personnes mentionnées dans les présentes. CIOBCNV Software ne modifiera ni ne surveillera le Contenu; en conséquence, la responsabilité du suivi du Contenu incombe directement et exclusivement au Propriétaire. &lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Si le Propriétaire, ou l&apos;avocat représentant le Propriétaire, détermine que ce dernier est tenu par la loi d&apos;obtenir le consentement écrit d&apos;une personne avant d&apos;utiliser une partie du Contenu, le Propriétaire doit demander l&apos;autorisation de reproduire, de distribuer ou de modifier le Contenu auprès de la personne intéressée par le Contenu (tel qu&apos;il a pu être mentionné dans le Logiciel sous licence). Si, au contraire, le Propriétaire, ou l&apos;avocat représentant le Propriétaire, détermine qu&apos;il lui est permis de poursuivre ses activités et d&apos;inclure le Contenu du Logiciel sous licence, CIOBCNV Software demande au Propriétaire d&apos;utiliser correctement les marques de commerce de CIOBCNV Software désignées lorsqu&apos;il mentionne le Logiciel sous licence dans l&apos;avis légal ou dans la section des droits d&apos;auteur du document, du projet ou du produit du Propriétaire.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le Propriétaire s&apos;engage à indemniser, à ne pas tenir responsable et à défendre CIOBCNV Software, et les fournisseurs de CIOBCNV Software, à l&apos;égard des demandes, des réclamations, des honoraires d&apos;avocat, des frais et des poursuites résultant de l&apos;utilisation ou de la diffusion du Contenu par le Propriétaire ou de son utilisation du Logiciel sous licence.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;MISES À JOUR LOGICIELLES&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Si le Logiciel sous licence visé dans les présentes est une mise à jour d&apos;une version antérieure, le Propriétaire doit posséder une licence valide pour la version antérieure. Toute distribution de mise à jour par CIOBCNV Software au Propriétaire est basée sur un échange de licence, étant entendu que le Propriétaire accepte, conditionnellement à l&apos;obtention de la mise à jour, de renoncer à tous ses droits d&apos;utilisation des versions antérieures du Logiciel sous licence. Cependant, le Propriétaire est autorisé à utiliser une version antérieure uniquement dans le but de faciliter la transition vers la version mise à jour. Dès qu&apos;une nouvelle mise à jour est disponible, CIOBCNV Software se réserve le droit de cesser toute assistance technique pour les versions antérieures, sans obligation de préavis.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;ASSISTANCE TECHNIQUE&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Selon les termes du présent Contrat, CIOBCNV Software n&apos;est pas tenu d&apos;offrir au Propriétaire des services d&apos;assistance technique pour le Logiciel sous licence; cependant, le Propriétaire peut chercher à obtenir des services d&apos;assistance technique complémentaires moyennant des frais additionnels, sous réserve de l&apos;offre occasionnelle de ce genre de services par CIOBCNV Software pendant la durée du présent Contrat.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;GARANTIE LIMITÉE SUR LES SUPPORTS D&apos;ENREGISTREMENT&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;CIOBCNV Software garantit que le support d&apos;enregistrement sur lequel le Logiciel sous licence est distribué est exempt de tout défaut de fabrication pour une période de 30 jours suivant la date où le Logiciel sous licence est livré au Propriétaire. Si le Propriétaire découvre un défaut dans le support d&apos;enregistrement au cours de cette période de 30 jours, le Propriétaire doit retourner le support défectueux à CIOBCNV Software dans les 10 jours civils suivant la date où le défaut a été découvert, étant entendu que le recours exclusif du Propriétaire est soit le remplacement du support défectueux, soit, à la seule discrétion de CIOBCNV Software, le remboursement du Logiciel sous licence. La garantie offerte à cet alinéa constitue l&apos;unique garantie offerte par CIOBCNV Software dans les présentes.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;NON-GARANTIE DU LOGICIEL SOUS LICENCE&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le Logiciel sous licence est fourni « TEL QUEL » au Propriétaire. CIOBCNV Software, et ses fournisseurs ou affiliés, n&apos;offrent aucune garantie relativement à son utilisation et à son rendement. CIOBCNV Software, ET SES AFFILIÉS, N&apos;OFFRENT AUCUNE GARANTIE, CONDITION, REPRÉSENTATION OU MODALITÉ (EXPRESSE OU IMPLICITE, QUE CE SOIT SELON LA LOI, LE DROIT, LES US ET COUTUMES, OU AUTRE) QUANT À TOUTE ÉVENTUALITÉ, NOTAMMENT ET SANS S&apos;Y LIMITER, RELATIVE À LA NON-VIOLATION DES DROITS DE TIERS, À LA QUALITÉ MARCHANDE, À L&apos;INTÉGRITÉ, À LA QUALITÉ SATISFAISANTE OU À L&apos;ABSENCE DE VICES POUR QUELQUE MOTIF QUE CE SOIT, À L&apos;EXCEPTION DES CAS, ET DANS LA MESURE OÙ L&apos;EXCLUSION OU LA LIMITATION DE GARANTIE N&apos;EST PAS AUTORISÉE DANS LA JURIDICTION DU PROPRIÉTAIRE.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;LIMITATION DE LA RESPONSABILITÉ&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;EN AUCUN CAS, CIOBCNV Software OU LES AFFILIÉS DE CIOBCNV Software NE POURRONT ÊTRE TENUS RESPONSABLES ENVERS LE PROPRIÉTAIRE DES DOMMAGES, DES RÉCLAMATIONS OU DES FRAIS ENGAGÉS DE QUELQUE NATURE QUE CE SOIT, OU EN CAS DE DOMMAGES INDIRECTS OU ACCESSOIRES, OU DE PERTES DE PROFITS OU PÉCUNIAIRES, ET CE, MÊME DANS L&apos;ÉVENTUALITÉ OÙ UN REPRÉSENTANT DE CIOBCNV Software, OU D&apos;UN DE SES AFFILIÉS, AURAIT ÉTÉ INFORMÉ DE LA POSSIBILITÉ D&apos;UNE TELLE PERTE, DE TELS DOMMAGES, DE TELLES RÉCLAMATIONS OU DE TELS FRAIS, OU EN CAS DE RÉCLAMATION D&apos;UN TIERS. CES LIMITATIONS ET EXCLUSIONS S&apos;APPLIQUENT DANS LES MESURES PERMISES PAR LA LOI DANS LA JURIDICTION DU PROPRIÉTAIRE. LA RESPONSABILITÉ GLOBALE DE CIOBCNV Software ET DE SES AFFILIÉS, EN VERTU DU PRÉSENT CONTRAT OU EN LIEN AVEC CELUI-CI, SE LIMITE AU MONTANT DU LOGICIEL SOUS LICENCE PAYÉ PAR LE PROPRIÉTAIRE, LE CAS ÉCHÉANT.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;CONDITIONS ADDITIONNELLES RELATIVES AUX VERSIONS BÊTA&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Si le Logiciel sous licence dont le Propriétaire fait l&apos;acquisition en vertu du présent Contrat est une version précommerciale ou une version « Bêta » (appelé dans les présentes le « Logiciel Bêta »), les dispositions du présent alinéa, en cas de conflit entre ces dispositions et toute autre disposition ou condition du présent Contrat, se substituent aux dispositions ou conditions conflictuelles concernant le Logiciel Bêta, mais uniquement dans la mesure nécessaire pour résoudre le conflit.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le Propriétaire consent que le Logiciel Bêta ne représente pas le produit final de CIOBCNV Software et qu&apos;il puisse contenir des bogues, des erreurs ou d&apos;autres problèmes pouvant entraîner la défaillance du système ou d&apos;un autre élément, ou la perte de données. Conséquemment, CIOBCNV Software décline toute garantie et toute responsabilité envers le Propriétaire, de quelque nature que ce soit.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;DANS LES JURIDICTIONS OÙ LA RESPONSABILITÉ NE PEUT ÊTRE EXCLUE RELATIVEMENT À DES LOGICIELS EN VERSION BÊTA, MAIS PEUT ÊTRE LIMITÉE, LA RESPONSABILITÉ DE CIOBCNV Software, ET DE SES FOURNISSEURS, SE LIMITE AU MOINDRE DES MONTANTS SUIVANTS : LE MONTANT PAYÉ PAR LE PROPRIÉTAIRE POUR LE LOGICIEL OU CINQUANTE DOLLARS EN DEVISES AMÉRICAINES (50,00 $ USD). LES LIMITATIONS DE RESPONSABILITÉ DANS LES PRÉSENTES S&apos;APPLIQUENT À TOUTE VERSION DU LOGICIEL SOUS LICENCE, QU&apos;IL S&apos;AGISSE D&apos;UNE VERSION BÊTA OU D&apos;UNE VERSION COMMERCIALE.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le Propriétaire consent que CIOBCNV Software n&apos;émette aucun promesse ou garantie envers le Propriétaire quant à la promotion ou à la sortie commerciale du Logiciel Bêta, et que CIOBCNV Software n&apos;est en aucun cas tenue, expressément ou implicitement, envers le Propriétaire d&apos;annoncer ou de lancer le Logiciel Bêta. CIOBCNV Software se réserve le droit de ne pas lancer de produit similaire au Logiciel Bêta, ou compatible avec celui-ci. Conséquemment, le Propriétaire consent que les risques liés aux efforts de recherche et de développement par le Propriétaire relativement au Logiciel Bêta, ou relativement à tout produit en lien avec le logiciel, incombent directement et uniquement au Propriétaire.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pendant toute la durée du présent Contrat, et à la demande de CIOBCNV Software, le Propriétaire s&apos;engage à fournir à CIOBCNV Software ses commentaires relativement au test et à l&apos;utilisation du Logiciel Bêta, notamment par le biais de rapports d&apos;erreurs ou de bogues.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Si le Propriétaire a acquis le Logiciel Bêta par une entente par écrit distincte du présent Contrat, l&apos;utilisation que le Propriétaire fait du Logiciel Bêta est également assujettie aux dispositions de cette entente. Nonobstant les dispositions contraires dans les présentes, si le Propriétaire est domicilié à l&apos;extérieur des États-Unis, le Propriétaire s&apos;engage à retourner ou à détruire toutes les versions non commercialisées du Logiciel Bêta dans les 30 jours suivant les tests effectués par le Propriétaire sur le logiciel, à condition que cette date soit antérieure à la date prévue par CIOBCNV Software pour le lancement sur le marché du logiciel offert au public (commercial).&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;SURVIE DES CLAUSES DE NON-RESPONSABILITÉ&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;L&apos;exclusion des garanties et des responsabilités d&apos;indemnisation, de même que les limitations de responsabilité, survivront à la résiliation du présent Contrat, quelle que soit la cause de la résiliation; cependant, la survie de celles-ci n&apos;implique et ne constitue en aucun cas une extension du droit d&apos;utilisation du Logiciel sous licence après la résiliation du présent Contrat.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;EXPORTATION&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le Propriétaire n&apos;est pas autorisé à expédier, à transférer ni à exporter le Logiciel sous licence vers d&apos;autres pays, ni n&apos;est autorisé à utiliser le Logiciel sous licence d&apos;une manière interdite par la Loi américaine sur l&apos;administration des exportations (U.S. Export Administration Act) ou par toute autre loi, restriction ou réglementation concernant le contrôle des exportations et s&apos;appliquant au Propriétaire (appelées collectivement dans les présentes les « Lois d&apos;exportation »). Si le Logiciel sous licence est reconnu comme un produit d&apos;exportation contrôlé en vertu des Lois d&apos;exportation, le Propriétaire représente et garantit que le Propriétaire et les employés du Propriétaire qui utiliseront le Logiciel sous licence, ne sont pas citoyens d&apos;un pays sur lequel la France a mis un embargo , ou ne s&apos;y trouvent domiciliés, et que le Propriétaire, et ses employés, sont autorisés à recevoir le Logiciel sous licence en vertu de toutes les dispositions des Lois d&apos;exportation. Tous les droits d&apos;utilisation du Logiciel sous licence sont assujettis au respect des Lois d&apos;exportation par le Propriétaire, le non-respect des Lois d&apos;exportation par le Propriétaire entraînant l&apos;annulation de ces droits.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;LOI APPLICABLE&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le présent Contrat est assujetti au droit substantiel en vigueur en France, et est régi et interprété en accord avec celui-ci, en vertu de tout litige découlant des présentes et sur lequel les tribunaux concernés ont préséance.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;DROITS DE PROPRIÉTÉ INTELLECTUELLE&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le Logiciel sous licence, ainsi que toutes les copies autorisées produites par le Propriétaire, sont la propriété intellectuelle exclusive de CIOBCNV Software et des tiers dont la propriété intellectuelle est utilisée sous licence par CIOBCNV Software. La structure, l&apos;organisation et le code source du Logiciel sous licence sont réputés avoir valeur de secret industriel et de renseignements confidentiels appartenant à CIOBCNV Software et aux tiers intéressés. Le Logiciel sous licence est protégé par la loi, notamment par les lois sur le droit d&apos;auteur Français et des autres pays et par les dispositions du droit international. Sauf dispositions contraires dans les présentes, le Propriétaire ne possède aucun droit de propriété intellectuelle sur le Logiciel sous licence. Le Propriétaire n&apos;est pas autorisé à émettre ou à publier d&apos;avis public concernant le Logiciel sous licence ou CIOBCNV Software sans le consentement écrit préalable de CIOBCNV Software.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;RÉSERVE DES DROITS&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;CIOBCNV Software se réserve tous les droits non expressément concédés au Propriétaire en vertu du présent Contrat. Les droits concédés au Propriétaire sont limités par les droits de propriété intellectuelle de CIOBCNV Software et les droits de propriété intellectuelle de tiers licenciés par CIOBCNV Software, et n&apos;incluent aucun droit de propriété intellectuelle.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;INTÉGRALITÉ DU CONTRAT&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le présent Contrat constitue l&apos;intégralité de l&apos;accord conclu entre le Propriétaire et CIOBCNV Software relativement au Logiciel sous licence, et il annule ou remplace toute représentation, toute discussion, toute entreprise, toute communication, tout accord, tout arrangement, toute publicité et toute entente antérieurs ou concomitants relatifs au Logiciel sous licence.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;MODIFICATION&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Toute modification ou tout avenant au présent Contrat ne peut être effectué que par écrit et doit être signé par un représentant autorisé de CIOBCNV Software.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;DIVISIBILITÉ&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Si l&apos;une des dispositions du présent Contrat est jugée illégale ou inapplicable par un tribunal compétent, le reste de cette disposition devra être amendé pour se rapprocher le plus possible de l&apos;objectif de la disposition initiale, et toutes les autres dispositions du présent Contrat demeureront pleinement en vigueur.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;ANNULATION&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Nulle inertie et nul retard dans l&apos;exercice par CIOBCNV Software de ses droits ou de ses recours ne sauraient constituer une annulation du présent Contrat, sous réserve d&apos;un avis par écrit. Nul exercice unique ou partiel de tous les droits ou de tous les recours de la part de CIOBCNV Software ne saurait constituer une renonciation ou faire obstacle à tout autre droit ou recours, ou à l&apos;exercice de tous les droits ou recours.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;PREUVE DE CONFORMITÉ&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Le Propriétaire est dans l&apos;obligation, dans les 30 jours civils suivant la demande de CIOBCNV Software, ou de ses représentants autorisés, de fournir toutes les preuves nécessaires et de certifier sous peine de parjure que l&apos;utilisation faite par le Propriétaire du Logiciel sous licence est conforme aux conditions du présent Contrat.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;RÉSILIATION&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;En cas de violation des conditions du présent Contrat par le Propriétaire, et devant l&apos;absence de toute tentative d&apos;y remédier dans les 30 jours civils suivant toute demande de la part de CIOBCNV Software, ou de ses représentants autorisés, CIOBCNV Software se réserve le droit de résilier le présent Contrat, après quoi tous les droits concédés au Propriétaire seront immédiatement annulés. En outre, après la résiliation, le Propriétaire sera dans l&apos;obligation de retourner toutes les copies du Logiciel sous licence en sa possession à CIOBCNV Software, ou de confirmer par écrit que toutes les copies du Logiciel sous licence en sa possession ont été détruites.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dialogaboutme.ui" line="154"/>
+        <source>Auteur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dialogaboutme.ui" line="160"/>
+        <source>Auteur: Gilles Thomassin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dialogaboutme.ui" line="167"/>
+        <source>mail: gilles.thomassin@wanadoo.fr</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dialogaboutme.ui" line="189"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt; Le collet&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;05110 Lardier et Valença&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;France&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dialogaboutme.ui" line="239"/>
+        <source>Copyright @ Gilles Thomassin 2015</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DialogTypeJointure</name>
+    <message>
+        <location filename="dialogtypejointure.ui" line="17"/>
+        <source>Relation Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dialogtypejointure.ui" line="29"/>
+        <source>Please choose a type:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dialogtypejointure.ui" line="37"/>
+        <source>Cif</source>
+        <extracomment>Contrainte d&apos;intégrité fonctionnelle</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dialogtypejointure.ui" line="46"/>
+        <source>Df</source>
+        <extracomment>Dépendance Faible</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dialogtypejointure.ui" line="51"/>
+        <source>Leg</source>
+        <extracomment>Patte d&apos;association</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dialogtypejointure.ui" line="56"/>
+        <source>Leak Relation</source>
+        <extracomment>Entité faible</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dialogtypejointure.ui" line="65"/>
+        <location filename="dialogtypejointure.cpp" line="39"/>
+        <source>Relation</source>
+        <extracomment>Association</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dialogtypejointure.ui" line="81"/>
+        <source>Relation Name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dialogtypejointure.ui" line="108"/>
+        <source>&amp;Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dialogtypejointure.ui" line="115"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MainWindow</name>
+    <message>
+        <location filename="mainwindow.ui" line="15"/>
+        <source>gapMEA</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="38"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot; bgcolor=&quot;#131513&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#8ca68c;&quot;&gt;gtgtgg&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="60"/>
+        <source>&amp;File</source>
+        <oldsource>&amp;Fichier</oldsource>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="69"/>
+        <source>&amp;Windows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="80"/>
+        <source>&amp;Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="124"/>
+        <source>Object List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="134"/>
+        <source>Use this first to create your objects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="137"/>
+        <source>Object list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="148"/>
+        <location filename="mainwindow.ui" line="293"/>
+        <source>Name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="161"/>
+        <source>&amp;Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="186"/>
+        <source>You will see here selected Object&apos;s properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="192"/>
+        <source>Object Properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="202"/>
+        <location filename="mainwindow.cpp" line="217"/>
+        <source>Properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="215"/>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="220"/>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="225"/>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="230"/>
+        <source>Rôle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="259"/>
+        <source>&amp;Add Property</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="285"/>
+        <source>Edit Property</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="303"/>
+        <source>Type:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="310"/>
+        <source>Rôle:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="321"/>
+        <source>FLOAT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="326"/>
+        <source>INTEGER</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="331"/>
+        <source>NUMERIC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="336"/>
+        <source>BOOL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="341"/>
+        <source>VARCHAR</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="346"/>
+        <source>BIT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="351"/>
+        <source>DATE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="356"/>
+        <source>TIME</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="361"/>
+        <source>DATETIME</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="369"/>
+        <source>Size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="399"/>
+        <source>&amp;Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="430"/>
+        <source>&amp;Quit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="438"/>
+        <source>ajoute entité</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="441"/>
+        <source>add a new object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="452"/>
+        <source>&amp;Object list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="455"/>
+        <source>Show Object List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="466"/>
+        <source>&amp;Properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="469"/>
+        <source>Show Object&apos;s Properties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="481"/>
+        <source>move</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="484"/>
+        <source>use this tool to move and select Objects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="493"/>
+        <source>link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="496"/>
+        <source>use this tool to link objects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="505"/>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="508"/>
+        <source>Save actual work</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="517"/>
+        <source>&amp;Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="520"/>
+        <source>Open a  file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="528"/>
+        <source>&amp;sql</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="531"/>
+        <source>generate sql code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="540"/>
+        <source>zoom+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="549"/>
+        <source>zoom-</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="558"/>
+        <source>zoom to fit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="561"/>
+        <source>Adapt display to content</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="566"/>
+        <source>&amp;About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="571"/>
+        <source>About &amp;Qt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="580"/>
+        <source>New Document</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="583"/>
+        <source>to create a new document</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="56"/>
+        <location filename="mainwindow.cpp" line="607"/>
+        <source>New_Model.mea</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="90"/>
+        <source>Do you really want to quit gapMea?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="95"/>
+        <source>Your work is not saved, Are you sure ?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="186"/>
+        <source>Sorry but Object already exists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="257"/>
+        <location filename="mainwindow.cpp" line="289"/>
+        <source>Please select an object first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="322"/>
+        <source>Select an object first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="328"/>
+        <source>Do you confirm deleting Object:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="422"/>
+        <source>Save xmea file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="422"/>
+        <location filename="mainwindow.cpp" line="460"/>
+        <source>MEA Files (*.mea *.xml)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="430"/>
+        <source>Error occured saving file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="433"/>
+        <source>File was succesfully saved.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="442"/>
+        <source>Saving is aborted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="458"/>
+        <source>Open MEA File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="468"/>
+        <source>Cannot read file %1:
+%2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="476"/>
+        <source>File loaded</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="484"/>
+        <source>Error reading File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="533"/>
+        <source>Loop was detected please correct problem first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="536"/>
+        <source>SQL was successfully generated.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="600"/>
+        <source>Your work is not saved, do you want to save it before ?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Property</name>
+    <message>
+        <location filename="property.cpp" line="54"/>
+        <source>&amp;Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="property.cpp" line="56"/>
+        <source>&amp;Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QCustomGraphicsScene</name>
+    <message>
+        <location filename="qcustomgraphicsscene.cpp" line="106"/>
+        <source>Print</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qcustomgraphicsscene.cpp" line="118"/>
+        <source>Printing document</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <location filename="association.cpp" line="103"/>
+        <location filename="entite.cpp" line="234"/>
+        <location filename="entite.cpp" line="258"/>
+        <location filename="entite.cpp" line="280"/>
+        <location filename="lien.cpp" line="90"/>
+        <location filename="lien.cpp" line="99"/>
+        <location filename="lien.cpp" line="107"/>
+        <source>Leg</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="entite.cpp" line="173"/>
+        <source>Object Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="entite.cpp" line="188"/>
+        <source>&amp;Remove Object</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="entite.cpp" line="189"/>
+        <source>&amp;Add property</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="entite.cpp" line="212"/>
+        <location filename="entite.cpp" line="227"/>
+        <location filename="entite.cpp" line="251"/>
+        <location filename="entite.cpp" line="273"/>
+        <location filename="lien.cpp" line="43"/>
+        <location filename="lien.cpp" line="83"/>
+        <source>Leak Relation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="entite.cpp" line="227"/>
+        <location filename="entite.cpp" line="251"/>
+        <location filename="entite.cpp" line="273"/>
+        <location filename="lien.cpp" line="43"/>
+        <location filename="lien.cpp" line="68"/>
+        <source>Cif</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="entite.cpp" line="227"/>
+        <location filename="entite.cpp" line="251"/>
+        <location filename="entite.cpp" line="273"/>
+        <location filename="lien.cpp" line="43"/>
+        <location filename="lien.cpp" line="75"/>
+        <source>Df</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="lien.cpp" line="105"/>
+        <source>Relation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="lien.cpp" line="307"/>
+        <source>Link Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="lien.cpp" line="319"/>
+        <source>&amp;Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="lien.cpp" line="322"/>
+        <source>&amp;editRole</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="lien.cpp" line="337"/>
+        <source>Edit Join Condition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="lien.cpp" line="338"/>
+        <source>Join Condition:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="property.cpp" line="44"/>
+        <source>Property&apos;s Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="qcustomgraphicsscene.cpp" line="97"/>
+        <source>Workspace Menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="xmeareader.cpp" line="23"/>
+        <source>The file is not an XMEA version 1.0 file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dialogSortOrder</name>
+    <message>
+        <location filename="dialogsortorder.ui" line="14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dialogsortorder.ui" line="47"/>
+        <source>Up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dialogsortorder.ui" line="60"/>
+        <source>Down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dialogsortorder.ui" line="102"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dialogsortorder.ui" line="115"/>
+        <source>&amp;Ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+</TS>

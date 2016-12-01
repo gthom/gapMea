@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>gthom</author>
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1007</width>
+    <height>717</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>gapMEA</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="mesressources.qrc">
+    <normaloff>:/images/icone</normaloff>:/images/icone</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout_4">
+    <item>
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <widget class="customGraphicsView" name="graphicsView">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="textEditSql">
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot; bgcolor=&quot;#131513&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#8ca68c;&quot;&gt;gtgtgg&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1007</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_fichier">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionNew_Document"/>
+    <addaction name="action_Open"/>
+    <addaction name="actionSave"/>
+    <addaction name="action_quitter"/>
+   </widget>
+   <widget class="QMenu" name="menuWindows">
+    <property name="title">
+     <string>&amp;Windows</string>
+    </property>
+    <addaction name="action_Object_list"/>
+    <addaction name="action_Properties"/>
+    <addaction name="action_sql"/>
+    <addaction name="actionZoom"/>
+    <addaction name="actionZoom_2"/>
+    <addaction name="actionZoom_Best"/>
+   </widget>
+   <widget class="QMenu" name="menu_Help">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="action_About"/>
+    <addaction name="actionAbout_Qt"/>
+   </widget>
+   <addaction name="menu_fichier"/>
+   <addaction name="menuWindows"/>
+   <addaction name="menu_Help"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="toolTip">
+    <string/>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_Open"/>
+   <addaction name="actionSave"/>
+   <addaction name="separator"/>
+   <addaction name="actionMove"/>
+   <addaction name="actionLink"/>
+   <addaction name="separator"/>
+   <addaction name="action_sql"/>
+   <addaction name="separator"/>
+   <addaction name="actionZoom_Best"/>
+   <addaction name="actionZoom"/>
+   <addaction name="actionZoom_2"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QDockWidget" name="dockWidgetObjects">
+   <property name="windowIcon">
+    <iconset resource="mesressources.qrc">
+     <normaloff>:/images/icone</normaloff>:/images/icone</iconset>
+   </property>
+   <property name="floating">
+    <bool>true</bool>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Object List</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QVBoxLayout" name="verticalLayout_5">
+     <item>
+      <widget class="QGroupBox" name="groupBox">
+       <property name="toolTip">
+        <string>Use this first to create your objects</string>
+       </property>
+       <property name="title">
+        <string>Object list</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QListWidget" name="listWidgetObjects"/>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Name:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEditObjectName">
+            <property name="maxLength">
+             <number>25</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonAddObject">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>&amp;Add</string>
+            </property>
+            <property name="icon">
+             <iconset resource="mesressources.qrc">
+              <normaloff>:/images/add</normaloff>:/images/add</iconset>
+            </property>
+            <property name="default">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dockWidgetProperties">
+   <property name="windowIcon">
+    <iconset resource="mesressources.qrc">
+     <normaloff>:/images/icone</normaloff>:/images/icone</iconset>
+   </property>
+   <property name="toolTip">
+    <string>You will see here selected Object's properties</string>
+   </property>
+   <property name="floating">
+    <bool>true</bool>
+   </property>
+   <property name="windowTitle">
+    <string>Object Properties</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2">
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QGroupBox" name="groupBoxProperties">
+       <property name="title">
+        <string>Properties</string>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QTableWidget" name="tableWidgetProperties">
+          <property name="selectionMode">
+           <enum>QAbstractItemView::SingleSelection</enum>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+          <column>
+           <property name="text">
+            <string>Name</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Type</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Size</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Rôle</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonAddProperty">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>&amp;Add Property</string>
+         </property>
+         <property name="icon">
+          <iconset resource="mesressources.qrc">
+           <normaloff>:/images/add</normaloff>:/images/add</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupBoxEditNewProperty">
+       <property name="title">
+        <string>Edit Property</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <layout class="QFormLayout" name="formLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Name:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="lineEditPropertyName"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Type:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>Rôle:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="lineEditPropertyRole"/>
+          </item>
+          <item row="1" column="1">
+           <widget class="QComboBox" name="comboBoxPropertyType">
+            <item>
+             <property name="text">
+              <string notr="true">FLOAT</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string notr="true">INTEGER</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string notr="true">NUMERIC</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string notr="true">BOOL</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string notr="true">VARCHAR</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string notr="true">BIT</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string notr="true">DATE</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string notr="true">TIME</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string notr="true">DATETIME</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string notr="true">SET</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string notr="true" extracomment="'Yes','No','Maybe'">ENUM</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string notr="true" extracomment="Binary Large Object">BLOB</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Size:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="lineEditTaille"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonModifyProperty">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>&amp;Apply</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="action_quitter">
+   <property name="icon">
+    <iconset resource="mesressources.qrc">
+     <normaloff>:/images/quit</normaloff>:/images/quit</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Quit</string>
+   </property>
+  </action>
+  <action name="action_Add_Entity">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;add Entity</string>
+   </property>
+   <property name="toolTip">
+    <string>add a new object</string>
+   </property>
+  </action>
+  <action name="action_Object_list">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Object list</string>
+   </property>
+   <property name="toolTip">
+    <string>Show Object List</string>
+   </property>
+  </action>
+  <action name="action_Properties">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Properties</string>
+   </property>
+   <property name="toolTip">
+    <string>Show Object's Properties</string>
+   </property>
+  </action>
+  <action name="actionMove">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="mesressources.qrc">
+     <normaloff>:/images/move</normaloff>:/images/move</iconset>
+   </property>
+   <property name="text">
+    <string>move</string>
+   </property>
+   <property name="toolTip">
+    <string>use this tool to move and select Objects</string>
+   </property>
+  </action>
+  <action name="actionLink">
+   <property name="icon">
+    <iconset resource="mesressources.qrc">
+     <normaloff>:/images/relier</normaloff>:/images/relier</iconset>
+   </property>
+   <property name="text">
+    <string>link</string>
+   </property>
+   <property name="toolTip">
+    <string>use this tool to link objects</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="mesressources.qrc">
+     <normaloff>:/images/save</normaloff>:/images/save</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Save</string>
+   </property>
+   <property name="toolTip">
+    <string>Save actual work</string>
+   </property>
+  </action>
+  <action name="action_Open">
+   <property name="icon">
+    <iconset resource="mesressources.qrc">
+     <normaloff>:/images/open</normaloff>:/images/open</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Open</string>
+   </property>
+   <property name="toolTip">
+    <string>Open a  file</string>
+   </property>
+  </action>
+  <action name="action_sql">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;sql</string>
+   </property>
+   <property name="toolTip">
+    <string>generate sql code</string>
+   </property>
+  </action>
+  <action name="actionZoom">
+   <property name="icon">
+    <iconset resource="mesressources.qrc">
+     <normaloff>:/images/zoomPlus</normaloff>:/images/zoomPlus</iconset>
+   </property>
+   <property name="text">
+    <string>zoom+</string>
+   </property>
+  </action>
+  <action name="actionZoom_2">
+   <property name="icon">
+    <iconset resource="mesressources.qrc">
+     <normaloff>:/images/zoomMoins</normaloff>:/images/zoomMoins</iconset>
+   </property>
+   <property name="text">
+    <string>zoom-</string>
+   </property>
+  </action>
+  <action name="actionZoom_Best">
+   <property name="icon">
+    <iconset resource="mesressources.qrc">
+     <normaloff>:/images/zoomBestFit</normaloff>:/images/zoomBestFit</iconset>
+   </property>
+   <property name="text">
+    <string>zoom to fit</string>
+   </property>
+   <property name="toolTip">
+    <string>Adapt display to content</string>
+   </property>
+  </action>
+  <action name="action_About">
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+  </action>
+  <action name="actionAbout_Qt">
+   <property name="text">
+    <string>About &amp;Qt</string>
+   </property>
+  </action>
+  <action name="actionNew_Document">
+   <property name="icon">
+    <iconset resource="mesressources.qrc">
+     <normaloff>:/images/fileNew</normaloff>:/images/fileNew</iconset>
+   </property>
+   <property name="text">
+    <string>New Document</string>
+   </property>
+   <property name="statusTip">
+    <string>to create a new document</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>customGraphicsView</class>
+   <extends>QGraphicsView</extends>
+   <header>customgraphicsview.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="mesressources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
