@@ -58,7 +58,7 @@ public:
     QAction *actionNew_Document;
     QWidget *centralWidget;
     QVBoxLayout *verticalLayout_4;
-    QSplitter *splitter;
+    QSplitter *splitterMeaSql;
     customGraphicsView *graphicsView;
     QTextEdit *textEditSql;
     QMenuBar *menuBar;
@@ -83,10 +83,6 @@ public:
     QGroupBox *groupBoxProperties;
     QHBoxLayout *horizontalLayout_4;
     QTableWidget *tableWidgetProperties;
-    QHBoxLayout *horizontalLayout_3;
-    QSpacerItem *horizontalSpacer_3;
-    QPushButton *pushButtonAddProperty;
-    QSpacerItem *horizontalSpacer_4;
     QGroupBox *groupBoxEditNewProperty;
     QVBoxLayout *verticalLayout;
     QFormLayout *formLayout;
@@ -100,6 +96,7 @@ public:
     QLineEdit *lineEditTaille;
     QHBoxLayout *horizontalLayout_2;
     QSpacerItem *horizontalSpacer;
+    QPushButton *pushButtonAddProperty;
     QPushButton *pushButtonModifyProperty;
     QSpacerItem *horizontalSpacer_2;
 
@@ -181,22 +178,27 @@ public:
         verticalLayout_4->setSpacing(6);
         verticalLayout_4->setContentsMargins(11, 11, 11, 11);
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        splitter = new QSplitter(centralWidget);
-        splitter->setObjectName(QStringLiteral("splitter"));
-        splitter->setOrientation(Qt::Vertical);
-        graphicsView = new customGraphicsView(splitter);
+        splitterMeaSql = new QSplitter(centralWidget);
+        splitterMeaSql->setObjectName(QStringLiteral("splitterMeaSql"));
+        splitterMeaSql->setOrientation(Qt::Vertical);
+        graphicsView = new customGraphicsView(splitterMeaSql);
         graphicsView->setObjectName(QStringLiteral("graphicsView"));
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Maximum);
         sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setVerticalStretch(3);
         sizePolicy.setHeightForWidth(graphicsView->sizePolicy().hasHeightForWidth());
         graphicsView->setSizePolicy(sizePolicy);
-        splitter->addWidget(graphicsView);
-        textEditSql = new QTextEdit(splitter);
+        splitterMeaSql->addWidget(graphicsView);
+        textEditSql = new QTextEdit(splitterMeaSql);
         textEditSql->setObjectName(QStringLiteral("textEditSql"));
-        splitter->addWidget(textEditSql);
+        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(1);
+        sizePolicy1.setHeightForWidth(textEditSql->sizePolicy().hasHeightForWidth());
+        textEditSql->setSizePolicy(sizePolicy1);
+        splitterMeaSql->addWidget(textEditSql);
 
-        verticalLayout_4->addWidget(splitter);
+        verticalLayout_4->addWidget(splitterMeaSql);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
@@ -305,27 +307,6 @@ public:
 
         verticalLayout_3->addWidget(groupBoxProperties);
 
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setSpacing(6);
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer_3);
-
-        pushButtonAddProperty = new QPushButton(dockWidgetContents_2);
-        pushButtonAddProperty->setObjectName(QStringLiteral("pushButtonAddProperty"));
-        pushButtonAddProperty->setEnabled(false);
-        pushButtonAddProperty->setIcon(icon10);
-
-        horizontalLayout_3->addWidget(pushButtonAddProperty);
-
-        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer_4);
-
-
-        verticalLayout_3->addLayout(horizontalLayout_3);
-
         groupBoxEditNewProperty = new QGroupBox(dockWidgetContents_2);
         groupBoxEditNewProperty->setObjectName(QStringLiteral("groupBoxEditNewProperty"));
         verticalLayout = new QVBoxLayout(groupBoxEditNewProperty);
@@ -399,9 +380,19 @@ public:
 
         horizontalLayout_2->addItem(horizontalSpacer);
 
+        pushButtonAddProperty = new QPushButton(groupBoxEditNewProperty);
+        pushButtonAddProperty->setObjectName(QStringLiteral("pushButtonAddProperty"));
+        pushButtonAddProperty->setEnabled(false);
+        pushButtonAddProperty->setIcon(icon10);
+
+        horizontalLayout_2->addWidget(pushButtonAddProperty);
+
         pushButtonModifyProperty = new QPushButton(groupBoxEditNewProperty);
         pushButtonModifyProperty->setObjectName(QStringLiteral("pushButtonModifyProperty"));
         pushButtonModifyProperty->setEnabled(false);
+        QIcon icon11;
+        icon11.addFile(QStringLiteral(":/images/dialog-ok-apply.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButtonModifyProperty->setIcon(icon11);
 
         horizontalLayout_2->addWidget(pushButtonModifyProperty);
 
@@ -529,12 +520,12 @@ public:
         ___qtablewidgetitem2->setText(QApplication::translate("MainWindow", "Size", 0));
         QTableWidgetItem *___qtablewidgetitem3 = tableWidgetProperties->horizontalHeaderItem(3);
         ___qtablewidgetitem3->setText(QApplication::translate("MainWindow", "R\303\264le", 0));
-        pushButtonAddProperty->setText(QApplication::translate("MainWindow", "&Add Property", 0));
-        groupBoxEditNewProperty->setTitle(QApplication::translate("MainWindow", "Edit Property", 0));
+        groupBoxEditNewProperty->setTitle(QApplication::translate("MainWindow", "Edit/Add Property", 0));
         label_2->setText(QApplication::translate("MainWindow", "Name:", 0));
         label_3->setText(QApplication::translate("MainWindow", "Type:", 0));
         label_4->setText(QApplication::translate("MainWindow", "R\303\264le:", 0));
         label_5->setText(QApplication::translate("MainWindow", "Size:", 0));
+        pushButtonAddProperty->setText(QApplication::translate("MainWindow", "&Add Property", 0));
         pushButtonModifyProperty->setText(QApplication::translate("MainWindow", "&Apply", 0));
     } // retranslateUi
 

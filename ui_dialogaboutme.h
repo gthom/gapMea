@@ -30,6 +30,7 @@ class Ui_DialogAboutMe
 {
 public:
     QVBoxLayout *verticalLayout;
+    QDialogButtonBox *buttonBox;
     QTabWidget *tabWidget;
     QWidget *tab;
     QHBoxLayout *horizontalLayout;
@@ -43,7 +44,6 @@ public:
     QSpacerItem *horizontalSpacer;
     QLabel *label;
     QSpacerItem *horizontalSpacer_2;
-    QDialogButtonBox *buttonBox;
 
     void setupUi(QDialog *DialogAboutMe)
     {
@@ -52,6 +52,13 @@ public:
         DialogAboutMe->resize(654, 299);
         verticalLayout = new QVBoxLayout(DialogAboutMe);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        buttonBox = new QDialogButtonBox(DialogAboutMe);
+        buttonBox->setObjectName(QStringLiteral("buttonBox"));
+        buttonBox->setOrientation(Qt::Horizontal);
+        buttonBox->setStandardButtons(QDialogButtonBox::Ok);
+
+        verticalLayout->addWidget(buttonBox);
+
         tabWidget = new QTabWidget(DialogAboutMe);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
         tabWidget->setTabShape(QTabWidget::Triangular);
@@ -126,13 +133,6 @@ public:
 
         verticalLayout->addWidget(tabWidget);
 
-        buttonBox = new QDialogButtonBox(DialogAboutMe);
-        buttonBox->setObjectName(QStringLiteral("buttonBox"));
-        buttonBox->setOrientation(Qt::Horizontal);
-        buttonBox->setStandardButtons(QDialogButtonBox::Ok);
-
-        verticalLayout->addWidget(buttonBox);
-
 
         retranslateUi(DialogAboutMe);
         QObject::connect(buttonBox, SIGNAL(accepted()), DialogAboutMe, SLOT(accept()));
@@ -151,12 +151,13 @@ public:
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">GapMea is an open source project. The members of the GThom'sSoftware team invest their free time in this project. Even small donations like 10 Euros show us that somebody likes the work we do. The donations motivate all team members to continue investing time in this project.There are several levels of sponsorship. For details see the become a Sponsor page.</p>\n"
-"<p style=\" margin-top:14px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"idm140278778939456\"></a><span style=\" font-size:large; font-we"
-                        "ight:600;\">S</span><span style=\" font-size:large; font-weight:600;\">outenez le logiciel libre</span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">GapMea is an open source project. The members of the GThom'sSoftware team invest their free time in this project. Even small donations like 10 Euros show us that somebody likes the work we do. The donations motivate all team members to continue investing time in this project.There are several levels of sponsorship. For details see the <a href=\"gthom.btsinfogap.org/gapmea/sponsor.html\"><span style=\" text-decoration: underline; color:#0000ff;\">become a Sponsor</span></a> page.</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-ri"
+                        "ght:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"gthom.btsinfogap.org\"><span style=\" text-decoration: underline; color:#0000ff;\">Project gapMea website</span></a>.</p>\n"
+"<p style=\" margin-top:14px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a name=\"idm140278778939456\"></a><span style=\" font-size:large; font-weight:600;\">S</span><span style=\" font-size:large; font-weight:600;\">outenez le logiciel libre</span></p>\n"
 "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Ce logiciel  est sous licence GPL. Merci de  participer financi\303\250rement au projet.<a href=\"http://PayPal.Me/GThomSoftware/10\"><span style=\" text-decoration: underline; color:#0000ff;\">Donate via Paypal</span></a>.				</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Copyright (C) Gilles Thomassin 2015-2016      This program is free software: you can redistribute it and/or modify    it under the terms of the GNU General Public License as published by    the Free Software Foundation, either version 3 of the License, or any later version.    This program is distributed in the hope that it will be useful,    but WITHOUT ANY WARRANTY; without even the implied warranty of    MERCHANTABILITY or FIT"
-                        "NESS FOR A PARTICULAR PURPOSE.  See the    GNU General Public License for more details.   </p></body></html>", 0));
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Copyright (C) Gilles Thomassin 2015-2016      This p"
+                        "rogram is free software: you can redistribute it and/or modify    it under the terms of the GNU General Public License as published by    the Free Software Foundation, either version 3 of the License, or any later version.    This program is distributed in the hope that it will be useful,    but WITHOUT ANY WARRANTY; without even the implied warranty of    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the    GNU General Public License for more details.   </p></body></html>", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("DialogAboutMe", "Licence", 0));
         label_2->setText(QApplication::translate("DialogAboutMe", "Author: Gilles Thomassin", 0));
         label_3->setText(QApplication::translate("DialogAboutMe", "Mail: gthomassingap@gmail.com", 0));
@@ -171,11 +172,12 @@ public:
 "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">L'auteur enseigne:<br />Les syst\303\250mes d'exploitation libres, l'administration syst\303\250me, la gestion de parc et d'incidents, la supervision des r\303\251seaux , la conception des r\303\251seaux et la configuration des routeurs et switchs et points d'acc\303\250s WIFI, la virtualisation et les syst\303\250mes \303\240 tol\303\251rance de panne.</p>\n"
 "<p style=\" margin-top:12px; margin-bottom"
                         ":12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Mais aussi: l'analyse des donn\303\251es, le d\303\251veloppement d'applications Web (PHP,javascript/ajax,Html/css), <br />la programmation objet en c++ ainsi que la programmation \303\251venementielle avec Qt, ainsi que le d\303\251veloppement d'applications android.</p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">			Ce logiciel  est sous licence GPL. Pour que ce logiciel perdure et s'am\303\251liore, merci de participer financi\303\250rement au projet.</p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Ce logiciel  est sous licence GPL. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Pour que ce logiciel perdure et s'am\303\251liore, merci de participer financi\303\250rement au projet.</p>\n"
 "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"http://PayPal.Me/GThomSoftware\"><span style=\" text-decoration: underline; color:#0000ff;\">Donate via Paypal</span></a></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">.				</p><"
-                        "/body></html>", 0));
-        label->setText(QApplication::translate("DialogAboutMe", "Copyright @ Gilles Thomassin 2015", 0));
+"<p"
+                        " style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Visitez le site du <a href=\"gthom.btsinfogap.org\"><span style=\" text-decoration: underline; color:#0000ff;\">projet gapMea</span></a>.				</p></body></html>", 0));
+        label->setText(QApplication::translate("DialogAboutMe", "Copyright @ Gilles Thomassin 2016", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("DialogAboutMe", "Author", 0));
     } // retranslateUi
 

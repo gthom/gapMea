@@ -133,7 +133,7 @@ Lien::Lien(Entite* pt1,Entite* pt2,QGraphicsItem * parent,QString typ, QString r
                 {
                   while(!(nomDuRole!="" &&ok))
                   {
-                      nomDuRole=QInputDialog::getText(0,QObject::tr("GapMea Role Input"),
+                      nomDuRole=QInputDialog::getText(0,QObject::tr("GapMea_ Rôle Input"),
                                                   QObject::tr("Rôle Name:"),
                                                   QLineEdit::Normal,
                                                   "",
