@@ -1,0 +1,15 @@
+Hello, I'm proud to share this software with you.
+Gapmea is a visual tool for database design.
+It generate sql to create relationnal databases.
+It save data structure into an xml file that you can share.
+
+I have also developed a CLI piece of software wich reverse engeneer an existing mysql database.
+and produce .mea file.
+ 
+But it is not shared there.
+
+And i work on a QBE whose name is gapQBE.
+
+And lots of others projects in c++/Qt or php/html/css.
+
+That's all folks!!! 
