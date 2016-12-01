@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QTextDocument>
 #include "ui_mainwindow.h"
+#include "QFontInfo"
 
 Property::Property(MainWindow* mum,QString pName,QString pType, QString pRole,QString pTaille,QGraphicsItem* pParent)
     :QGraphicsTextItem(pName,pParent),nom(pName), sonType(pType), role(pRole), taille(pTaille)
@@ -15,6 +16,9 @@ Property::Property(MainWindow* mum,QString pName,QString pType, QString pRole,QS
     lEntite=(Entite*)pParent;
     setAcceptDrops(true);
     //setFlag(QGraphicsItem::ItemIsSelectable,true);
+    setFont(QFont("Verdana",10));
+    qDebug()<<QFontInfo(this->font()).family();
+    qDebug()<<QFontInfo(this->font()).pointSize();
     connect(this,SIGNAL(jeSuisSelectionne(Property*)),maman,SLOT(selectionne(Property*)));
 
 }

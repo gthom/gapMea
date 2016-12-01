@@ -127,12 +127,24 @@ Lien::Lien(Entite* pt1,Entite* pt2,QGraphicsItem * parent,QString typ, QString r
                 t1->maman->ajouteTable(nouvelleAssoc);
                 t1->maman->getScene()->addItem(nouvelleAssoc);
                 //créer un autre lien entre l'assoc et t2
-                Lien* nouveauLien=new Lien(nouvelleAssoc,t2,0,LEG);
+                bool ok;
+                QString nomDuRole="";
+                if(t1==t2)
+                {
+                  while(!(nomDuRole!="" &&ok))
+                  {
+                      nomDuRole=QInputDialog::getText(0,QObject::tr("GapMea Role Input"),
+                                                  QObject::tr("Rôle Name:"),
+                                                  QLineEdit::Normal,
+                                                  "",
+                                                  &ok);
+                  }
+                }
+                Lien* nouveauLien=new Lien(nouvelleAssoc,t2,0,LEG,"",nomDuRole);
                 //je l'ajoute à la scene
                 t1->maman->getScene()->addItem(nouveauLien);
                 //on ajoute les éléments du groupe
                 nouveauLien->ajouteElementsAuGroupe();
-
                 //faire pointer t2 sur l'association
                 t2=nouvelleAssoc;
                 t2->setPos(abcisse,ordonnee);
@@ -160,6 +172,7 @@ Lien::Lien(Entite* pt1,Entite* pt2,QGraphicsItem * parent,QString typ, QString r
         //reflexive  (df)
         //???
     }
+
 }//fin du constructeur de lien
 
 /**

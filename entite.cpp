@@ -67,15 +67,14 @@ void Entite::redraw()
 {
     qDebug()<<"void Entite::redraw()"<<endl;
     //calcul de la largeur et de la hauteur;
-    long hauteur=20+QFontMetrics(title->font()).height()*vecteurChamps.size()*1.5;
+    long hauteur=20+QFontMetrics(title->font()).height()*(vecteurChamps.size()+2);
     long largeur=QFontMetrics(title->font()).width(nomTableTronque())+20;
     for(int noChamp=0;noChamp<vecteurChamps.count();noChamp++)
     {
         long largeurDuChamp=QFontMetrics(title->font()).width(vecteurChamps[noChamp]->getNomComplet())+20;
         if (largeurDuChamp>largeur) largeur=largeurDuChamp;
     }
-    //le gros rectangle jaune de l'entité
-    setRect(0,0,largeur,hauteur);
+
     setBrush(QColor("#FFFFA4"));//jaune
     //le titre
     if(!association)
@@ -106,6 +105,9 @@ void Entite::redraw()
             vecteurChamps[noChamp]->setHtml(texte);
         ordonnee+=vecteurChamps[noChamp]->boundingRect().height();
     }
+    //dimensions de l'objet:
+    //le gros rectangle jaune de l'entité
+    setRect(0,0,largeur,ordonnee+15);
     //mise à jour des liens
     foreach (Lien* leLien, vectLiens) {
        if(!leLien->reflexif)
@@ -114,6 +116,7 @@ void Entite::redraw()
            ((LienReflexif*)leLien)->LienReflexif::calculeCoordonnees();
        leLien->update();
     }
+
 
 }
 int Entite::noLien(Entite* lAutre, Lien* unLien)
@@ -161,7 +164,7 @@ association=isAssoc;
         title=new QGraphicsTextItem(this);
     }
     //police du titre
-    title->setFont(QFont("Verdana",10,QFont::Bold,false));
+    title->setFont(QFont("verdana",10,QFont::Bold,false));
     //déterminons la largeur de la table ainsi que sa hauteur:
     long hauteur=20;//marge haut + basse
     hauteur+=QFontMetrics(title->font()).height();
@@ -219,7 +222,7 @@ association=isAssoc;
         ordonne+=vecteurChamps[noChamp]->boundingRect().height();
 
     }
-    setRect(0,0,largeurMaxi+20,ordonne);
+    setRect(0,0,largeurMaxi+20,ordonne+10);
     setAcceptDrops(false);
     QGraphicsRectItem::setFlags(ItemSendsGeometryChanges|ItemIsSelectable|ItemIsMovable);
 }

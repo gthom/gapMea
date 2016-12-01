@@ -15,7 +15,7 @@ Association::Association(MainWindow* mum,QString nom,qreal x,qreal y, QGraphicsI
   m_radius_x=20;
   m_radius_y=m_radius_x;
   rectTitle=NULL;
-  //if(rect().height()<100)rect().setHeight(100);
+
 }
 
 

@@ -296,6 +296,8 @@ void MainWindow::on_pushButtonAddProperty_clicked()
            ui->lineEditPropertyName->clear();
            ui->lineEditPropertyRole->clear();
            //ui->comboBoxPropertyType->clear();
+           //desactivation du bouton ajouter
+
            setSaved(false);
     }
     else
@@ -521,6 +523,9 @@ void MainWindow::on_action_Open_triggered()
              //centrer sur les éléments de la scene
              ui->graphicsView->centerOn(ui->graphicsView->scene()->itemsBoundingRect().center());
              ui->graphicsView->ensureVisible(ui->graphicsView->scene()->itemsBoundingRect());
+             ui->lineEditPropertyName->clear();
+             ui->lineEditPropertyRole->clear();
+             ui->lineEditTaille->clear();
          }
          else
              statusBar()->showMessage(tr("Error reading File"), 2000);
@@ -690,24 +695,38 @@ void MainWindow::on_actionNew_Document_triggered()
     ui->textEditSql->clear();
     //le rendre invisible
     on_action_sql_triggered(false);
+    ui->lineEditPropertyName->clear();
+    ui->lineEditPropertyRole->clear();
+    ui->lineEditTaille->clear();
 }
 
 void MainWindow::activeDesactiveBoutonApply()
 {
-    qDebug()<<"void MainWindow::activeDesactiveBoutonApply()";
-  bool activer;
+  qDebug()<<"void MainWindow::activeDesactiveBoutonApply()";
+  bool activerApply,activerAdd;
   //comparaison entre ce qu'il y a dans la table et ce qu'il ya dans le formulaire
   int noLigne=ui->tableWidgetProperties->currentRow();
-  if(noLigne!=-1)//s'il y a des propriétés
+  if(noLigne!=-1)//s'il y a une propriété sélectionnée
   {
-      bool nomDif=ui->tableWidgetProperties->itemAt(0,noLigne)->text()!=ui->lineEditPropertyName->text();
-      bool typeDif=ui->tableWidgetProperties->itemAt(1,noLigne)->text()!=ui->comboBoxPropertyType->currentText();
-      bool tailleDif=ui->tableWidgetProperties->itemAt(2,noLigne)->text()!=ui->lineEditTaille->text();
-      bool roleDif=ui->tableWidgetProperties->itemAt(3,noLigne)->text()!=ui->lineEditPropertyRole->text();
-      activer=(!ui->lineEditPropertyName->text().isEmpty())&&(nomDif||typeDif||tailleDif||roleDif);
+      bool nomDif=ui->tableWidgetProperties->item(noLigne,0)->text()!=ui->lineEditPropertyName->text();
+      bool typeDif=ui->tableWidgetProperties->item(noLigne,1)->text()!=ui->comboBoxPropertyType->currentText();
+      bool tailleDif=ui->tableWidgetProperties->item(noLigne,2)->text()!=ui->lineEditTaille->text();
+      bool roleDif=ui->tableWidgetProperties->item(noLigne,3)->text()!=ui->lineEditPropertyRole->text();
+      activerApply=(!ui->lineEditPropertyName->text().isEmpty())&&(nomDif||typeDif||tailleDif||roleDif);
   }
-  else activer=false;//pas de modification de propriété possible
-  ui->pushButtonModifyProperty->setEnabled(activer);
+  else activerApply=false;//pas de modification de propriété possible
+  activerAdd=ui->listWidgetObjects->currentRow()!=-1;
+  for(int noL=0;noL<ui->tableWidgetProperties->rowCount();noL++)
+  {
+      qDebug()<<ui->tableWidgetProperties->item(noL,0)->text();
+      if(ui->tableWidgetProperties->item(noL,0)->text()==ui->lineEditPropertyName->text())
+      {
+          activerAdd=false;
+      }
+  }
+
+  ui->pushButtonModifyProperty->setEnabled(activerApply);
+  ui->pushButtonAddProperty->setEnabled(ui->lineEditPropertyName->text()!=""&& activerAdd);
 }
 void MainWindow::activeDesactiveInputTaille()
 {

@@ -21,7 +21,7 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_4">
     <item>
-     <widget class="QSplitter" name="splitter">
+     <widget class="QSplitter" name="splitterMeaSql">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
@@ -29,11 +29,17 @@
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
          <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
+         <verstretch>3</verstretch>
         </sizepolicy>
        </property>
       </widget>
       <widget class="QTextEdit" name="textEditSql">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>1</verstretch>
+        </sizepolicy>
+       </property>
        <property name="html">
         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -240,53 +246,9 @@ p, li { white-space: pre-wrap; }
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
-       <item>
-        <spacer name="horizontalSpacer_3">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButtonAddProperty">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string>&amp;Add Property</string>
-         </property>
-         <property name="icon">
-          <iconset resource="mesressources.qrc">
-           <normaloff>:/images/add</normaloff>:/images/add</iconset>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer_4">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </item>
-     <item>
       <widget class="QGroupBox" name="groupBoxEditNewProperty">
        <property name="title">
-        <string>Edit Property</string>
+        <string>Edit/Add Property</string>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
@@ -410,12 +372,30 @@ p, li { white-space: pre-wrap; }
            </spacer>
           </item>
           <item>
+           <widget class="QPushButton" name="pushButtonAddProperty">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>&amp;Add Property</string>
+            </property>
+            <property name="icon">
+             <iconset resource="mesressources.qrc">
+              <normaloff>:/images/add</normaloff>:/images/add</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QPushButton" name="pushButtonModifyProperty">
             <property name="enabled">
              <bool>false</bool>
             </property>
             <property name="text">
              <string>&amp;Apply</string>
+            </property>
+            <property name="icon">
+             <iconset resource="mesressources.qrc">
+              <normaloff>:/images/dialog-ok-apply.png</normaloff>:/images/dialog-ok-apply.png</iconset>
             </property>
            </widget>
           </item>

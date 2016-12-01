@@ -16,6 +16,7 @@
         <file alias="leakRelation">leakRelation.png</file>
         <file alias="quit">quit.jpg</file>
         <file alias="fileNew">filenew.png</file>
+        <file>dialog-ok-apply.png</file>
     </qresource>
     <qresource prefix="/fonts">
         <file>fonts/DejaVuSerif.ttf</file>
