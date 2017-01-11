@@ -35,15 +35,28 @@ int main(int argc, char *argv[])
         qtTranslator.load("qt_" + QLocale::system().name(),
                 QLibraryInfo::location(QLibraryInfo::TranslationsPath));
         a.installTranslator(&qtTranslator);
-
         QTranslator myappTranslator;
         QString nomFichier="gapMea_" + QLocale::system().name()+".qm";
         qDebug()<<nomFichier;
-        myappTranslator.load("/usr/share/applications/gapmea/translations/gapMea_" + QLocale::system().name()+".qm");
+        QString baseName;
+//defining paths to translations
+#ifdef Q_OS_LINUX
+        baseName="/usr/share/applications/gapmea/translations/";
+#endif
+#ifdef Q_OS_MACOS
+        baseName=QApplication::applicationDirPath()+QLatin1String("/../Resources/translations/"); // path defaults to app dir.
+#endif
+#ifdef Q_OS_DARWIN
+        baseName=QApplication::applicationDirPath()+QLatin1String("/translations/"); // path defaults to app dir.
+#endif
+#ifdef Q_OS_WIN
+        baseName=QApplication::applicationDirPath();
+#endif
+       myappTranslator.load(baseName+nomFichier);
+        //myappTranslator.load("/usr/share/applications/gapmea/translations/gapMea_" + QLocale::system().name()+".qm");
         a.installTranslator(&myappTranslator);
         qDebug()<<QLibraryInfo::location(QLibraryInfo::TranslationsPath);
     MainWindow w;
     w.show();
-
     return a.exec();
 }

@@ -406,11 +406,14 @@ QString Entite::getPrimaryKey()
 qDebug()<<"QString Entite::getPrimaryKey()"<<endl;
     if(!association)
     {
+
         if(!isEntiteFaible())//entité
         {
-            return '`'+vecteurChamps[0]->nom+'`';
+            if (vecteurChamps.length()==0)
+                return QObject::tr("&lt;Provide manually&gt;");
+            else return '`'+vecteurChamps[0]->nom+'`';
         }
-        else//entité faible
+        else //entité faible
         {
             //obtention des tables mères
             QVector<Entite*> entitesMeres=renvoieEntiteMeres();
@@ -419,6 +422,7 @@ qDebug()<<"QString Entite::getPrimaryKey()"<<endl;
             {
                 listeDesNoms<<lEntite->getPrimaryKey();
             }
+            if (vecteurChamps.length()>0)
             listeDesNoms<<vecteurChamps[0]->nom;
             return listeDesNoms.join(',');
         }
@@ -461,11 +465,15 @@ QString Entite::getPrimaryKeyAsFields()
     {
         if(!isEntiteFaible())//je suis une entité
         {
-            QString laChaine="`"+this->vecteurChamps[0]->nom+"` "+this->vecteurChamps[0]->sonType;
-            QString taille=this->vecteurChamps[0]->taille;
-            if(!taille.isEmpty()) laChaine+="("+taille+")";
-
-            return(laChaine+chObligatoire);
+            if(vecteurChamps.size()==0)//ça peut arriver
+                return QObject::tr("&lt;Provide manually&gt;");
+            else
+            {
+                QString laChaine="`"+this->vecteurChamps[0]->nom+"` "+this->vecteurChamps[0]->sonType;
+                QString taille=this->vecteurChamps[0]->taille;
+                if(!taille.isEmpty()) laChaine+="("+taille+")";
+                return(laChaine+chObligatoire);
+            }
         }
         else//c'est une entite faible
         {

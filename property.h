@@ -62,7 +62,7 @@ public:
     //son nom
     /**
      * @brief nom
-     *his name example weight
+     *his name for example weight
      */
     QString nom;
     //en dehors des tables

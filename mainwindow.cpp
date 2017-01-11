@@ -631,9 +631,13 @@ void MainWindow::on_action_sql_triggered(bool checked)
             }//fin du il veut forcer
 
         }//fin du il ya eu un pb de generation
-
-        else
+        else//c'est ok
+        {
             statusBar()->showMessage(tr("SQL was successfully generated."));
+        }
+        //réglage des proportions du splitter
+        ui->splitterMeaSql->setStretchFactor(0,3);
+        ui->splitterMeaSql->setStretchFactor(1,0);
     }//fin du if checked
 }
 
