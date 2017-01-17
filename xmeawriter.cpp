@@ -33,7 +33,7 @@ bool XMeaWriter::writeFile(QIODevice *device)
     qDebug()<<"bool XMeaWriter::writeFile(QIODevice *device)";
     setDevice(device);
     writeStartDocument();
-    writeDTD("<!DOCTYPE xmea PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://gthom.btsinfogap.org/gapMea/dtd/mea.dtd\">");
+    writeDTD("<!DOCTYPE xmea PUBLIC \"-//GTHOM//DTD for ENTITY RELATIONSHIP MODEL//EN\" \"http://gthom.btsinfogap.org/gapMea/dtd/mea.dtd\">");
     writeStartElement("xmea");
     writeAttribute("version", "1.0");
     //creation des entites
