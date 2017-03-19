@@ -66,6 +66,12 @@ Entite::~Entite()
 
 }
 
+void Entite::setNomEntite(QString nouveauNom)
+{
+    nomEntite=nouveauNom;
+    redraw();
+}
+
 
 QVariant Entite::itemChange(GraphicsItemChange change,const QVariant &value)
 {
@@ -267,6 +273,7 @@ association=isAssoc;
      //création des actions du menu
      QAction *removeAction = menu.addAction(QObject::tr("&Remove Object"));
      QAction *addPropertyAction = menu.addAction(QObject::tr("&Add property"));
+     QAction *renameAction=menu.addAction(QObject::tr("re&Name Object"));
      //exécution du menu
      QAction * actionChoisie=menu.exec(event->screenPos());
      if(actionChoisie==removeAction)
@@ -278,6 +285,13 @@ association=isAssoc;
          if(actionChoisie==addPropertyAction)
          {
              maman->tableAjouterChamp(this);
+         }
+         else
+         {
+             if(actionChoisie==renameAction)
+             {
+                 maman->renameEntity(this);
+             }
          }
      }
 

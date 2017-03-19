@@ -80,6 +80,12 @@ public:
      */
     QString getNomEntite(){return nomEntite;}
     /**
+     * @brief setNomEntite
+     * @param nouveauNom
+     * change le titre de l'entité
+     */
+    void setNomEntite(QString nouveauNom);
+    /**
      * @brief vectLiens
      * this vector contains adresses of the links concerning entity
      */

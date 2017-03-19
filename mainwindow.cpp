@@ -34,6 +34,7 @@
 #include "xmeareader.h"
 #include "dialogaboutme.h"
 #include "lienreflexif.h"
+#include <QInputDialog>
 /**
  * @brief MainWindow::MainWindow
  * @param parent
@@ -772,4 +773,34 @@ void MainWindow::on_lineEditPropertyName_textChanged(const QString &arg1)
     nettoyee.replace(' ',"_");
     if(arg1.contains('`')||arg1.contains('<')||arg1.contains('>')||arg1.contains(' '))ui->lineEditPropertyName->setText(nettoyee);
     activeDesactiveBoutonApply();
+}
+void MainWindow::renameEntity(Entite* lEntite)
+{
+    if(lEntite!=NULL)
+    {
+        bool ok;
+        QString nouveauNom = QInputDialog::getText(this, tr("Rename Object"),
+                                             tr("Object name:"), QLineEdit::Normal,
+                                             lEntite->getNomEntite(), &ok);
+        if (ok && !nouveauNom.isEmpty()&& !ui->listWidgetObjects->findItems(nouveauNom,Qt::MatchCaseSensitive).count()>0)
+        {
+            //contrôler la validité du nouveau nom
+
+            QString ancienNom=lEntite->getNomEntite();
+            qDebug()<<"entite renommée";
+            lEntite->setNomEntite(nouveauNom);
+            //rafaraichissement de la liste des entités
+            ui->listWidgetObjects->findItems(ancienNom,Qt::MatchCaseSensitive).at(0)->setText(nouveauNom);
+        }
+
+        else//affichage d'un message d'erreur
+        {
+            QString error1=tr("Error object name cannot be empty");
+            QString error2=tr("Object with this name already exists");
+            QString error=error2;
+            if(nouveauNom.isEmpty()) error=error1;
+            QMessageBox::warning(this,tr("Rename Object"),error,QMessageBox::Ok,QMessageBox::Ok);
+        }
+
+    }
 }

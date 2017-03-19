@@ -92,6 +92,7 @@ public:
      * remove all from vectors and scene
      */
     void effaceTout();
+    void renameEntity(Entite *lEntite);
 public slots:
     /**
      * @brief tableSupprimer
