@@ -337,6 +337,10 @@ QStringList Entite::renvoieChampsEtrangers()
                     QString chEtrangers=leLien->t2->getPrimaryKeyAsFields();
                     resultat<<chEtrangers;
                 }
+                if (DF==leLien->typeDeJointure)//enlever les not null
+                {
+                    resultat.replaceInStrings("not null","",Qt::CaseInsensitive);
+                }
             }
         }
         if (LEG==leLien->typeDeJointure)

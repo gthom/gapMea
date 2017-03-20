@@ -796,7 +796,7 @@ void MainWindow::renameEntity(Entite* lEntite)
         else//affichage d'un message d'erreur
         {
             QString error1=tr("Error object name cannot be empty");
-            QString error2=tr("Object with this name already exists");
+            QString error2=tr("An object with this name already exists");
             QString error=error2;
             if(nouveauNom.isEmpty()) error=error1;
             QMessageBox::warning(this,tr("Rename Object"),error,QMessageBox::Ok,QMessageBox::Ok);
