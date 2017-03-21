@@ -19,13 +19,17 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "ui_mainwindow.h"
 #include "qcustomgraphicsscene.h"
+#include "customgraphicsview.h"
 #include <QWidget>
 #include "entite.h"
 #include "lien.h"
+#include <QFileInfo>
 class Entite;
 class Lien;
 class Property;
+
 
 namespace Ui {
 class MainWindow;
@@ -52,7 +56,7 @@ private:
      * @brief fileName
      * name of opened file
      */
-    QString fileName;
+    QString openedFileName;
 
 protected:
     /**
@@ -65,6 +69,7 @@ protected:
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    QString getOpenedFileName(){return openedFileName;}
     /**
      * @brief vectLiens
      * all links
@@ -145,7 +150,7 @@ public slots:
      * @param fn
      * accessor for filename (opened file)
      */
-    void setFileName(QString fn);
+    void setFileName(QFileInfo fn);
     /**
      * @brief editProperty
      * @param laPropriete
@@ -272,6 +277,13 @@ private slots:
      */
     void on_listWidgetObjects_itemSelectionChanged();
     void on_lineEditPropertyName_textChanged(const QString &arg1);
+
+    void on_actionSaveAs_triggered();
+    void on_pushButtonDeleteProperty_clicked();
+    void on_action_Export_triggered();
+    void on_action_Imprimer_triggered();
+    void on_dockWidgetObjects_visibilityChanged(bool visible);
+    void on_dockWidgetProperties_visibilityChanged(bool visible);
 };
 
 #endif // MAINWINDOW_H

@@ -189,7 +189,7 @@ Lien::Lien(Entite* pt1,Entite* pt2,QGraphicsItem * parent,QString typ, QString r
         //reflexive  (df)
         //???
     }
-
+    QGraphicsItemGroup::setFlags(ItemIsSelectable);
 }//fin du constructeur de lien
 
 /**
@@ -218,13 +218,36 @@ void Lien::ajouteElementsAuGroupe()
     if(lignePointillee!=NULL)addToGroup(lignePointillee);
 }
 
+void Lien::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+    QGraphicsItemGroup::paint(painter,option,widget);
+    if (option->state & QStyle::State_Selected) {
+                  QPen outline;
+           outline.setColor(Qt::red);
+           outline.setWidth(2);
+           line->setPen(outline);
+       }
+       else line->setPen(QPen());
+}
+
 void Lien::contextMenuEvent(QGraphicsSceneMouseEvent *event)
 {
     //ce qui se passe lorsque le menu contextuel de la table est appelé
      qDebug()<<"void lien::contextMenuEvent(QGraphicsSceneMouseEvent *event)";
      QMenu menu(QObject::tr("Link Menu"));
      //si je n'était pas sélectionnée, je le deviens
-     this->setSelected(true);
+     if(!isSelected())
+     {
+         this->setSelected(true);
+         qDebug()<<"je n'étais pas sélectionné je le sélectionne";
+     }
+     else
+     {
+         qDebug()<<"je suis déjà sélectionné";
+         this->setSelected(false);
+         this->setSelected(true);
+     }
+
      //titre du menu
      QAction* titre=new QAction(menu.title(),scene());
     titre->setDisabled(true);

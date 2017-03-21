@@ -143,5 +143,6 @@ public:
     void calculeCoordonnees();
     void ajouteElementsAuGroupe();
     bool reflexif;
+    void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
 };
 #endif // LIEN_H

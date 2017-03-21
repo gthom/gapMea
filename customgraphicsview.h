@@ -24,16 +24,18 @@
 #include <QDragMoveEvent>
 #include <QDropEvent>
 #include <QObject>
-#include "entite.h"
+class Entite;
 
 /**
  * @brief The customGraphicsView class
  * I had to create my own class to deal with drag and drop
  * I use drag and drop to link objects with other objects
  */
+//some shorts declarations
 class customGraphicsView : public QGraphicsView
 {
-    Q_OBJECT
+ Q_OBJECT
+
 public:
     /**
      * @brief customGraphicsView

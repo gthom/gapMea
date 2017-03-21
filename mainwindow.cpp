@@ -35,6 +35,9 @@
 #include "dialogaboutme.h"
 #include "lienreflexif.h"
 #include <QInputDialog>
+#include <QPrinter>
+#include <QPrintDialog>
+
 /**
  * @brief MainWindow::MainWindow
  * @param parent
@@ -171,10 +174,10 @@ void MainWindow::tableAjouterChamp(Entite * lEntite,QString nomDuChamp,QString t
     on_listWidgetObjects_itemActivated(lEntite);
 }
 
-void MainWindow::setFileName(QString fn)
+void MainWindow::setFileName(QFileInfo fn)
 {
-    fileName=fn;
-    setWindowTitle("GapMea "+fileName);
+    openedFileName=fn.absoluteFilePath();
+    setWindowTitle("GapMea "+fn.fileName());
 }
 void MainWindow::selectionne(Entite* lEntite)
 {
@@ -271,17 +274,38 @@ void MainWindow::on_pushButtonModifyProperty_clicked()
     {
          Property* laPropriete=((Entite*)ui->listWidgetObjects->currentItem())->vecteurChamps[index];
          //on récupère les informations saisies
-         laPropriete->nom=ui->lineEditPropertyName->text();
-         laPropriete->sonType=ui->comboBoxPropertyType->currentText();
-         laPropriete->role=ui->lineEditPropertyRole->text();
-         laPropriete->taille=ui->lineEditTaille->text();
-         //on fait comme si on avait cliqué sur l'entité de façon à  actualiser l'affichage
-         on_listWidgetObjects_itemActivated(laPropriete->lEntite);
-         //on redessine l'entité
-         laPropriete->lEntite->redraw();
-         //désactivation du bouton modifier
-         ui->pushButtonModifyProperty->setEnabled(false);
-         setSaved(false);
+         QString nomDuChamp=ui->lineEditPropertyName->text();
+         QString typeDuChamp=ui->comboBoxPropertyType->currentText();
+         QString roleDuChamp=ui->lineEditPropertyRole->text();
+         QString tailleDuChamp=ui->lineEditTaille->text();
+         //quelques contrôles indispensables:
+         if(typeDuChamp=="VARCHAR" && tailleDuChamp.isEmpty())
+         {
+             QMessageBox::warning(this,tr("Add property"),tr("VARCHAR must have a size"),QMessageBox::Ok,QMessageBox::Ok);
+         }
+         else if(typeDuChamp=="BLOB" && tailleDuChamp.isEmpty())
+         {
+             QMessageBox::warning(this,tr("Add property"),tr("BLOB must have a size"),QMessageBox::Ok,QMessageBox::Ok);
+         }
+         else if(typeDuChamp=="NUMERIC" && tailleDuChamp.isEmpty())
+         {
+             QMessageBox::warning(this,tr("Add property"),tr("NUMERIC must have a size"),QMessageBox::Ok,QMessageBox::Ok);
+         }
+         else//quand tout est bon
+         {
+             //on récupère les informations saisies
+             laPropriete->nom=nomDuChamp;
+             laPropriete->sonType=typeDuChamp;
+             laPropriete->role=roleDuChamp;
+             laPropriete->taille=tailleDuChamp;
+             //on fait comme si on avait cliqué sur l'entité de façon à  actualiser l'affichage
+             on_listWidgetObjects_itemActivated(laPropriete->lEntite);
+             //on redessine l'entité
+             laPropriete->lEntite->redraw();
+             //désactivation du bouton modifier
+             ui->pushButtonModifyProperty->setEnabled(false);
+             setSaved(false);
+         }
     }
     else
     {
@@ -302,21 +326,37 @@ void MainWindow::on_pushButtonAddProperty_clicked()
          QString typeDuChamp=ui->comboBoxPropertyType->currentText();
          QString roleDuChamp=ui->lineEditPropertyRole->text();
          QString tailleDuChamp=ui->lineEditTaille->text();
-         tableAjouterChamp(lEntite,nomDuChamp,typeDuChamp,roleDuChamp,tailleDuChamp);
-         //ajout dans la grille
-         int nbChamp=lEntite->vecteurChamps.size();
-         ui->tableWidgetProperties->setRowCount(nbChamp);
-         ui->tableWidgetProperties->setItem(nbChamp-1,0,new QTableWidgetItem(nomDuChamp));
-          ui->tableWidgetProperties->setItem(nbChamp-1,1,new QTableWidgetItem(typeDuChamp));
-           ui->tableWidgetProperties->setItem(nbChamp-1,2,new QTableWidgetItem(tailleDuChamp));
-           ui->tableWidgetProperties->setItem(nbChamp-1,3,new QTableWidgetItem(roleDuChamp));
-           //puis on efface les zones de saisie
-           ui->lineEditPropertyName->clear();
-           ui->lineEditPropertyRole->clear();
-           //ui->comboBoxPropertyType->clear();
-           //desactivation du bouton ajouter
+         //quelques contrôles indispensables:
+         if(typeDuChamp=="VARCHAR" && tailleDuChamp.isEmpty())
+         {
+             QMessageBox::warning(this,tr("Add property"),tr("VARCHAR must have a size"),QMessageBox::Ok,QMessageBox::Ok);
+         }
+         else if(typeDuChamp=="BLOB" && tailleDuChamp.isEmpty())
+         {
+             QMessageBox::warning(this,tr("Add property"),tr("BLOB must have a size"),QMessageBox::Ok,QMessageBox::Ok);
+         }
+         else if(typeDuChamp=="NUMERIC" && tailleDuChamp.isEmpty())
+         {
+             QMessageBox::warning(this,tr("Add property"),tr("NUMERIC must have a size"),QMessageBox::Ok,QMessageBox::Ok);
+         }
+         else
+         {
+             tableAjouterChamp(lEntite,nomDuChamp,typeDuChamp,roleDuChamp,tailleDuChamp);
+             //ajout dans la grille
+             int nbChamp=lEntite->vecteurChamps.size();
+             ui->tableWidgetProperties->setRowCount(nbChamp);
+             ui->tableWidgetProperties->setItem(nbChamp-1,0,new QTableWidgetItem(nomDuChamp));
+             ui->tableWidgetProperties->setItem(nbChamp-1,1,new QTableWidgetItem(typeDuChamp));
+             ui->tableWidgetProperties->setItem(nbChamp-1,2,new QTableWidgetItem(tailleDuChamp));
+             ui->tableWidgetProperties->setItem(nbChamp-1,3,new QTableWidgetItem(roleDuChamp));
+             //puis on efface les zones de saisie
+             ui->lineEditPropertyName->clear();
+             ui->lineEditPropertyRole->clear();
+             //ui->comboBoxPropertyType->clear();
+             //desactivation du bouton ajouter
 
-           setSaved(false);
+             setSaved(false);
+         }
     }
     else
     {
@@ -367,8 +407,9 @@ void MainWindow::tableSupprimer(Entite* laTableASupprimer,bool demanderConfirmat
         //enlever de la scene
         ui->graphicsView->scene()->removeItem(laTableASupprimer);
         delete laTableASupprimer;
-
         setSaved(false);
+        //raffraichir la liste des propriétés
+
     }
     else//soit sans confirm soit il a confirmé la supression
     {
@@ -482,8 +523,8 @@ void MainWindow::supprimerLien(Lien * leLien)
 
 void MainWindow::on_actionSave_triggered()
 {
-    QString fichierOuvert=fileName;
-    QString nomFichier=QFileDialog::getSaveFileName(this,tr("Save xmea file"),fichierOuvert,tr("MEA Files (*.mea *.xml)"));
+    QString nomFichier=openedFileName;
+    //QString nomFichier=QFileDialog::getSaveFileName(this,tr("Save xmea file"),fichierOuvert,tr("MEA Files (*.mea *.xml)"));
     //sauver dans un fichier xml
     QFile monFichierXMea(nomFichier);
     QFileInfo fi(nomFichier);
@@ -496,14 +537,13 @@ void MainWindow::on_actionSave_triggered()
         {
             message=tr("File was succesfully saved.");
             setSaved(true);
-            setFileName(fi.fileName());
         }
         statusBar()->showMessage(message,2000);
         delete monWriter;
     }
     else
     {
-        statusBar()->showMessage(tr("Saving is aborted"),2000);
+        statusBar()->showMessage(tr("Error occured while saving\r\n Please check your filesystem."),2000);
     }
 }
 
@@ -532,7 +572,7 @@ void MainWindow::on_action_Open_triggered()
          {
              statusBar()->showMessage(tr("File loaded"), 2000);
              setSaved(true);
-             setFileName(fi.fileName());
+             setFileName(fi);
              //vider le sql
              ui->textEditSql->clear();
              //effacement de la zone du sql
@@ -544,6 +584,10 @@ void MainWindow::on_action_Open_triggered()
              ui->lineEditPropertyName->clear();
              ui->lineEditPropertyRole->clear();
              ui->lineEditTaille->clear();
+             //activation de l'export et du print et du saveas
+             ui->action_Export->setEnabled(true);
+             ui->action_Imprimer->setEnabled(true);
+             ui->actionSaveAs->setEnabled(true);
          }
          else
              statusBar()->showMessage(tr("Error reading File"), 2000);
@@ -695,7 +739,22 @@ void MainWindow::on_tableWidgetProperties_itemSelectionChanged()
         if(ui->listWidgetObjects->currentItem()!=NULL)
         {
             editProperty(((Entite*)ui->listWidgetObjects->currentItem())->vecteurChamps[numeroDeLigne]);
+            ui->pushButtonDeleteProperty->setEnabled(true);
         }
+        else
+        {
+            ui->pushButtonDeleteProperty->setEnabled(false);
+        }
+    }
+    else//pas de selection de propriété
+    {
+
+        ui->lineEditPropertyName->setText("");
+        ui->lineEditPropertyRole->setText("");
+        ui->lineEditTaille->setText("");
+        ui->pushButtonAddProperty->setEnabled(false);
+        ui->pushButtonModifyProperty->setEnabled(false);
+        ui->pushButtonDeleteProperty->setEnabled(false);
     }
 }
 
@@ -704,7 +763,7 @@ void MainWindow::on_actionNew_Document_triggered()
     //regarder s'il faut sauver
     if (!saved)
     {
-        if(QMessageBox::question(this,this->windowTitle(),tr("Your work is not saved, do you want to save it before ?"),QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes)
+        if(QMessageBox::question(this,this->windowTitle(),tr("Your model is not saved, do you want to save it before ?"),QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes)
         {
             on_actionSave_triggered();
         }
@@ -720,6 +779,9 @@ void MainWindow::on_actionNew_Document_triggered()
     ui->lineEditPropertyName->clear();
     ui->lineEditPropertyRole->clear();
     ui->lineEditTaille->clear();
+    //desactivation de l'export et du print
+    ui->action_Export->setEnabled(false);
+    ui->action_Imprimer->setEnabled(false);
 }
 
 void MainWindow::activeDesactiveBoutonApply()
@@ -737,6 +799,7 @@ void MainWindow::activeDesactiveBoutonApply()
       activerApply=(!ui->lineEditPropertyName->text().isEmpty())&&(nomDif||typeDif||tailleDif||roleDif);
   }
   else activerApply=false;//pas de modification de propriété possible
+  //act/desact bouton ajouter
   activerAdd=ui->listWidgetObjects->currentRow()!=-1;
   for(int noL=0;noL<ui->tableWidgetProperties->rowCount();noL++)
   {
@@ -746,7 +809,6 @@ void MainWindow::activeDesactiveBoutonApply()
           activerAdd=false;
       }
   }
-
   ui->pushButtonModifyProperty->setEnabled(activerApply);
   ui->pushButtonAddProperty->setEnabled(ui->lineEditPropertyName->text()!=""&& activerAdd);
 }
@@ -761,7 +823,19 @@ void MainWindow::activeDesactiveInputTaille()
 
 void MainWindow::on_listWidgetObjects_itemSelectionChanged()
 {
-    ui->pushButtonAddProperty->setEnabled(ui->listWidgetObjects->selectedItems().count()==1);
+    if(ui->listWidgetObjects->selectedItems().count()==1)
+    {
+        on_listWidgetObjects_itemActivated(ui->listWidgetObjects->currentItem());
+       //ui->pushButtonAddProperty->setEnabled(ui->listWidgetObjects->selectedItems().count()==1);
+    }
+    else
+    {
+        //vider les zones propriétés
+        ui->groupBoxProperties->setTitle(tr("Properties"));
+        ui->tableWidgetProperties->setRowCount(0);
+        //met à jour la zone de modif des propriétés
+        on_tableWidgetProperties_itemSelectionChanged();
+    }
 }
 
 void MainWindow::on_lineEditPropertyName_textChanged(const QString &arg1)
@@ -803,4 +877,114 @@ void MainWindow::renameEntity(Entite* lEntite)
         }
 
     }
+}
+
+
+
+void MainWindow::on_actionSaveAs_triggered()
+{
+    QString fichierOuvert=openedFileName;
+    QString nomFichier=QFileDialog::getSaveFileName(this,tr("Save xmea file"),fichierOuvert,tr("MEA Files (*.mea *.xml)"));
+    //sauver dans un fichier xml
+    QFile monFichierXMea(nomFichier);
+    QFileInfo fi(nomFichier);
+    bool ouvertureReussie=monFichierXMea.open(QIODevice::WriteOnly);
+    if(ouvertureReussie)
+    {
+        XMeaWriter* monWriter=new XMeaWriter(this);
+        QString message=tr("Error occured saving file");
+        if(monWriter->writeFile(&monFichierXMea))
+        {
+            message=tr("File was succesfully saved.");
+            setSaved(true);
+            setFileName(fi);
+        }
+        statusBar()->showMessage(message,2000);
+        delete monWriter;
+    }
+    else
+    {
+        statusBar()->showMessage(tr("Saving is aborted"),2000);
+    }
+}
+
+void MainWindow::on_pushButtonDeleteProperty_clicked()
+{
+    //click sur apply
+    int index=ui->tableWidgetProperties->currentRow();
+    if(index!=-1)
+    {
+        Entite* entiteConcernee=(Entite*)ui->listWidgetObjects->currentItem();
+        ui->tableWidgetProperties->removeRow(index);
+        //enlever la propriété du vecteur de l'entité
+        entiteConcernee->vecteurChamps.remove(index);
+        //vider les champs du formulaire
+        ui->lineEditPropertyName->setText("");
+        ui->lineEditTaille->setText("");
+        ui->lineEditPropertyRole->setText("");
+        ui->pushButtonAddProperty->setEnabled(false);
+        ui->pushButtonDeleteProperty->setEnabled(false);
+        ui->pushButtonModifyProperty->setEnabled(false);
+        //on fait comme si on avait cliqué sur l'entité de façon à  actualiser l'affichage
+             on_listWidgetObjects_itemActivated(entiteConcernee);
+        //on redessine l'entité
+        entiteConcernee->redraw();
+        setSaved(false);
+        statusBar()->showMessage(tr("Property was deleted"),2000);
+    }
+    else
+    {
+        statusBar()->showMessage(tr("Please select an object first"),2000);
+    }
+}
+
+void MainWindow::on_action_Export_triggered()
+{
+    //exportation au format png
+    statusBar()->showMessage(tr("Exporting document to png"),2000);
+    QString fichierOuvert=getOpenedFileName().replace(".mea",".png");
+    QString nomFichier=QFileDialog::getSaveFileName(this,tr("Export mea file"),fichierOuvert,tr("Image Files (*.png)"));
+    //sauver dans une image
+    QFileInfo fi(nomFichier);
+    QImage monImage(maScene->width(),maScene->height(),QImage::Format_ARGB32_Premultiplied);
+    QPainter monPainter(&monImage);
+    maScene->render(&monPainter);
+    bool ouvertureReussie=monImage.save(fi.absoluteFilePath());
+    if(ouvertureReussie)
+    {
+        QString message=tr("File was succesfully exported.");
+        statusBar()->showMessage(message,2000);
+    }
+    else
+    {
+        statusBar()->showMessage(tr("Export failed check your filesystem"),2000);
+    }
+}
+
+void MainWindow::on_action_Imprimer_triggered()
+{
+    //impression
+    statusBar()->showMessage(tr("Printing document"),2000);
+    //tout déselectionner
+    QPrinter printer(QPrinter::HighResolution);
+    QPrintDialog dialog(&printer, this);
+    if(dialog.exec())
+    {
+      QPainter painter(&printer);
+      maScene->render(&painter);
+    }
+    else
+    {
+        statusBar()->showMessage(tr("Print canceled"),2000);
+    }
+}
+
+void MainWindow::on_dockWidgetObjects_visibilityChanged(bool visible)
+{
+    ui->action_Object_list->setChecked(visible);
+}
+
+void MainWindow::on_dockWidgetProperties_visibilityChanged(bool visible)
+{
+    ui->action_Properties->setChecked(visible);
 }

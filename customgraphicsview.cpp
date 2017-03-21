@@ -23,6 +23,7 @@
 #include <QTextDocument>
 #include <QStandardItemModel>
 #include <QDropEvent>
+#include "entite.h"
 
 
 

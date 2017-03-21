@@ -30,6 +30,7 @@
 #include <mainwindow.h>
 #include <QPrinter>
 #include <QPrintDialog>
+#include <QFileDialog>
 class MainWindow;
 
 QCustomGraphicsScene::QCustomGraphicsScene(QWidget * parent):QGraphicsScene(parent)
@@ -121,11 +122,13 @@ void QCustomGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
                     titre->setFont(QFont("verdana",9,3,true));
                     //ajout des actions du menu:
                     QAction* printModel=menuContextuelDeRien.addAction(tr("Print"));
+                    QAction* exportModel=menuContextuelDeRien.addAction(tr("Export to png"));
+
                     MainWindow* maman=(MainWindow*)parent();
                     QAction * actionChoisie=menuContextuelDeRien.exec(mouseEvent->screenPos());
                     if(actionChoisie==printModel)
                     {
-                        //impression à faire
+                        //impression
                         maman->statusBar()->showMessage(tr("Printing document"),2000);
                         //tout déselectionner
                         QPrinter printer(QPrinter::HighResolution);
@@ -138,6 +141,28 @@ void QCustomGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
                         else
                         {
                             maman->statusBar()->showMessage(tr("Print canceled"),2000);
+                        }
+                    }
+                    else if(actionChoisie==exportModel)
+                    {
+                        //exportation au format png
+                        maman->statusBar()->showMessage(tr("Exporting document to png"),2000);
+                        QString fichierOuvert=maman->getOpenedFileName().replace(".mea",".png");
+                        QString nomFichier=QFileDialog::getSaveFileName(maman,tr("Export mea file"),fichierOuvert,tr("Image Files (*.png)"));
+                        //sauver dans une image
+                        QFileInfo fi(nomFichier);
+                        QImage monImage(this->width(),this->height(),QImage::Format_ARGB32_Premultiplied);
+                        QPainter monPainter(&monImage);
+                        this->render(&monPainter);
+                        bool ouvertureReussie=monImage.save(fi.absoluteFilePath());
+                        if(ouvertureReussie)
+                        {
+                            QString message=tr("File was succesfully exported.");
+                            maman->statusBar()->showMessage(message,2000);
+                        }
+                        else
+                        {
+                            maman->statusBar()->showMessage(tr("Export failed check your filesystem"),2000);
                         }
                     }
                 }
@@ -175,7 +200,12 @@ void QCustomGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
                             {
                                 elementConcerne=elementConcerne->parentItem();
                             }
-
+                            //essais de sélection
+                            //((Lien*)elementConcerne)->setSelected(!((Lien*)elementConcerne)->isSelected());
+                            qDebug()<<"je le sélectionne";
+                            ((Lien*)elementConcerne)->setSelected(false);
+                            ((Lien*)elementConcerne)->setSelected(true);
+                            ((Lien*)elementConcerne)->update();
                             ((Lien*)elementConcerne)->contextMenuEvent(mouseEvent);
                         }
 

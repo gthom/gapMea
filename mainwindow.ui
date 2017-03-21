@@ -68,6 +68,9 @@ p, li { white-space: pre-wrap; }
     <addaction name="actionNew_Document"/>
     <addaction name="action_Open"/>
     <addaction name="actionSave"/>
+    <addaction name="actionSaveAs"/>
+    <addaction name="action_Export"/>
+    <addaction name="action_Imprimer"/>
     <addaction name="action_quitter"/>
    </widget>
    <widget class="QMenu" name="menuWindows">
@@ -104,6 +107,7 @@ p, li { white-space: pre-wrap; }
    </attribute>
    <addaction name="action_Open"/>
    <addaction name="actionSave"/>
+   <addaction name="actionSaveAs"/>
    <addaction name="separator"/>
    <addaction name="actionMove"/>
    <addaction name="actionLink"/>
@@ -113,6 +117,9 @@ p, li { white-space: pre-wrap; }
    <addaction name="actionZoom_Best"/>
    <addaction name="actionZoom"/>
    <addaction name="actionZoom_2"/>
+   <addaction name="separator"/>
+   <addaction name="action_Export"/>
+   <addaction name="action_Imprimer"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <widget class="QDockWidget" name="dockWidgetObjects">
@@ -214,6 +221,9 @@ p, li { white-space: pre-wrap; }
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
          <widget class="QTableWidget" name="tableWidgetProperties">
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
           <property name="selectionMode">
            <enum>QAbstractItemView::SingleSelection</enum>
           </property>
@@ -391,11 +401,25 @@ p, li { white-space: pre-wrap; }
              <bool>false</bool>
             </property>
             <property name="text">
-             <string>&amp;Apply</string>
+             <string>&amp;Modify</string>
             </property>
             <property name="icon">
              <iconset resource="mesressources.qrc">
               <normaloff>:/images/dialog-ok-apply.png</normaloff>:/images/dialog-ok-apply.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonDeleteProperty">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>&amp;Delete</string>
+            </property>
+            <property name="icon">
+             <iconset resource="mesressources.qrc">
+              <normaloff>:/images/remove</normaloff>:/images/remove</iconset>
             </property>
            </widget>
           </item>
@@ -427,6 +451,9 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="text">
     <string>&amp;Quit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+Q</string>
    </property>
   </action>
   <action name="action_Add_Entity">
@@ -482,6 +509,9 @@ p, li { white-space: pre-wrap; }
    <property name="toolTip">
     <string>use this tool to move and select Objects</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+M</string>
+   </property>
   </action>
   <action name="actionLink">
    <property name="icon">
@@ -494,17 +524,23 @@ p, li { white-space: pre-wrap; }
    <property name="toolTip">
     <string>use this tool to link objects</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
   </action>
-  <action name="actionSave">
+  <action name="actionSaveAs">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="mesressources.qrc">
-     <normaloff>:/images/save</normaloff>:/images/save</iconset>
+     <normaloff>:/images/saveas</normaloff>:/images/saveas</iconset>
    </property>
    <property name="text">
-    <string>&amp;Save</string>
+    <string>save &amp;As</string>
    </property>
    <property name="toolTip">
-    <string>Save actual work</string>
+    <string>Save actual work in a new file</string>
    </property>
   </action>
   <action name="action_Open">
@@ -517,6 +553,9 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="toolTip">
     <string>Open a  file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
    </property>
   </action>
   <action name="action_sql">
@@ -538,6 +577,9 @@ p, li { white-space: pre-wrap; }
    <property name="text">
     <string>zoom+</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl++</string>
+   </property>
   </action>
   <action name="actionZoom_2">
    <property name="icon">
@@ -546,6 +588,9 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="text">
     <string>zoom-</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+-</string>
    </property>
   </action>
   <action name="actionZoom_Best">
@@ -558,6 +603,9 @@ p, li { white-space: pre-wrap; }
    </property>
    <property name="toolTip">
     <string>Adapt display to content</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
    </property>
   </action>
   <action name="action_About">
@@ -576,10 +624,49 @@ p, li { white-space: pre-wrap; }
      <normaloff>:/images/fileNew</normaloff>:/images/fileNew</iconset>
    </property>
    <property name="text">
-    <string>New Document</string>
+    <string>&amp;New Document</string>
    </property>
    <property name="statusTip">
     <string>to create a new document</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="mesressources.qrc">
+     <normaloff>:/images/save</normaloff>:/images/save</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="action_Imprimer">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="mesressources.qrc">
+     <normaloff>:/images/printer.png</normaloff>:/images/printer.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Print</string>
+   </property>
+  </action>
+  <action name="action_Export">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="mesressources.qrc">
+     <normaloff>:/images/export-to-image.png</normaloff>:/images/export-to-image.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Export</string>
    </property>
   </action>
  </widget>
