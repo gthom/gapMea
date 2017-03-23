@@ -189,7 +189,7 @@ Lien::Lien(Entite* pt1,Entite* pt2,QGraphicsItem * parent,QString typ, QString r
         //reflexive  (df)
         //???
     }
-    QGraphicsItemGroup::setFlags(ItemIsSelectable);
+    //QGraphicsItemGroup::setFlags(ItemIsSelectable);
 }//fin du constructeur de lien
 
 /**
@@ -503,4 +503,36 @@ bool Lien::estRelieA(Lien* autreLien)
 {
     qDebug()<<"bool Lien::estRelieA(Lien* autreLien)";
     return ((autreLien->t1==t1) or (autreLien->t1==t2) or (autreLien->t2==t1) or (autreLien->t2==t2));
+}
+QPainterPath Lien::shape()const
+{
+    QPainterPath path;
+    QPointF p1a,p1b,p2a,p2b;
+    int delta;
+    if(leRond!=NULL)
+    {
+      delta=leRond->rect().width()/2;
+    }
+    else
+        delta=2;
+    //premiere partie
+    QLineF l1=this->line->line().normalVector();
+    l1.setLength(delta);
+    p1a=l1.p2();
+    //je le fait pivoter de 180 degres
+    l1.setAngle(l1.angle()+180);
+    p1b=l1.p2();
+    //deuxieme partie
+    QLineF ligneInverse=QLineF(line->line().p2(),line->line().p1());
+    QLineF l2=ligneInverse.normalVector();
+    l2.setLength(delta);
+    p2a=l2.p2();
+    //je le fait pivoter de 180 degres
+    l2.setAngle(l2.angle()+180);
+    p2b=l2.p2();
+
+    QVector<QPointF>vectPoints;
+    vectPoints<<p1a<<p1b<<p2b<<p2a;
+    path.addPolygon(QPolygonF(vectPoints));
+    return path;
 }

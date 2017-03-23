@@ -40,12 +40,14 @@ QCustomGraphicsScene::QCustomGraphicsScene(QWidget * parent):QGraphicsScene(pare
 void QCustomGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
 {
     qDebug("void QCustomGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)");
+    /*if (mouseEvent->button() == Qt::LeftButton
+        && (itemAt(mouseEvent->scenePos(),QTransform())!=NULL))*/
     if (mouseEvent->button() == Qt::LeftButton
-        && (itemAt(mouseEvent->scenePos(),QTransform())!=NULL))
+        && (itemAt(mouseEvent->scenePos(),this->views()[0]->transform())!=NULL))
     {
         //trouver l'objet à la position:
 
-        QGraphicsItem * elt=itemAt(mouseEvent->scenePos(),QTransform());
+        QGraphicsItem * elt=itemAt(mouseEvent->scenePos(),this->views()[0]->transform());
         elt->setSelected(!elt->isSelected());
         if(elt!=NULL)
         {

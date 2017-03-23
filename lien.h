@@ -144,5 +144,6 @@ public:
     void ajouteElementsAuGroupe();
     bool reflexif;
     void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
+    QPainterPath shape() const;
 };
 #endif // LIEN_H
