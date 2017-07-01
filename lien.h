@@ -60,12 +60,12 @@ public:
     QGraphicsLineItem * lignePointillee;
     /**
      * @brief t1
-     *first object table1
+     *first linked object table1
      */
     Entite* t1;
     /**
      * @brief t2
-     *second object table2
+     *second linked object table2
      */
     Entite* t2;
     /**
@@ -87,6 +87,7 @@ public:
     /**
      * @brief texteDuRole
      *  example: chief
+     *   necessary when there are several links between two objects
      */
     QString texteDuRole;//idem ci-dessus
     ~Lien();
@@ -127,7 +128,7 @@ public:
     /**
      * @brief contextMenuEvent
      * @param event
-     * show context Menu
+     * show link context Menu
      */
     void contextMenuEvent(QGraphicsSceneMouseEvent *event);//menu contextuel du lien
     /**
@@ -141,9 +142,18 @@ public:
      * calcule les coordonnées et les met à jour
      */
     void calculeCoordonnees();
+    /**
+     * @brief ajouteElementsAuGroupe
+     * this procedure add different items to the link
+     * line, laFleche, leRond etc...
+     */
     void ajouteElementsAuGroupe();
     bool reflexif;
-    void paint(QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget);
+    /**
+     * @brief shape
+     * used for selection and for itemAt
+     * @return the smallest polygon wich contains the link
+     */
     QPainterPath shape() const;
 };
 #endif // LIEN_H

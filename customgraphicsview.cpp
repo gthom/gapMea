@@ -30,48 +30,55 @@
 
 
 void customGraphicsView::dragEnterEvent(QDragEnterEvent *event)
- {
+{
     qDebug("void :customGraphicsView:dragEnterEvent(QDragEnterEvent *event)");
-    if(event->source()->objectName()=="listWidgetTables")
+    if(event->source()) //source interne à l'application
     {
-        event->accept();
-    }
-    else
-    {
-
-        qDebug()<<"mime"<<event->mimeData()->text();
-        qDebug()<<"position"<<event->pos();
-        QPointF lePointMapp=this->mapToScene(event->pos());
-        QPoint  lePointMappe=lePointMapp.toPoint();
-        qDebug()<<"Voici le point mappé:"<<lePointMappe;
-        //jointures acceptées entre deux tables
-        qDebug()<<"this.item at event->pos():"<<this->itemAt(lePointMappe)->data(32).toString();
-        qDebug()<<"scene.item at event->pos():"<<this->scene()->itemAt(lePointMappe,QTransform())->data(32).toString();
-
-        if (this->scene()->itemAt(lePointMappe,QTransform())->data(32).toString()=="Table")
+        if(event->source()->objectName()=="listWidgetTables")
         {
             event->accept();
-            qDebug("drag accepté");
-            //setCursor(QCursor(Qt::PointingHandCursor));
         }
         else
         {
-            //si c'est un champ et que l'origine est une valeur de la grille des résultats alors on l'accepte
-            if(this->scene()->itemAt(lePointMappe,QTransform())->data(32).toString()=="Field")
+
+            qDebug()<<"mime"<<event->mimeData()->text();
+            qDebug()<<"position"<<event->pos();
+            QPointF lePointMapp=this->mapToScene(event->pos());
+            QPoint  lePointMappe=lePointMapp.toPoint();
+            qDebug()<<"Voici le point mappé:"<<lePointMappe;
+            //jointures acceptées entre deux tables
+            qDebug()<<"this.item at event->pos():"<<this->itemAt(lePointMappe)->data(32).toString();
+            qDebug()<<"scene.item at event->pos():"<<this->scene()->itemAt(lePointMappe,QTransform())->data(32).toString();
+
+            if (this->scene()->itemAt(lePointMappe,QTransform())->data(32).toString()=="Table")
             {
-                qDebug()<<"dragEnterEvent c'est un champ";
                 event->accept();
+                qDebug("drag accepté");
                 //setCursor(QCursor(Qt::PointingHandCursor));
             }
             else
             {
-                QGraphicsView::dragEnterEvent(event);
-                qDebug()<<this->scene()->itemAt(lePointMappe,QTransform())->data(32).toString();
+                //si c'est un champ et que l'origine est une valeur de la grille des résultats alors on l'accepte
+                if(this->scene()->itemAt(lePointMappe,QTransform())->data(32).toString()=="Field")
+                {
+                    qDebug()<<"dragEnterEvent c'est un champ";
+                    event->accept();
+                    //setCursor(QCursor(Qt::PointingHandCursor));
+                }
+                else
+                {
+                    QGraphicsView::dragEnterEvent(event);
+                    qDebug()<<this->scene()->itemAt(lePointMappe,QTransform())->data(32).toString();
 
+                }
             }
-        }
-    }//fin du sinon
- }
+        }//fin du sinon
+    }//fin du si source interne à l'applic
+    else
+    {
+        event->ignore();
+    }
+}
 void customGraphicsView::dragMoveEvent(QDragMoveEvent *event)
  {
     qDebug()<<"customGraphicsView::dragMoveEvent(QDragMoveEvent *event)";

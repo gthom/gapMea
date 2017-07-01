@@ -40,19 +40,22 @@ QCustomGraphicsScene::QCustomGraphicsScene(QWidget * parent):QGraphicsScene(pare
 void QCustomGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
 {
     qDebug("void QCustomGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)");
-    /*if (mouseEvent->button() == Qt::LeftButton
-        && (itemAt(mouseEvent->scenePos(),QTransform())!=NULL))*/
-    if (mouseEvent->button() == Qt::LeftButton
+    /* when mouse left button is pressed and then is an object at mouse pos
+     * we have to select the object
+     * */
+       if (mouseEvent->button() == Qt::LeftButton
         && (itemAt(mouseEvent->scenePos(),this->views()[0]->transform())!=NULL))
     {
         //trouver l'objet à la position:
 
         QGraphicsItem * elt=itemAt(mouseEvent->scenePos(),this->views()[0]->transform());
+        //select or unselect that is the question
         elt->setSelected(!elt->isSelected());
+        //sombody there?
         if(elt!=NULL)
         {
             //si c'est une table
-            qDebug()<<"youou"<<elt->data(32);
+            qDebug()<<"this is a table:"<<elt->data(32);
             bool onACliqueSurUneEntiteOuUnChamp=false;
             if(elt->data(32)=="Table")
             {
@@ -103,7 +106,7 @@ void QCustomGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
             }//fin du si c'est un champ
         }//fin du outil choisi drag
     }
-    else//bouton droit
+    else//bouton droit right button we have to show object's context menu
     {
         qDebug()<<"bouton droit";
         if (mouseEvent->button() == Qt::RightButton)
@@ -125,7 +128,6 @@ void QCustomGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
                     //ajout des actions du menu:
                     QAction* printModel=menuContextuelDeRien.addAction(tr("Print"));
                     QAction* exportModel=menuContextuelDeRien.addAction(tr("Export to png"));
-
                     MainWindow* maman=(MainWindow*)parent();
                     QAction * actionChoisie=menuContextuelDeRien.exec(mouseEvent->screenPos());
                     if(actionChoisie==printModel)
@@ -149,7 +151,9 @@ void QCustomGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
                     {
                         //exportation au format png
                         maman->statusBar()->showMessage(tr("Exporting document to png"),2000);
+                        //if filename is something.mea it become something.png
                         QString fichierOuvert=maman->getOpenedFileName().replace(".mea",".png");
+                        //in which file do we have to save document?
                         QString nomFichier=QFileDialog::getSaveFileName(maman,tr("Export mea file"),fichierOuvert,tr("Image Files (*.png)"));
                         //sauver dans une image
                         QFileInfo fi(nomFichier);
@@ -164,7 +168,7 @@ void QCustomGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
                         }
                         else
                         {
-                            maman->statusBar()->showMessage(tr("Export failed check your filesystem"),2000);
+                            maman->statusBar()->showMessage(tr("Export failed Please check your filesystem."),2000);
                         }
                     }
                 }

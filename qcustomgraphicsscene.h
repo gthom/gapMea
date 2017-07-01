@@ -29,6 +29,11 @@ class QCustomGraphicsScene : public QGraphicsScene
 {
     Q_OBJECT
 public:
+    /**
+     * @brief QCustomGraphicsScene
+     * constructor
+     * @param parent
+     */
     QCustomGraphicsScene(QWidget *);
     /**
      * @brief mousePressEvent
@@ -43,5 +48,4 @@ public:
      */
     QString outil;
 };
-
 #endif // QCUSTOMGRAPHICSSCENE_H

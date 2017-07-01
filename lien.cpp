@@ -218,17 +218,7 @@ void Lien::ajouteElementsAuGroupe()
     if(lignePointillee!=NULL)addToGroup(lignePointillee);
 }
 
-void Lien::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
-{
-    QGraphicsItemGroup::paint(painter,option,widget);
-    if (option->state & QStyle::State_Selected) {
-                  QPen outline;
-           outline.setColor(Qt::red);
-           outline.setWidth(2);
-           line->setPen(outline);
-       }
-       else line->setPen(QPen());
-}
+
 
 void Lien::contextMenuEvent(QGraphicsSceneMouseEvent *event)
 {
