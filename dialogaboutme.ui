@@ -30,7 +30,7 @@
       <enum>QTabWidget::Triangular</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -96,11 +96,11 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Cette section post-bac plus communément nommée BTS SIO &lt;a href=&quot;http://www.btsinfogap.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt; www.btsinfogap.org&lt;/span&gt;&lt;/a&gt; a été créée en 1984  au sein du&lt;a href=&quot;https://www.atrium-paca.fr/web/lgt-dominique-villars-050101/lycee-villars?&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt; Lycée Dominique Villars&lt;/span&gt;&lt;/a&gt;. &lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Elle permet de former en deux ans de vrais professionnels de l'informatique spécialisés soit en développement soit en réseau.&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;L'auteur enseigne:&lt;br /&gt;Les systèmes d'exploitation libres, l'administration système, la gestion de parc et d'incidents, la supervision des réseaux , la conception des réseaux et la configuration des routeurs et switchs et points d'accès WIFI, la virtualisation et les systèmes à tolérance de panne.&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mais aussi: l'analyse des données, le développement d'applications Web (PHP,javascript/ajax,Html/css), &lt;br /&gt;la programmation objet en c++ ainsi que la programmation évenementielle avec Qt, ainsi que le développement d'applications android.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mais aussi: l'analyse des données, le développement d'applications Web (PHP,javascript/ajax,Html/Css), &lt;br /&gt;la programmation objet en C++ ainsi que la programmation évenementielle avec Qt, ainsi que le développement d'applications android.&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ce logiciel  est sous licence GPL. &lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pour que ce logiciel perdure et s'améliore, merci de participer financièrement au projet.&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://PayPal.Me/GThomSoftware&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Donate via Paypal&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Visitez le site du &lt;a href=&quot;gthom.btsinfogap.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;projet gapMea&lt;/span&gt;&lt;/a&gt;.				&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Visitez le site du &lt;a href=&quot;http://gthom.btsinfogap.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;projet gapMea&lt;/span&gt;&lt;/a&gt;.				&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="openExternalLinks">
           <bool>true</bool>

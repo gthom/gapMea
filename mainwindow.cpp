@@ -915,7 +915,9 @@ void MainWindow::on_pushButtonDeleteProperty_clicked()
     if(index!=-1)
     {
         Entite* entiteConcernee=(Entite*)ui->listWidgetObjects->currentItem();
-        ui->tableWidgetProperties->removeRow(index);
+        ui->tableWidgetProperties->removeRow(index);     
+        //liberation de la propriété
+        delete entiteConcernee->vecteurChamps[index];
         //enlever la propriété du vecteur de l'entité
         entiteConcernee->vecteurChamps.remove(index);
         //vider les champs du formulaire
@@ -930,7 +932,7 @@ void MainWindow::on_pushButtonDeleteProperty_clicked()
         //on redessine l'entité
         entiteConcernee->redraw();
         setSaved(false);
-        statusBar()->showMessage(tr("Property was deleted"),2000);
+        statusBar()->showMessage(tr("Property was successfully deleted"),2000);
     }
     else
     {
