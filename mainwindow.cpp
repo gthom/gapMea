@@ -208,13 +208,17 @@ void MainWindow::editProperty(Property* laPropriete)
    ui->comboBoxPropertyType->setCurrentText(laPropriete->sonType);
    ui->lineEditPropertyName->setFocus();
 }
+bool MainWindow::alreadyAsObject(QString objectName)
+{
+    return ui->listWidgetObjects->findItems(objectName,Qt::MatchExactly).count()>0;
+}
 
 void MainWindow::on_pushButtonAddObject_clicked()
 {
     //ajout de l'objet à la liste
     QString leNom=ui->lineEditObjectName->text();
     //s'il n'est pas vide et qu'il n'existe pas déjà
-    if(leNom!="" && !ui->listWidgetObjects->findItems(leNom,Qt::MatchExactly).count()>0 )
+    if(leNom!="" && !alreadyAsObject(leNom) )
     {
         on_action_Add_Entity_triggered();
         setSaved(false);
@@ -464,7 +468,7 @@ void MainWindow::jointure(Entite* t1,Entite* t2)
 {
     qDebug()<<"void MainWindow::jointure(Entite* t1,Entite* t2)";
     //j'affiche une boite de dialogue pour saisir le type de jointure
-    DialogTypeJointure dtj;
+    DialogTypeJointure dtj(this);
     //si t1=t2 df ou assoc enlever la CIF la patte et l'entité faible
     if(t1==t2)
     {

@@ -19,6 +19,7 @@
 #include "ui_dialogtypejointure.h"
 #include <QDebug>
 #include <QDesktopServices>
+#include "mainwindow.h"
 #define RELATION "Relation"
 
 DialogTypeJointure::DialogTypeJointure(QWidget *parent) :
@@ -48,7 +49,7 @@ void DialogTypeJointure::changeEvent(QEvent *e)
 }
 void DialogTypeJointure::onLineEditNomRelationChanged(QString arg1)
 {
-    m_ui->pushButtonOk->setEnabled(!arg1.isEmpty());
+    m_ui->pushButtonOk->setEnabled(!arg1.isEmpty()&& !((MainWindow*) parent())->alreadyAsObject(arg1));
 }
 
 void DialogTypeJointure::on_comboBoxType_activated(const QString &arg1)

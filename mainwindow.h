@@ -99,6 +99,7 @@ public:
     void effaceTout();
     void renameEntity(Entite *lEntite);
 public slots:
+    bool alreadyAsObject(QString objectName);
     /**
      * @brief tableSupprimer
      * @param laTableASupprimer
