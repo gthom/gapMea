@@ -51,12 +51,25 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Cette section post-bac plus communément nommée BTS SIO &lt;a href=&quot;http://www.btsinfogap.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt; www.btsinfogap.org&lt;/span&gt;&lt;/a&gt; a été créée en 1984  au sein du&lt;a href=&quot;https://www.atrium-paca.fr/web/lgt-dominique-villars-050101/lycee-villars?&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt; Lycée Dominique Villars&lt;/span&gt;&lt;/a&gt;. &lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Elle permet de former en deux ans de vrais professionnels de l&apos;informatique spécialisés soit en développement soit en réseau.&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;L&apos;auteur enseigne:&lt;br /&gt;Les systèmes d&apos;exploitation libres, l&apos;administration système, la gestion de parc et d&apos;incidents, la supervision des réseaux , la conception des réseaux et la configuration des routeurs et switchs et points d&apos;accès WIFI, la virtualisation et les systèmes à tolérance de panne.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mais aussi: l&apos;analyse des données, le développement d&apos;applications Web (PHP,javascript/ajax,Html/Css), &lt;br /&gt;la programmation objet en C++ ainsi que la programmation évenementielle avec Qt, ainsi que le développement d&apos;applications android.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ce logiciel  est sous licence GPL. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pour que ce logiciel perdure et s&apos;améliore, merci de participer financièrement au projet.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://PayPal.Me/GThomSoftware&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Donate via Paypal&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Visitez le site du &lt;a href=&quot;http://gthom.btsinfogap.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;projet gapMea&lt;/span&gt;&lt;/a&gt;.				&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <oldsource>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;L&apos;auteur est &lt;span style=&quot; font-weight:600;&quot;&gt;professeur d&apos;informatique&lt;/span&gt; depuis 1991 en Section de Technicien Supérieur &amp;quot;Services Informatiques aux Organisations&amp;quot;.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Cette section post-bac plus communément nommée BTS SIO &lt;a href=&quot;http://www.btsinfogap.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt; www.btsinfogap.org&lt;/span&gt;&lt;/a&gt; a été créée en 1984  au sein du&lt;a href=&quot;https://www.atrium-paca.fr/web/lgt-dominique-villars-050101/lycee-villars?&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt; Lycée Dominique Villars&lt;/span&gt;&lt;/a&gt;. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Elle permet de former en deux ans de vrais professionnels de l&apos;informatique spécialisés soit en développement soit en réseau.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;L&apos;auteur enseigne:&lt;br /&gt;Les systèmes d&apos;exploitation libres, l&apos;administration système, la gestion de parc et d&apos;incidents, la supervision des réseaux , la conception des réseaux et la configuration des routeurs et switchs et points d&apos;accès WIFI, la virtualisation et les systèmes à tolérance de panne.&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mais aussi: l&apos;analyse des données, le développement d&apos;applications Web (PHP,javascript/ajax,Html/css), &lt;br /&gt;la programmation objet en c++ ainsi que la programmation évenementielle avec Qt, ainsi que le développement d&apos;applications android.&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Ce logiciel  est sous licence GPL. &lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Pour que ce logiciel perdure et s&apos;améliore, merci de participer financièrement au projet.&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://PayPal.Me/GThomSoftware&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Donate via Paypal&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Visitez le site du &lt;a href=&quot;gthom.btsinfogap.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;projet gapMea&lt;/span&gt;&lt;/a&gt;.				&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Visitez le site du &lt;a href=&quot;gthom.btsinfogap.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;projet gapMea&lt;/span&gt;&lt;/a&gt;.				&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</oldsource>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="dialogaboutme.ui" line="137"/>
@@ -100,7 +113,8 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="dialogtypejointure.ui" line="56"/>
-        <source>Leak Relation</source>
+        <source>LeakRelation</source>
+        <oldsource>Leak Relation</oldsource>
         <extracomment>Entité faible</extracomment>
         <translation>Entité faible</translation>
     </message>
@@ -196,8 +210,8 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="mainwindow.ui" line="219"/>
-        <location filename="mainwindow.cpp" line="252"/>
-        <location filename="mainwindow.cpp" line="834"/>
+        <location filename="mainwindow.cpp" line="255"/>
+        <location filename="mainwindow.cpp" line="837"/>
         <source>Properties</source>
         <translation>Propriétés</translation>
     </message>
@@ -491,219 +505,221 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="mainwindow.cpp" line="85"/>
-        <location filename="mainwindow.cpp" line="773"/>
+        <location filename="mainwindow.cpp" line="776"/>
         <source>New_Model.mea</source>
         <translation>New_Model.mea</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="87"/>
+        <location filename="mainwindow.cpp" line="90"/>
         <source>Welcome in database design World</source>
         <translation>Bienvenue dans la conception de base de données</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="123"/>
+        <location filename="mainwindow.cpp" line="126"/>
         <source>Do you really want to quit gapMea?</source>
         <translation>Voulez-vous vraiment quitter l&apos;application?</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="127"/>
+        <location filename="mainwindow.cpp" line="130"/>
         <source>Your work is not saved, Are you sure ?</source>
         <translation>Votre travail n&apos;est pas enregistré ,, Poursuivre tout de même ?</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="221"/>
+        <location filename="mainwindow.cpp" line="224"/>
         <source>Sorry but Object already exists</source>
         <translation>Désolé l&apos;objet existe déjà</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="284"/>
-        <location filename="mainwindow.cpp" line="288"/>
-        <location filename="mainwindow.cpp" line="292"/>
-        <location filename="mainwindow.cpp" line="332"/>
-        <location filename="mainwindow.cpp" line="336"/>
-        <location filename="mainwindow.cpp" line="340"/>
+        <location filename="mainwindow.cpp" line="287"/>
+        <location filename="mainwindow.cpp" line="291"/>
+        <location filename="mainwindow.cpp" line="295"/>
+        <location filename="mainwindow.cpp" line="335"/>
+        <location filename="mainwindow.cpp" line="339"/>
+        <location filename="mainwindow.cpp" line="343"/>
         <source>Add property</source>
         <translation>Ajouter propriété</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="284"/>
-        <location filename="mainwindow.cpp" line="332"/>
+        <location filename="mainwindow.cpp" line="287"/>
+        <location filename="mainwindow.cpp" line="335"/>
         <source>VARCHAR must have a size</source>
         <translation>un VARCHAR doit avoir une taille</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="288"/>
-        <location filename="mainwindow.cpp" line="336"/>
+        <location filename="mainwindow.cpp" line="291"/>
+        <location filename="mainwindow.cpp" line="339"/>
         <source>BLOB must have a size</source>
         <translation>un Blob doit avoir une taille</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="292"/>
-        <location filename="mainwindow.cpp" line="340"/>
+        <location filename="mainwindow.cpp" line="295"/>
+        <location filename="mainwindow.cpp" line="343"/>
         <source>NUMERIC must have a size</source>
         <translation>Un NUMERIC doit avoir une taille ex 12 ou 10,2</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="312"/>
-        <location filename="mainwindow.cpp" line="363"/>
-        <location filename="mainwindow.cpp" line="937"/>
+        <location filename="mainwindow.cpp" line="315"/>
+        <location filename="mainwindow.cpp" line="366"/>
+        <location filename="mainwindow.cpp" line="942"/>
         <source>Please select an object first</source>
         <translation>Il faut d&apos;abord sélectionner un objet</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="396"/>
+        <location filename="mainwindow.cpp" line="399"/>
         <source>Select an object first</source>
         <translation>Sélectionnez un objet avant</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="401"/>
+        <location filename="mainwindow.cpp" line="404"/>
         <source>Do you confirm deleting Object:</source>
         <translation>Confirmez-vous la suppression de l&apos;objet:</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="546"/>
+        <location filename="mainwindow.cpp" line="938"/>
+        <source>Property was successfully deleted</source>
+        <translation>la propriété a été supprimée</translation>
+    </message>
+    <message>
         <source>Error occured while saving
  Please check your filesystem.</source>
-        <translation>Une erreur est apparue lors de la sauvegarde
+        <translation type="vanished">Une erreur est apparue lors de la sauvegarde
 Vérifiez votre système de fichier</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="648"/>
         <source>Your model may contain error
  You can try to correct problem or to force generation
 Do you want to force SQL generation?</source>
-        <translation>Votre modèle contient des erreurs
+        <translation type="vanished">Votre modèle contient des erreurs
 Vous pouvez soit corriger les erreurs soit forcer la génération
 Voulez-vous forcer la génération du code SQL?</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="766"/>
+        <location filename="mainwindow.cpp" line="769"/>
         <source>Your model is not saved, do you want to save it before ?</source>
         <translation>Votre modèle n&apos;est pas enregistré, souhaitez-vous l&apos;enregistrer ?</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="856"/>
-        <location filename="mainwindow.cpp" line="876"/>
+        <location filename="mainwindow.cpp" line="859"/>
+        <location filename="mainwindow.cpp" line="879"/>
         <source>Rename Object</source>
         <translation>Renommer l&apos;objet</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="857"/>
+        <location filename="mainwindow.cpp" line="860"/>
         <source>Object name:</source>
         <translation>Nom de l&apos;objet:</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="872"/>
+        <location filename="mainwindow.cpp" line="875"/>
         <source>Error object name cannot be empty</source>
         <translation>Erreur le nom de l&apos;objet ne peut être vide</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="873"/>
+        <location filename="mainwindow.cpp" line="876"/>
         <source>An object with this name already exists</source>
         <translation>Un objet portant ce nom existe déjà</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="887"/>
+        <location filename="mainwindow.cpp" line="890"/>
         <source>Save xmea file</source>
         <translation>Sauver fichier xmea</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="933"/>
         <source>Property was deleted</source>
-        <translation>La propriété a été supprimée</translation>
+        <translation type="vanished">La propriété a été supprimée</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="944"/>
+        <location filename="mainwindow.cpp" line="949"/>
         <source>Exporting document to png</source>
         <translation>Exportation au format .png en cours</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="946"/>
+        <location filename="mainwindow.cpp" line="951"/>
         <source>Export mea file</source>
         <translation>Export du fichier mea</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="946"/>
+        <location filename="mainwindow.cpp" line="951"/>
         <source>Image Files (*.png)</source>
         <translation>Fichiers images (*.png)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="955"/>
+        <location filename="mainwindow.cpp" line="960"/>
         <source>File was succesfully exported.</source>
         <translation>Le fichier a été exporté.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="960"/>
+        <location filename="mainwindow.cpp" line="965"/>
         <source>Export failed check your filesystem</source>
         <translation>L&apos;export a échoué vérifiez votre sytème de fichier</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="967"/>
+        <location filename="mainwindow.cpp" line="972"/>
         <source>Printing document</source>
         <translation>Modèle en cours d&apos;impression</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="978"/>
+        <location filename="mainwindow.cpp" line="983"/>
         <source>Print canceled</source>
         <translation>Impression annulée</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="557"/>
-        <location filename="mainwindow.cpp" line="887"/>
+        <location filename="mainwindow.cpp" line="560"/>
+        <location filename="mainwindow.cpp" line="890"/>
         <source>MEA Files (*.mea *.xml)</source>
         <translation>fichiers MEA (*.mea *.xml)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="535"/>
-        <location filename="mainwindow.cpp" line="895"/>
+        <location filename="mainwindow.cpp" line="538"/>
+        <location filename="mainwindow.cpp" line="898"/>
         <source>Error occured saving file</source>
         <translation>Erreur lors de la sauvegarde</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="538"/>
-        <location filename="mainwindow.cpp" line="898"/>
+        <location filename="mainwindow.cpp" line="541"/>
+        <location filename="mainwindow.cpp" line="901"/>
         <source>File was succesfully saved.</source>
         <translation>Le fichier a bien été enregistré.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="907"/>
+        <location filename="mainwindow.cpp" line="910"/>
         <source>Saving is aborted</source>
         <translation>La sauvegarde est annulée</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="555"/>
+        <location filename="mainwindow.cpp" line="558"/>
         <source>Open MEA File</source>
         <translation>Ouvrir fichier MEA</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="565"/>
+        <location filename="mainwindow.cpp" line="568"/>
         <source>Cannot read file %1:
 %2.</source>
         <translation>Impossible de lire le fichier %1:
 %2.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="573"/>
+        <location filename="mainwindow.cpp" line="576"/>
         <source>File loaded</source>
         <translation>Le fichier est chargé</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="593"/>
+        <location filename="mainwindow.cpp" line="596"/>
         <source>Error reading File</source>
         <translation>Erreur à la lecture du fichier</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="644"/>
+        <location filename="mainwindow.cpp" line="647"/>
         <source>Loop was detected please correct problem first</source>
         <translation>Un circuit de dépendance a été détecté. Corrigez le problème</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="647"/>
+        <location filename="mainwindow.cpp" line="650"/>
         <source>A loop as been detected while trying to generate SQL</source>
         <translation>Une boucle de dépendance a été détectée lors de la génération du code SQL</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="681"/>
+        <location filename="mainwindow.cpp" line="684"/>
         <source>SQL was successfully generated.</source>
         <translation>Le code SQl a été généré.</translation>
     </message>

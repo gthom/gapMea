@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>227</width>
+    <width>246</width>
     <height>97</height>
    </rect>
   </property>
@@ -53,10 +53,10 @@
        </item>
        <item>
         <property name="text">
-         <string extracomment="Entité faible">Leak Relation</string>
+         <string extracomment="Entité faible">LeakRelation</string>
         </property>
         <property name="icon">
-         <iconset resource="mesressources.qrc">
+         <iconset>
           <normaloff>:/images/leakRelation.png</normaloff>:/images/leakRelation.png</iconset>
         </property>
        </item>

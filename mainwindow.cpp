@@ -84,6 +84,9 @@ MainWindow::MainWindow(QWidget *parent) :
       connect(ui->comboBoxPropertyType,SIGNAL(currentTextChanged(QString)),this,SLOT(activeDesactiveInputTaille()));
      setFileName(tr("New_Model.mea"));
      setSaved(true);
+     ui->actionSaveAs->setEnabled(true);
+     ui->action_Imprimer->setEnabled(true);
+     ui->action_Export->setEnabled(true);
      ui->statusBar->showMessage(tr("Welcome in database design World"));
 }
 void MainWindow::effaceTout()

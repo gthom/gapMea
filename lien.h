@@ -26,7 +26,7 @@
 #include "types.h"
 
 /*Mes constantes*/
-#define LEAKRELATION "Leak Relation"
+#define LEAKRELATION "LeakRelation"
 #define ENTITY "Entity"
 #define CIF "Cif"
 #define RELATION "Relation"
