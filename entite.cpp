@@ -29,6 +29,7 @@
 #include "lien.h"
 #include "association.h"
 #include "lienreflexif.h"
+#include <QMessageBox>
 
 
 //short declarations
@@ -567,17 +568,46 @@ QString Entite::toSql(bool withoutFK)
     QString nomTable="#29a329";
     QString nomChamp="#39b339";
     QString tailleChamp="#97812d";
+    //contient la listeDesChamps pour assurer l'unicité
+    QStringList defChampSansHtml;
 
     resultat="<font color=\""+motReserve+"\">CREATE TABLE</font> <font color=\""+nomTable+"\">`"+getNomEntite()+"`</font>(";
     //demander à chaque champ de l'entité de s'écrire ici
-    QStringList defChamp;
-    foreach (Property* leChamp, vecteurChamps) {
-        defs<<leChamp->toSql();
-    }
+
+    foreach (Property* leChamp, vecteurChamps)
+    {
+        if(!defChampSansHtml.contains(leChamp->nom))
+        {
+          defs<<leChamp->toSql();
+          defChampSansHtml<<leChamp->nom;
+        }
+        else
+        {
+            QMessageBox::warning(0,"GapMea",QObject::tr("The field: ")+leChamp->nom+QObject::tr(" is twice in ")+getNomEntite()+QObject::tr("\r\n Please remove one."),QMessageBox::Ok,QMessageBox::Ok);
+            return QObject::tr("Sorry but object ")+getNomEntite()+QObject::tr(" cannot be generated");
+        }
+    }//fin du foreach
 
     //les champs étrangers
-    ;
-    defs.append(renvoieChampsEtrangers());
+    QStringList champsEtrangers=renvoieChampsEtrangers();
+    for(int noChampEtranger=0;noChampEtranger<champsEtrangers.count();noChampEtranger++)
+    {
+        qDebug()<<"Recherche de";
+        qDebug()<<champsEtrangers.at(noChampEtranger).split(" NOT NULL")[0].split(" ")[0].replace("`","");
+        qDebug()<<"dans:";
+        qDebug()<<defChampSansHtml;
+
+        if(defChampSansHtml.contains(champsEtrangers.at(noChampEtranger).split(" NOT NULL")[0].split(" ")[0].replace("`","")))
+        {
+            QMessageBox::warning(0,"GapMea",QObject::tr("You should not have the field: ")+champsEtrangers.at(noChampEtranger).split(" ")[0]+QObject::tr(" in ")+getNomEntite(),QMessageBox::Ok,QMessageBox::Ok);
+            return QObject::tr("<font color=\"red\">Error in object  <b>")+getNomEntite()+QObject::tr("</b>\r\n</font> You should remove foreign property from this object.");
+        }
+        else
+        {
+            defs.append(champsEtrangers.at(noChampEtranger));
+        }
+    }
+
 
     //les clés étrangères
 
