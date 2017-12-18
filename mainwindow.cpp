@@ -479,11 +479,18 @@ void MainWindow::jointure(Entite* t1,Entite* t2)
     //puis je trouve les deux tables dans le vecteur et ajoute le lien dans la table des liens
     if(dtj.exec())
     {
-        QString typ=dtj.m_ui->comboBoxType->currentText();
-        //reprise de l'anglais au moins pour les pattes
-        if(typ==QObject::tr(LEG)) typ=LEG;
-        if(typ==QObject::tr(LEAKRELATION)) typ=LEAKRELATION;
-        if(typ==QObject::tr(RELATION)) typ=RELATION;
+        int typJointure=dtj.m_ui->comboBoxType->currentIndex();
+        QString typ;
+        switch(typJointure)
+        {
+          case 0: typ="Cif"; break;
+          case 1: typ="Df";break;
+          case 2: typ=LEG;break;
+          case 3: typ=LEAKRELATION;break;
+          case 4: typ=RELATION;break;
+        }
+
+
         QString relationName=dtj.m_ui->lineEditRelationName->text();
         if(t1!=t2 || typ==RELATION)
         {         
