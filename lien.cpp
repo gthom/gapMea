@@ -42,6 +42,10 @@ Lien::~Lien()
         if(monIndexDansLaMW!=-1) t1->maman->vectLiens.remove(monIndexDansLaMW,1);
     }
     //les pointeurs instanciés par le constructeur sont automatiquement libérés car le parent des différents éléments est "this"
+    // EDIT -> hm ils sont certes libérés, mais justement, il faut mettre les pointeurs à 0.. (Crash sinon avec refreshColors)
+    // TODO: mettre tout les pointers à 0.
+    leTexteDuRond = nullptr;
+    leRond = nullptr;
 }
 
 Lien::Lien(Entite* pt1,Entite* pt2,QGraphicsItem * parent,QString typ, QString relationName, QString pRole):QGraphicsItemGroup(parent)
@@ -529,6 +533,8 @@ QPainterPath Lien::shape()const
 
 void Lien::refreshColors()
 {
-    leTexteDuRond->setDefaultTextColor(config->getLinkTextColor());
-    leRond->setBrush(QBrush(config->getLinkBackgroundColor()));
+    if (leTexteDuRond)
+        leTexteDuRond->setDefaultTextColor(config->getLinkTextColor());
+    if (leRond)
+        leRond->setBrush(QBrush(config->getLinkBackgroundColor()));
 }

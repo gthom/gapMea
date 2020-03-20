@@ -216,6 +216,8 @@ LienReflexif::~LienReflexif()
 void LienReflexif::refreshColors()
 {
     Lien::refreshColors();
-    leTexteDuRond->setDefaultTextColor(config->getLinkTextColor());
-    leRond->setBrush(QBrush(config->getLinkBackgroundColor()));
+    if (leTexteDuRond)
+        leTexteDuRond->setDefaultTextColor(config->getLinkTextColor());
+    if (leRond)
+        leRond->setBrush(QBrush(config->getLinkBackgroundColor()));
 }
