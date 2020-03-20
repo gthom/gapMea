@@ -54,6 +54,10 @@ class EntityColor
      * @param titleBackground
      */
     void setTitleBackground( const QColor& titleBackground );
+    /**
+     * @brief background
+     * @return
+     */
     QColor background() const;
     /**
      * @brief setBackground

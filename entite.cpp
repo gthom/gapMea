@@ -542,7 +542,7 @@ QString Entite::getPrimaryKeyAsFields()
 QString Entite::getkeyAsForeignKey(QString role)
 {
     qDebug()<<"QString Entite::getkeyAsForeignKey(QString role)"<<endl;
-    QString motReserve="#ad2bee";
+    QString motReserve=config->entityColor().text().name();
     QString laChaine="<font color=\""+motReserve+"\"> foreign key </font> (";
     if(role.isEmpty())
     {
@@ -561,7 +561,7 @@ QString Entite::toSql(bool withoutFK)
     QStringList defs;
     QString resultat;
     //le début de  la requête
-    QString motReserve="#ad2bee";
+    QString motReserve="#4961ff";
     QString nomTable="#29a329";
     //contient la listeDesChamps pour assurer l'unicité
     QStringList defChampSansHtml;

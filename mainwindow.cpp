@@ -1232,4 +1232,10 @@ void MainWindow::on_action_recharger_config_triggered()
         // Redraw all entities when config refreshed.
         lEntite->redraw();
     }
+
+    foreach ( Lien* lLien, vectLiens )
+    {
+        // Redraw all links when config refreshed.
+        lLien->refreshColors();
+    }
 }

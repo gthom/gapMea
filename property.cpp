@@ -109,9 +109,7 @@ void Property::dragMoveEvent(QGraphicsSceneDragDropEvent *event)
 QString Property::toSql()
 {
     //les couleurs
-    QString coulMotReserve="#ad2bee";
     QString coulTypeChamp="#87711d";
-    QString coulNomTable="#29a329";
     QString coulNomChamp="#39b339";
     QString coulTailleChamp="#97812d";
     QString resultat;

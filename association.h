@@ -77,5 +77,6 @@ public:
      */
     QVector <Entite*> vectEntitesAssociees();
     QVector<QPair<Entite *, QString> > vectEntitesRolesAssociees();
+    void refreshColors();
 };
 #endif // ASSOCIATION_H

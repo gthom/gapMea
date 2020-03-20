@@ -34,6 +34,7 @@ public:
     void calculeCoordonnees();
     QGraphicsLineItem  * firstLine;
     void ajouteElementsAuGroupe();
+    virtual void refreshColors() override;
     //bool reflexif;
 };
 

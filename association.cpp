@@ -60,8 +60,8 @@ void Association::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWi
     painter->drawRoundedRect(this->rect(),m_radius_x,m_radius_y);
     //essais
     QLinearGradient gradient(rect().topLeft(), rect().bottomRight()); // diagonal gradient from top-left to bottom-right
-    gradient.setColorAt(0, QColor("#FFD4A3"));
-    gradient.setColorAt(1, Qt::white);
+    gradient.setColorAt(0, config->getAssocGradientColor1());
+    gradient.setColorAt(1, config->getAssocGradientColor2());
     /* nouvel essais */
     QPainterPath roundRectPath;
 
@@ -87,8 +87,8 @@ void Association::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWi
     float y=title->boundingRect().height();
     roundRectPath.moveTo(0,y);
     roundRectPath.lineTo(rect().width(),y);
-    //painter->setBrush(gradient);//pas top à l'impression
-    painter->setBrush(QColor("#FFD4A3"));
+    painter->setBrush(gradient);//pas top à l'impression -> EDIT: mais si! Il faut juste quelques configurations.. :)
+    // painter->setBrush(QColor("#FFD4A3"));
     painter->drawPath(roundRectPath);
 
 }
@@ -124,4 +124,9 @@ QVector < QPair <Entite*,QString> > Association::vectEntitesRolesAssociees()
         }
     }
     return resultat;
+}
+
+void Association::refreshColors()
+{
+
 }

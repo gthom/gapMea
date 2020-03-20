@@ -81,7 +81,7 @@ Lien::Lien(Entite* pt1,Entite* pt2,QGraphicsItem * parent,QString typ, QString r
         //ajout du rond où est marqué cif ou df
         leRond=new QGraphicsEllipseItem();
         leRond->setData(32,"Lien");//il dit que c'est un lien
-        leRond->setBrush(QBrush(QColor("#FFD4A3")));
+        leRond->setBrush(QBrush(config->getLinkBackgroundColor()));
         //le texte (CIF ou DF)
         leTexteDuRond=new QGraphicsTextItem(leRond);
         //determination diametre du rond
@@ -95,7 +95,7 @@ Lien::Lien(Entite* pt1,Entite* pt2,QGraphicsItem * parent,QString typ, QString r
         QPoint positionTexte=boundingRect().center().toPoint();
         positionTexte.setX(positionTexte.x()-QFontMetrics(leTexteDuRond->font()).width(" CIF ")/2);
         leTexteDuRond->setPos(positionTexte);
-        leTexteDuRond->setDefaultTextColor(Qt::black);
+        leTexteDuRond->setDefaultTextColor(config->getLinkTextColor());
         //les cardinalites
         cardinalite2->setText("0,n");
         //determination de la cardinalité1
@@ -525,4 +525,10 @@ QPainterPath Lien::shape()const
     vectPoints<<p1a<<p1b<<p2b<<p2a;
     path.addPolygon(QPolygonF(vectPoints));
     return path;
+}
+
+void Lien::refreshColors()
+{
+    leTexteDuRond->setDefaultTextColor(config->getLinkTextColor());
+    leRond->setBrush(QBrush(config->getLinkBackgroundColor()));
 }

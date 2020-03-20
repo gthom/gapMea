@@ -155,5 +155,10 @@ public:
      * @return the smallest polygon wich contains the link
      */
     QPainterPath shape() const;
+    /**
+     * @brief refreshColors
+     * permits to refresh colors
+     */
+    virtual void refreshColors();
 };
 #endif // LIEN_H

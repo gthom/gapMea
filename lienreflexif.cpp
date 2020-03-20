@@ -81,7 +81,7 @@ LienReflexif::LienReflexif(Entite *qg1, Entite *qg2, QGraphicsItem *parent, QStr
         //ajout du rond où est marqué cif ou df
         leRond=new QGraphicsEllipseItem();
         leRond->setData(32,"Lien");//il dit que c'est un lien
-        leRond->setBrush(QBrush(QColor("#FFD4A3")));
+        leRond->setBrush(QBrush(QColor(config->getReflectiveLinkBackgroundColor())));
         //le texte (CIF ou DF)
         leTexteDuRond=new QGraphicsTextItem(leRond);
         //determination diametre du rond
@@ -95,7 +95,7 @@ LienReflexif::LienReflexif(Entite *qg1, Entite *qg2, QGraphicsItem *parent, QStr
         QPoint positionTexte=boundingRect().center().toPoint();
         positionTexte.setX(positionTexte.x()-QFontMetrics(leTexteDuRond->font()).width(" CIF ")/2);
         leTexteDuRond->setPos(positionTexte);
-        leTexteDuRond->setDefaultTextColor(Qt::black);
+        leTexteDuRond->setDefaultTextColor(config->getReflectiveLinkTextColor());
         //les cardinalites
         cardinalite2->setText("0,n");
         //determination de la cardinalité1
@@ -213,3 +213,9 @@ LienReflexif::~LienReflexif()
     //les pointeurs instanciés par le constructeur sont automatiquement libérés car le parent des différents éléments est "this"
 }
 
+void LienReflexif::refreshColors()
+{
+    Lien::refreshColors();
+    leTexteDuRond->setDefaultTextColor(config->getLinkTextColor());
+    leRond->setBrush(QBrush(config->getLinkBackgroundColor()));
+}
