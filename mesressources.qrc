@@ -21,6 +21,7 @@
         <file alias="remove">list-remove.png</file>
         <file>printer.png</file>
         <file>export-to-image.png</file>
+        <file>reload.png</file>
     </qresource>
     <qresource prefix="/fonts">
         <file>fonts/DejaVuSerif.ttf</file>

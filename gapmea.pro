@@ -13,6 +13,8 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
+    config.cpp \
+    entitycolor.cpp \
         mainwindow.cpp \
     lien.cpp \
     qcustomgraphicsscene.cpp \
@@ -27,6 +29,8 @@ SOURCES += main.cpp\
     lienreflexif.cpp
 
 HEADERS  += mainwindow.h \
+    config.h \
+    entitycolor.h \
     lien.h \
     customgraphicsview.h \
     qcustomgraphicsscene.h \

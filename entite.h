@@ -25,11 +25,13 @@
 #include "lien.h"
 #include "property.h"
 #include "mainwindow.h"
+#include "config.h"
 
 //short declarations
 class MainWindow;
 class Property;
 class Lien;
+
 /**
  * @brief The Entite class
  * Entity is an object we have to deal with

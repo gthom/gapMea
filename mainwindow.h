@@ -285,6 +285,7 @@ private slots:
     void on_action_Imprimer_triggered();
     void on_dockWidgetObjects_visibilityChanged(bool visible);
     void on_dockWidgetProperties_visibilityChanged(bool visible);
+    void on_action_recharger_config_triggered();
 };
 
 #endif // MAINWINDOW_H

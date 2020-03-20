@@ -99,12 +99,13 @@ void Entite::redraw()
         if (largeurDuChamp>largeur) largeur=largeurDuChamp;
     }
 
-    setBrush(QColor("#FFFFA4"));//jaune
+    setTextColor(config->entityColor().text());
+    setBrush(config->entityColor().background());
     //le titre
     if(!association)
     {
         rectTitle->setRect(0,0,largeur,QFontMetrics(title->font()).height()+10);
-        rectTitle->setBrush(QColor("#D6FF9A"));//vert
+        rectTitle->setBrush(config->entityColor().titleBackground());
         rectTitle->setPos(0,0);
     }
     //le texte du titre
@@ -205,7 +206,8 @@ association=isAssoc;
     setRect(x,y,largeurMaxi+10,200);
 
     //création du titre
-    setBrush(QColor("#FFFF00"));//jaune
+    setBrush(config->entityColor().titleBackground());
+    setTextColor(config->entityColor().text());
     title->setPos(0,0);//par rapport à son parent
     title->setTextWidth(boundingRect().width());
     title->setHtml("<center>"+nomTableTronque()+"</center>");
@@ -541,10 +543,6 @@ QString Entite::getkeyAsForeignKey(QString role)
 {
     qDebug()<<"QString Entite::getkeyAsForeignKey(QString role)"<<endl;
     QString motReserve="#ad2bee";
-    QString typeChamp="#87711d";
-    QString nomTable="#29a329";
-    QString nomChamp="#39b339";
-    QString tailleChamp="#97812d";
     QString laChaine="<font color=\""+motReserve+"\"> foreign key </font> (";
     if(role.isEmpty())
     {
@@ -564,10 +562,7 @@ QString Entite::toSql(bool withoutFK)
     QString resultat;
     //le début de  la requête
     QString motReserve="#ad2bee";
-    QString typeChamp="#87711d";
     QString nomTable="#29a329";
-    QString nomChamp="#39b339";
-    QString tailleChamp="#97812d";
     //contient la listeDesChamps pour assurer l'unicité
     QStringList defChampSansHtml;
 
