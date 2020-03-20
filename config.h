@@ -33,11 +33,11 @@ class Config
     /**
      * @brief _linkBackgroundColor
      */
-    QColor _linkBackgroundColor = "FFD4A3";
+    QColor _linkBackgroundColor = "#FFD4A3";
     /**
      * @brief _reflectiveLinkBackgroundColor
      */
-    QColor _reflectiveLinkBackgroundColor="FFD4A3";
+    QColor _reflectiveLinkBackgroundColor = "#FFD4A3";
     /**
      * @brief _reflectiveLinkTextColor
      */
@@ -96,17 +96,19 @@ class Config
      */
     static Config* singleton();
     QColor getLinkTextColor() const;
-    void setLinkTextColor(const QColor& linkTextColor);
+    void setLinkTextColor( const QColor& linkTextColor );
     QColor getLinkBackgroundColor() const;
-    void setLinkBackgroundColor(const QColor& linkBackgroundColor);
+    void setLinkBackgroundColor( const QColor& linkBackgroundColor );
     QColor getReflectiveLinkBackgroundColor() const;
-    void setReflectiveLinkBackgroundColor(const QColor& reflectiveLinkBackgroundColor);
+    void setReflectiveLinkBackgroundColor(
+      const QColor& reflectiveLinkBackgroundColor );
     QColor getReflectiveLinkTextColor() const;
-    void setReflectiveLinkTextColor(const QColor& reflectiveLinkTextColor);
+    void
+    setReflectiveLinkTextColor( const QColor& reflectiveLinkTextColor );
     QColor getAssocGradientColor1() const;
-    void setAssocGradientColor1(const QColor& assocGradientColor1);
+    void setAssocGradientColor1( const QColor& assocGradientColor1 );
     QColor getAssocGradientColor2() const;
-    void setAssocGradientColor2(const QColor& assocGradientColor2);
+    void setAssocGradientColor2( const QColor& assocGradientColor2 );
 };
 
 extern Config *g_pConfig, *config;
