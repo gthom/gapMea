@@ -87,7 +87,7 @@ void Association::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWi
     float y=title->boundingRect().height();
     roundRectPath.moveTo(0,y);
     roundRectPath.lineTo(rect().width(),y);
-    painter->setBrush(gradient);//pas top à l'impression -> EDIT: mais si! Il faut juste quelques configurations.. :)
+    painter->setBrush(gradient);//pas top à l'impression -> EDIT: mais si! Il faut juste quelques configurations..
     // painter->setBrush(QColor("#FFD4A3"));
     painter->drawPath(roundRectPath);
 
@@ -124,9 +124,4 @@ QVector < QPair <Entite*,QString> > Association::vectEntitesRolesAssociees()
         }
     }
     return resultat;
-}
-
-void Association::refreshColors()
-{
-
 }

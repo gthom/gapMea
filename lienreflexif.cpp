@@ -78,6 +78,7 @@ LienReflexif::LienReflexif(Entite *qg1, Entite *qg2, QGraphicsItem *parent, QStr
         cardinalite2=new QGraphicsSimpleTextItem();
         //ajout de la flêche
         laFleche=new QGraphicsPolygonItem();
+        laFleche->setBrush(QBrush(config->getArrowColor()));
         //ajout du rond où est marqué cif ou df
         leRond=new QGraphicsEllipseItem();
         leRond->setData(32,"Lien");//il dit que c'est un lien
@@ -216,8 +217,4 @@ LienReflexif::~LienReflexif()
 void LienReflexif::refreshColors()
 {
     Lien::refreshColors();
-    if (leTexteDuRond)
-        leTexteDuRond->setDefaultTextColor(config->getLinkTextColor());
-    if (leRond)
-        leRond->setBrush(QBrush(config->getLinkBackgroundColor()));
 }

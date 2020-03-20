@@ -42,7 +42,7 @@ Lien::~Lien()
         if(monIndexDansLaMW!=-1) t1->maman->vectLiens.remove(monIndexDansLaMW,1);
     }
     //les pointeurs instanciés par le constructeur sont automatiquement libérés car le parent des différents éléments est "this"
-    // EDIT -> hm ils sont certes libérés, mais justement, il faut mettre les pointeurs à 0.. (Crash sinon avec refreshColors)
+    // EDIT -> il faut mettre les pointeurs à 0 pour vérifier si on peut toujours les utiliser
     // TODO: mettre tout les pointers à 0.
     leTexteDuRond = nullptr;
     leRond = nullptr;
@@ -61,11 +61,16 @@ Lien::Lien(Entite* pt1,Entite* pt2,QGraphicsItem * parent,QString typ, QString r
     //construction de la ligne pas de parent sinon coordonnées relatives au parent
     line=new QGraphicsLineItem();
     line->setData(32,"Lien");
+    QPen pen;
+    pen.setColor(config->getLineColor());
+    pen.setWidth(1);
+    line->setPen(pen);
     //mémorisation de la source et de la cible
     t1=pt2;
     t2=pt1;
     //création de la cardinalité1
     cardinalite1=new QGraphicsSimpleTextItem();
+    cardinalite1->setBrush(QBrush(config->getCardinal1Color()));
     cardinalite1->setData(32,"Lien");
     cardinalite1->setZValue(129);
     if(!pRole.isEmpty())
@@ -74,14 +79,17 @@ Lien::Lien(Entite* pt1,Entite* pt2,QGraphicsItem * parent,QString typ, QString r
         this->texteDuRole=pRole;
         role=new QGraphicsSimpleTextItem(texteDuRole);
         role->setZValue(130);
+        role->setBrush(QBrush(config->getRoleColor()));
     }
     //si c'est une cif ou une df ou une entité faible
     if(typ==CIF or typ==DF or typ==LEAKRELATION)
     {
         //il y a une deuxieme cardinalité
         cardinalite2=new QGraphicsSimpleTextItem();
+        cardinalite2->setBrush(QBrush(config->getCardinal2Color()));
         //ajout de la flêche
         laFleche=new QGraphicsPolygonItem();
+        laFleche->setBrush(QBrush(config->getArrowColor()));
         //ajout du rond où est marqué cif ou df
         leRond=new QGraphicsEllipseItem();
         leRond->setData(32,"Lien");//il dit que c'est un lien
@@ -537,4 +545,19 @@ void Lien::refreshColors()
         leTexteDuRond->setDefaultTextColor(config->getLinkTextColor());
     if (leRond)
         leRond->setBrush(QBrush(config->getLinkBackgroundColor()));
+    if (laFleche)
+        laFleche->setBrush(QBrush(config->getArrowColor()));
+    if (line)
+    {
+        QPen pen;
+        pen.setColor(config->getLineColor());
+        pen.setWidth(1);
+        line->setPen(pen);
+    }
+    if (role)
+        role->setBrush(QBrush(config->getRoleColor()));
+    if (cardinalite1)
+        cardinalite1->setBrush(QBrush(config->getCardinal1Color()));
+    if (cardinalite2)
+        cardinalite2->setBrush(QBrush(config->getCardinal2Color()));
 }

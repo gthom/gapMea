@@ -33,11 +33,11 @@ class Config
     /**
      * @brief _linkBackgroundColor
      */
-    QColor _linkBackgroundColor = "#FFD4A3";
+    QColor _linkBackgroundColor = QColor( "#4949FF" );
     /**
      * @brief _reflectiveLinkBackgroundColor
      */
-    QColor _reflectiveLinkBackgroundColor = "#FFD4A3";
+    QColor _reflectiveLinkBackgroundColor = QColor( "#4949FF" );
     /**
      * @brief _reflectiveLinkTextColor
      */
@@ -45,11 +45,31 @@ class Config
     /**
      * @brief _assocGradientColor1
      */
-    QColor _assocGradientColor1 = "#FFD4A3";
+    QColor _assocGradientColor1 = QColor( "#4949FF" );
     /**
      * @brief _assocGradientColor2
      */
     QColor _assocGradientColor2 = Qt::white;
+    /**
+     * @brief _arrowColor
+     */
+    QColor _arrowColor = Qt::white;
+    /**
+     * @brief _lineColor
+     */
+    QColor _lineColor =Qt::white;
+    /**
+     * @brief _roleColor
+     */
+    QColor _roleColor = Qt::white;
+    /**
+     * @brief _cardinal1Color
+     */
+    QColor _cardinal1Color = Qt::white;
+    /**
+     * @brief _cardinal2Color
+     */
+    QColor _cardinal2Color = Qt::white;
 
   public:
     /**
@@ -109,6 +129,16 @@ class Config
     void setAssocGradientColor1( const QColor& assocGradientColor1 );
     QColor getAssocGradientColor2() const;
     void setAssocGradientColor2( const QColor& assocGradientColor2 );
+    QColor getArrowColor() const;
+    void setArrowColor(const QColor& arrowColor);
+    QColor getLineColor() const;
+    void setLineColor(const QColor& lineColor);
+    QColor getRoleColor() const;
+    void setRoleColor(const QColor& roleColor);
+    QColor getCardinal1Color() const;
+    void setCardinal1Color(const QColor& cardinal1Color);
+    QColor getCardinal2Color() const;
+    void setCardinal2Color(const QColor& cardinal2Color);
 };
 
 extern Config *g_pConfig, *config;

@@ -71,7 +71,7 @@ MainWindow::MainWindow( QWidget* parent )
 
     QPalette palette;
     QColor couleurFond( Qt::lightGray );
-    QColor couleurTexte( Qt::black );
+    QColor couleurTexte( Qt::white );
 
     palette.setColor( QPalette::Base, couleurFond );
     palette.setColor( QPalette::Text, couleurTexte );

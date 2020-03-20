@@ -21,6 +21,7 @@
 #include <QGraphicsLineItem>
 #include <QGraphicsRectItem>
 #include <QGraphicsScene>
+#include <QLineF>
 #include "entite.h"
 #include <QColor>
 #include "types.h"
