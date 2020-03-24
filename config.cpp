@@ -28,7 +28,7 @@ Config* Config::singleton()
 }
 
 Config::Config( const QString& fileName )
-    : _entityColor(), _fileName( fileName )
+ : _entityColor(), _fileName( fileName )
 {
     refresh();
 }
@@ -42,10 +42,9 @@ void Config::refresh()
     {
         getValues();
     }
-    else // Otherwhise write default configuration
-    {
-        setValues();
-    }
+
+    // Always put the new values inside the configuration file.
+    setValues();
 }
 
 void Config::save()
@@ -225,13 +224,13 @@ void Config::setCardinal2Color( const QColor& cardinal2Color )
     _cardinal2Color = cardinal2Color;
 }
 
-
 QColor Config::getPaletteBackgroundColor() const
 {
     return _paletteBackgroundColor;
 }
 
-void Config::setPaletteBackgroundColor(const QColor& paletteBackgroundColor)
+void Config::setPaletteBackgroundColor(
+  const QColor& paletteBackgroundColor )
 {
     _paletteBackgroundColor = paletteBackgroundColor;
 }
@@ -241,7 +240,7 @@ QColor Config::getPaletteTextColor() const
     return _paletteTextColor;
 }
 
-void Config::setPaletteTextColor(const QColor& paletteTextColor)
+void Config::setPaletteTextColor( const QColor& paletteTextColor )
 {
     _paletteTextColor = paletteTextColor;
 }
