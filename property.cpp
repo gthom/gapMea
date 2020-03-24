@@ -109,9 +109,9 @@ void Property::dragMoveEvent(QGraphicsSceneDragDropEvent *event)
 QString Property::toSql()
 {
     //les couleurs
-    QString coulTypeChamp="#87711d";
-    QString coulNomChamp="#39b339";
-    QString coulTailleChamp="#97812d";
+    QString coulTypeChamp=config->getSqlGenPropertyTypeColor().name();
+    QString coulNomChamp=config->getSqlGenPropertyNameColor().name();
+    QString coulTailleChamp=config->getSqlGenPropertySizeColor().name();
     QString resultat;
     resultat="<font color=\""+coulNomChamp+"\">`"+this->nom+"`</font> <font color=\""+coulTypeChamp+"\">"+this->sonType+"</font>";
     if(!taille.isEmpty())

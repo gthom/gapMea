@@ -561,8 +561,8 @@ QString Entite::toSql(bool withoutFK)
     QStringList defs;
     QString resultat;
     //le début de  la requête
-    QString motReserve="#4961ff";
-    QString nomTable="#29a329";
+    QString motReserve=config->getSqlGenEntityReservedColor().name();
+    QString nomTable=config->getSqlGenEntityNameColor().name();
     //contient la listeDesChamps pour assurer l'unicité
     QStringList defChampSansHtml;
 

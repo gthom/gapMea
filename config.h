@@ -78,6 +78,26 @@ class Config
      * @brief _paletteTextColor
      */
     QColor _paletteTextColor = Qt::white;
+    /**
+     * @brief _sqlGenEntityReservedColor
+     */
+    QColor _sqlGenEntityReservedColor = "#4961ff";
+    /**
+     * @brief _sqlGenEntityNameColor
+     */
+    QColor _sqlGenEntityNameColor = "#29a329";
+    /**
+     * @brief _sqlGenPropertyTypeColor
+     */
+    QColor _sqlGenPropertyTypeColor = "#39b399";
+    /**
+     * @brief sqlGenPropertyNameColor
+     */
+    QColor _sqlGenPropertyNameColor = "#87711d";
+    /**
+     * @brief _sqlGenPropertySizeColor
+     */
+    QColor _sqlGenPropertySizeColor = "#97812d";
 
   public:
     /**
@@ -150,6 +170,16 @@ class Config
     void setPaletteBackgroundColor(const QColor& paletteBackgroundColor);
     QColor getPaletteTextColor() const;
     void setPaletteTextColor(const QColor& paletteTextColor);
+    QColor getSqlGenEntityReservedColor() const;
+    void setSqlGenEntityReservedColor(const QColor& sqlGenEntityReservedColor);
+    QColor getSqlGenEntityNameColor() const;
+    void setSqlGenEntityNameColor(const QColor& sqlGenEntityNameColor);
+    QColor getSqlGenPropertyTypeColor() const;
+    void setSqlGenPropertyTypeColor(const QColor& sqlGenPropertyTypeColor);
+    QColor getSqlGenPropertySizeColor() const;
+    void setSqlGenPropertySizeColor(const QColor& sqlGenPropertySizeColor);
+    QColor getSqlGenPropertyNameColor() const;
+    void setSqlGenPropertyNameColor(const QColor& sqlGenPropertyNameColor);
 };
 
 extern Config *g_pConfig, *config;

@@ -1,15 +1,24 @@
 #include "config.h"
 
-#define GET_ENTITYCOLOR_VALUE( val )                                     \
-    settings.value( "entityColor/" #val ).value< QColor >()
-
 #define SET_ENTITYCOLOR_VALUE( val )                                     \
     settings.setValue( "entityColor/" #val, _entityColor.val().name() )
 
-#define GET_VALUE_COLOR( val )                                           \
-    _##val = settings.value( "generalColor/" #val ).value< QColor >()
+#define GET_ENTITYCOLOR_VALUE( val )                                     \
+    settings.value( "entityColor/" #val ).value< QColor >()
+
 #define SET_VALUE_COLOR( field )                                         \
     settings.setValue( "generalColor/" #field, _##field.name() )
+
+#define GET_VALUE_COLOR( val )                                           \
+    if ( settings.contains( "entityColor/" #val ) )                      \
+    {                                                                    \
+        _##val                                                           \
+          = settings.value( "generalColor/" #val ).value< QColor >();    \
+    }                                                                    \
+    else                                                                 \
+    {                                                                    \
+        SET_VALUE_COLOR( val );                                          \
+    }
 
 Config *g_pConfig = Config::singleton(), *config = Config::singleton();
 
@@ -35,13 +44,9 @@ Config::Config( const QString& fileName )
 
 void Config::refresh()
 {
-    QSettings settings( _fileName, QSettings::Format::IniFormat );
-
-    // Load configuration if it exists, for the moment there is 10 values.
-    if ( settings.allKeys().size() )
-    {
-        getValues();
-    }
+    // Get config values, if cannot we write the original values to the
+    // cfg file.
+    getValues();
 
     // Always put the new values inside the configuration file.
     setValues();
@@ -56,13 +61,36 @@ void Config::getValues()
 {
     QSettings settings( _fileName, QSettings::Format::IniFormat );
 
-    // Entity color values
-    _entityColor.setTitleBackground(
-      GET_ENTITYCOLOR_VALUE( titleBackground ) );
-    _entityColor.setBackground( GET_ENTITYCOLOR_VALUE( background ) );
-    _entityColor.setText( GET_ENTITYCOLOR_VALUE( text ) );
+    // Entity color color values
+    if ( settings.contains( "entityColor/titleBackground" ) )
+    {
+        _entityColor.setTitleBackground(
+          GET_ENTITYCOLOR_VALUE( titleBackground ) );
+    }
+    else
+    {
+        SET_ENTITYCOLOR_VALUE( titleBackground );
+    }
 
-    // General color values
+    if ( settings.contains( "entityColor/background" ) )
+    {
+        _entityColor.setBackground( GET_ENTITYCOLOR_VALUE( background ) );
+    }
+    else
+    {
+        SET_ENTITYCOLOR_VALUE( background );
+    }
+
+    if ( settings.contains( "entityColor/text" ) )
+    {
+        _entityColor.setText( GET_ENTITYCOLOR_VALUE( text ) );
+    }
+    else
+    {
+        SET_ENTITYCOLOR_VALUE( text );
+    }
+
+    // General color color values
     GET_VALUE_COLOR( linkTextColor );
     GET_VALUE_COLOR( linkBackgroundColor );
     GET_VALUE_COLOR( reflectiveLinkBackgroundColor );
@@ -76,18 +104,23 @@ void Config::getValues()
     GET_VALUE_COLOR( lineColor );
     GET_VALUE_COLOR( paletteBackgroundColor );
     GET_VALUE_COLOR( paletteTextColor );
+    GET_VALUE_COLOR( sqlGenEntityNameColor );
+    GET_VALUE_COLOR( sqlGenEntityReservedColor );
+    GET_VALUE_COLOR( sqlGenPropertyNameColor );
+    GET_VALUE_COLOR( sqlGenPropertySizeColor );
+    GET_VALUE_COLOR( sqlGenPropertyTypeColor );
 }
 
 void Config::setValues()
 {
     QSettings settings( _fileName, QSettings::Format::IniFormat );
 
-    // Entity values
+    // Entity color values
     SET_ENTITYCOLOR_VALUE( titleBackground );
     SET_ENTITYCOLOR_VALUE( background );
     SET_ENTITYCOLOR_VALUE( text );
 
-    // General values
+    // General color values
     SET_VALUE_COLOR( linkTextColor );
     SET_VALUE_COLOR( linkBackgroundColor );
     SET_VALUE_COLOR( reflectiveLinkBackgroundColor );
@@ -100,6 +133,11 @@ void Config::setValues()
     SET_VALUE_COLOR( lineColor );
     SET_VALUE_COLOR( paletteBackgroundColor );
     SET_VALUE_COLOR( paletteTextColor );
+    SET_VALUE_COLOR( sqlGenEntityNameColor );
+    SET_VALUE_COLOR( sqlGenEntityReservedColor );
+    SET_VALUE_COLOR( sqlGenPropertyNameColor );
+    SET_VALUE_COLOR( sqlGenPropertySizeColor );
+    SET_VALUE_COLOR( sqlGenPropertyTypeColor );
 }
 
 EntityColor Config::entityColor() const
@@ -243,4 +281,58 @@ QColor Config::getPaletteTextColor() const
 void Config::setPaletteTextColor( const QColor& paletteTextColor )
 {
     _paletteTextColor = paletteTextColor;
+}
+
+QColor Config::getSqlGenEntityReservedColor() const
+{
+    return _sqlGenEntityReservedColor;
+}
+
+void Config::setSqlGenEntityReservedColor(
+  const QColor& sqlGenEntityReservedColor )
+{
+    _sqlGenEntityReservedColor = sqlGenEntityReservedColor;
+}
+
+QColor Config::getSqlGenEntityNameColor() const
+{
+    return _sqlGenEntityNameColor;
+}
+
+void Config::setSqlGenEntityNameColor( const QColor& sqlGenEntityNameColor )
+{
+    _sqlGenEntityNameColor = sqlGenEntityNameColor;
+}
+
+QColor Config::getSqlGenPropertyTypeColor() const
+{
+    return _sqlGenPropertyTypeColor;
+}
+
+void Config::setSqlGenPropertyTypeColor(
+  const QColor& sqlGenPropertyTypeColor )
+{
+    _sqlGenPropertyTypeColor = sqlGenPropertyTypeColor;
+}
+
+QColor Config::getSqlGenPropertyNameColor() const
+{
+    return _sqlGenPropertyNameColor;
+}
+
+void Config::setSqlGenPropertyNameColor(
+  const QColor& sqlGenPropertyNameColor )
+{
+    _sqlGenPropertyNameColor = sqlGenPropertyNameColor;
+}
+
+QColor Config::getSqlGenPropertySizeColor() const
+{
+    return _sqlGenPropertySizeColor;
+}
+
+void Config::setSqlGenPropertySizeColor(
+  const QColor& sqlGenPropertySizeColor )
+{
+    _sqlGenPropertySizeColor = sqlGenPropertySizeColor;
 }
