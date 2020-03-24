@@ -8,6 +8,16 @@
 
 #include "entitycolor.h"
 
+#define DO_ONCE( code )                                                  \
+    {                                                                    \
+        static bool doOnce = false;                                      \
+        if ( !doOnce )                                                   \
+        {                                                                \
+            code;                                                        \
+            doOnce = true;                                               \
+        }                                                                \
+    }
+
 /**
  * @brief The Config class
  * Permits to configure gapMea colors in general (only entities for now)
@@ -151,35 +161,40 @@ class Config
     void setReflectiveLinkBackgroundColor(
       const QColor& reflectiveLinkBackgroundColor );
     QColor getReflectiveLinkTextColor() const;
-    void setReflectiveLinkTextColor( const QColor& reflectiveLinkTextColor );
+    void
+    setReflectiveLinkTextColor( const QColor& reflectiveLinkTextColor );
     QColor getAssocGradientColor1() const;
     void setAssocGradientColor1( const QColor& assocGradientColor1 );
     QColor getAssocGradientColor2() const;
     void setAssocGradientColor2( const QColor& assocGradientColor2 );
     QColor getArrowColor() const;
-    void setArrowColor(const QColor& arrowColor);
+    void setArrowColor( const QColor& arrowColor );
     QColor getLineColor() const;
-    void setLineColor(const QColor& lineColor);
+    void setLineColor( const QColor& lineColor );
     QColor getRoleColor() const;
-    void setRoleColor(const QColor& roleColor);
+    void setRoleColor( const QColor& roleColor );
     QColor getCardinal1Color() const;
-    void setCardinal1Color(const QColor& cardinal1Color);
+    void setCardinal1Color( const QColor& cardinal1Color );
     QColor getCardinal2Color() const;
-    void setCardinal2Color(const QColor& cardinal2Color);
+    void setCardinal2Color( const QColor& cardinal2Color );
     QColor getPaletteBackgroundColor() const;
-    void setPaletteBackgroundColor(const QColor& paletteBackgroundColor);
+    void setPaletteBackgroundColor( const QColor& paletteBackgroundColor );
     QColor getPaletteTextColor() const;
-    void setPaletteTextColor(const QColor& paletteTextColor);
+    void setPaletteTextColor( const QColor& paletteTextColor );
     QColor getSqlGenEntityReservedColor() const;
-    void setSqlGenEntityReservedColor(const QColor& sqlGenEntityReservedColor);
+    void setSqlGenEntityReservedColor(
+      const QColor& sqlGenEntityReservedColor );
     QColor getSqlGenEntityNameColor() const;
-    void setSqlGenEntityNameColor(const QColor& sqlGenEntityNameColor);
+    void setSqlGenEntityNameColor( const QColor& sqlGenEntityNameColor );
     QColor getSqlGenPropertyTypeColor() const;
-    void setSqlGenPropertyTypeColor(const QColor& sqlGenPropertyTypeColor);
+    void
+    setSqlGenPropertyTypeColor( const QColor& sqlGenPropertyTypeColor );
     QColor getSqlGenPropertySizeColor() const;
-    void setSqlGenPropertySizeColor(const QColor& sqlGenPropertySizeColor);
+    void
+    setSqlGenPropertySizeColor( const QColor& sqlGenPropertySizeColor );
     QColor getSqlGenPropertyNameColor() const;
-    void setSqlGenPropertyNameColor(const QColor& sqlGenPropertyNameColor);
+    void
+    setSqlGenPropertyNameColor( const QColor& sqlGenPropertyNameColor );
 };
 
 extern Config *g_pConfig, *config;

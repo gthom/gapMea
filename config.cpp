@@ -20,15 +20,17 @@
         SET_VALUE_COLOR( val );                                          \
     }
 
-Config *g_pConfig = Config::singleton(), *config = Config::singleton();
+Config *g_pConfig = Config::singleton(), *config = g_pConfig;
 
 Config* Config::singleton()
 {
-    // Set core applications stuffs for config file.
-    QCoreApplication::setOrganizationName( "gapMea" );
-    QCoreApplication::setOrganizationDomain( "github.com/gthom/" );
-    QCoreApplication::setApplicationName( "gapMea" );
-    QCoreApplication::setApplicationVersion( "1.0" );
+    // Do it only once to be sure.
+    DO_ONCE(
+      // Set core applications stuffs for config file.
+      QCoreApplication::setOrganizationName( "gapMea" );
+      QCoreApplication::setOrganizationDomain( "github.com/gthom/" );
+      QCoreApplication::setApplicationName( "gapMea" );
+      QCoreApplication::setApplicationVersion( "1.0" ); );
 
     // Default file name configuration.
     static Config _config( "gapMea.conf" );
