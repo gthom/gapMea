@@ -542,7 +542,7 @@ QString Entite::getPrimaryKeyAsFields()
 QString Entite::getkeyAsForeignKey(QString role)
 {
     qDebug()<<"QString Entite::getkeyAsForeignKey(QString role)"<<endl;
-    QString motReserve=config->getSqlGenEntityReservedColor().text().name();
+    QString motReserve=config->getSqlGenEntityReservedColor().name();
     QString laChaine="<font color=\""+motReserve+"\"> foreign key </font> (";
     if(role.isEmpty())
     {
