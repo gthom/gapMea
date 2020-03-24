@@ -49,6 +49,7 @@ void Config::refresh()
     getValues();
 
     // Always put the new values inside the configuration file.
+    // This permits also to re-order the keys
     setValues();
 }
 
