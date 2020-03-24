@@ -10,7 +10,7 @@
     settings.setValue( "generalColor/" #field, _##field.name() )
 
 #define GET_VALUE_COLOR( val )                                           \
-    if ( settings.contains( "generalColor/" #val ) )                      \
+    if ( settings.contains( "generalColor/" #val ) )                     \
     {                                                                    \
         _##val                                                           \
           = settings.value( "generalColor/" #val ).value< QColor >();    \
