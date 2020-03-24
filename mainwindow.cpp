@@ -1238,4 +1238,12 @@ void MainWindow::on_action_recharger_config_triggered()
         // Redraw all links when config refreshed.
         lLien->refreshColors();
     }
+
+    QPalette palette;
+    QColor couleurFond( config->getPaletteBackgroundColor() );
+    QColor couleurTexte( config->getPaletteTextColor() );
+
+    palette.setColor( QPalette::Base, couleurFond );
+    palette.setColor( QPalette::Text, couleurTexte );
+    ui->textEditSql->setPalette( palette );
 }

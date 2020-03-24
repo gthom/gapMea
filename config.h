@@ -73,11 +73,11 @@ class Config
     /**
      * @brief _paletteBackgroundColor
      */
-    QColor _paletteBackgroundColor = Qt::lightGray;
+    QColor _paletteBackgroundColor = Qt::black;
     /**
      * @brief _paletteTextColor
      */
-    QColor _paletteTextColor = Qt::black;
+    QColor _paletteTextColor = Qt::white;
 
   public:
     /**
