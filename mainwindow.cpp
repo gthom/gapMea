@@ -43,73 +43,98 @@
  * @param parent
  * le constructeur
  */
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+MainWindow::MainWindow( QWidget* parent )
+ : QMainWindow( parent ), ui( new Ui::MainWindow )
 {
-    ui->setupUi(this);
-    QFontDatabase::addApplicationFont(":/fonts/verdana.ttf");
-    QFontDatabase::addApplicationFont(":/fonts/DejaVuSerif.ttf");  
-    setFont(QFont("Sans Serif",9));
-    setDockNestingEnabled(true);
-    maScene=new QCustomGraphicsScene(this);
-    ui->graphicsView->setRenderHint(QPainter::Antialiasing);
-    ui->graphicsView->setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
-    ui->graphicsView->setScene(maScene);
-    prochainX=30;
-    //agrandissement de la dernière colonne de tableWidgetProperties
-    ui->tableWidgetProperties->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
-    ui->tableWidgetProperties->horizontalHeader()->setStretchLastSection(true);
-    //placement des dockwidgets
-    ui->dockWidgetProperties->setFloating(false);
-    ui->dockWidgetObjects->setFloating(false);
-    //on donne le focus au lineEdit
+    ui->setupUi( this );
+    QFontDatabase::addApplicationFont( ":/fonts/verdana.ttf" );
+    QFontDatabase::addApplicationFont( ":/fonts/DejaVuSerif.ttf" );
+    setFont( QFont( "Sans Serif", 9 ) );
+    setDockNestingEnabled( true );
+    maScene = new QCustomGraphicsScene( this );
+    ui->graphicsView->setRenderHint( QPainter::Antialiasing );
+    ui->graphicsView->setViewportUpdateMode(
+      QGraphicsView::BoundingRectViewportUpdate );
+    ui->graphicsView->setScene( maScene );
+    prochainX = 30;
+    // agrandissement de la dernière colonne de tableWidgetProperties
+    ui->tableWidgetProperties->horizontalHeader()->setSectionResizeMode(
+      QHeaderView::ResizeToContents );
+    ui->tableWidgetProperties->horizontalHeader()->setStretchLastSection(
+      true );
+    // placement des dockwidgets
+    ui->dockWidgetProperties->setFloating( false );
+    ui->dockWidgetObjects->setFloating( false );
+    // on donne le focus au lineEdit
     ui->lineEditObjectName->setFocus();
-    ui->textEditSql->setVisible(false);
+    ui->textEditSql->setVisible( false );
 
     QPalette palette;
-    QColor couleurFond(Qt::lightGray);
-    QColor couleurTexte(Qt::black);
+    QColor couleurFond( config->getPaletteBackgroundColor() );
+    QColor couleurTexte( config->getPaletteTextColor() );
 
-    palette.setColor(QPalette::Base,couleurFond);
-    palette.setColor(QPalette::Text,couleurTexte);
-    ui->textEditSql->setPalette(palette);
-    //connexion des signaux aux slots
-     connect (ui->graphicsView,SIGNAL(jointureRequise(Entite*,Entite*)),this,SLOT(jointure(Entite*,Entite*)));
-     connect(ui->pushButtonModifyProperty,SIGNAL(clicked()),this,SLOT(on_pushButtonModifyProperty_clicked()));
-     connect(ui->lineEditPropertyName,SIGNAL(textChanged(QString)),this,SLOT(activeDesactiveBoutonApply()));
-     connect(ui->lineEditPropertyRole,SIGNAL(textChanged(QString)),this,SLOT(activeDesactiveBoutonApply()));
-     connect(ui->lineEditTaille,SIGNAL(textChanged(QString)),this,SLOT(activeDesactiveBoutonApply()));
-      connect(ui->comboBoxPropertyType,SIGNAL(currentTextChanged(QString)),this,SLOT(activeDesactiveBoutonApply()));
-      connect(ui->comboBoxPropertyType,SIGNAL(currentTextChanged(QString)),this,SLOT(activeDesactiveInputTaille()));
-     setFileName(tr("New_Model.mea"));
-     setSaved(true);
-     ui->actionSaveAs->setEnabled(true);
-     ui->action_Imprimer->setEnabled(true);
-     ui->action_Export->setEnabled(true);
-     ui->statusBar->showMessage(tr("Welcome in database design World"));
+    palette.setColor( QPalette::Base, couleurFond );
+    palette.setColor( QPalette::Text, couleurTexte );
+    ui->textEditSql->setPalette( palette );
+    // connexion des signaux aux slots
+    connect( ui->graphicsView,
+             SIGNAL( jointureRequise( Entite*, Entite* ) ),
+             this,
+             SLOT( jointure( Entite*, Entite* ) ) );
+    connect( ui->pushButtonModifyProperty,
+             SIGNAL( clicked() ),
+             this,
+             SLOT( on_pushButtonModifyProperty_clicked() ) );
+    connect( ui->lineEditPropertyName,
+             SIGNAL( textChanged( QString ) ),
+             this,
+             SLOT( activeDesactiveBoutonApply() ) );
+    connect( ui->lineEditPropertyRole,
+             SIGNAL( textChanged( QString ) ),
+             this,
+             SLOT( activeDesactiveBoutonApply() ) );
+    connect( ui->lineEditTaille,
+             SIGNAL( textChanged( QString ) ),
+             this,
+             SLOT( activeDesactiveBoutonApply() ) );
+    connect( ui->comboBoxPropertyType,
+             SIGNAL( currentTextChanged( QString ) ),
+             this,
+             SLOT( activeDesactiveBoutonApply() ) );
+    connect( ui->comboBoxPropertyType,
+             SIGNAL( currentTextChanged( QString ) ),
+             this,
+             SLOT( activeDesactiveInputTaille() ) );
+    setFileName( tr( "New_Model.mea" ) );
+    setSaved( true );
+    ui->actionSaveAs->setEnabled( true );
+    ui->action_Imprimer->setEnabled( true );
+    ui->action_Export->setEnabled( true );
+    ui->statusBar->showMessage( tr( "Welcome in database design "
+                                    "World" ) );
 }
 void MainWindow::effaceTout()
 {
-    qDebug()<<"void MainWindow::effaceTout()";
-    //effacement des entités
-     foreach (Entite* lEntite, vectTable)
-     {
-         //supression sans demander confirmation
-         tableSupprimer(lEntite,false);
-     }
-     //raz de la tableWidget des propriétés
-     if(ui->tableWidgetProperties->rowCount()>0) ui->tableWidgetProperties->setRowCount(0);
-     //raz du formulaire de modif des propriétés
-     maScene->clear();
-     maScene->views()[0]->repaint();
+    qDebug() << "void MainWindow::effaceTout()";
+    // effacement des entités
+    foreach ( Entite* lEntite, vectTable )
+    {
+        // supression sans demander confirmation
+        tableSupprimer( lEntite, false );
+    }
+    // raz de la tableWidget des propriétés
+    if ( ui->tableWidgetProperties->rowCount() > 0 )
+        ui->tableWidgetProperties->setRowCount( 0 );
+    // raz du formulaire de modif des propriétés
+    maScene->clear();
+    maScene->views()[0]->repaint();
 }
 
 MainWindow::~MainWindow()
-{  
-   //effacement des entités
-   effaceTout();
-   delete ui;
+{
+    // effacement des entités
+    effaceTout();
+    delete ui;
 }
 
 void MainWindow::on_action_quitter_triggered()
@@ -119,113 +144,144 @@ void MainWindow::on_action_quitter_triggered()
 /**
  * @brief MainWindow::closeEvent
  * @param event
- * surcharge du closeEvent pour ne fermer que lorsque l'utilisateur confirme vouloir quitter l'application
+ * surcharge du closeEvent pour ne fermer que lorsque l'utilisateur
+ * confirme vouloir quitter l'application
  */
-void MainWindow::closeEvent(QCloseEvent* event)
+void MainWindow::closeEvent( QCloseEvent* event )
 {
-    if(saved && QMessageBox::question(this,this->windowTitle(),tr("Do you really want to quit gapMea?"),QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes)
+    if ( saved
+         && QMessageBox::question( this,
+                                   this->windowTitle(),
+                                   tr( "Do you really want to quit "
+                                       "gapMea?" ),
+                                   QMessageBox::Yes | QMessageBox::No )
+              == QMessageBox::Yes )
         event->accept();
     else
     {
-        if (!saved && QMessageBox::question(this,this->windowTitle(),tr("Your work is not saved, Are you sure ?"),QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes)
-        event->accept();
+        if ( !saved
+             && QMessageBox::question( this,
+                                       this->windowTitle(),
+                                       tr( "Your work is not saved, Are "
+                                           "you sure ?" ),
+                                       QMessageBox::Yes | QMessageBox::No )
+                  == QMessageBox::Yes )
+            event->accept();
         else
-        event->ignore();
+            event->ignore();
     }
 }
 
 void MainWindow::on_action_Add_Entity_triggered()
 {
-    qDebug()<<"void MainWindow::on_action_Add_Entity_triggered()";
+    qDebug() << "void MainWindow::on_action_Add_Entity_triggered()";
     QStringList listeDesChamps;
-    listeDesChamps<<"numero"<<"libelle";
-    QString nomTable=ui->lineEditObjectName->text();
-    Entite* tableAjoutee=new Entite(this,nomTable,0,0,0,listeDesChamps,false);
-    tableAjoutee->setPos(QPoint (prochainX,30));
-    ajouteTable(tableAjoutee);
-   maScene->addItem(tableAjoutee);
-   //j'efface la zone de saisie
-   ui->lineEditObjectName->clear();
-   tableAjoutee->redraw();
-   setSaved(false);
+    listeDesChamps << "numero"
+                   << "libelle";
+    QString nomTable = ui->lineEditObjectName->text();
+    Entite* tableAjoutee
+      = new Entite( this, nomTable, 0, 0, 0, listeDesChamps, false );
+    tableAjoutee->setPos( QPoint( prochainX, 30 ) );
+    ajouteTable( tableAjoutee );
+    maScene->addItem( tableAjoutee );
+    // j'efface la zone de saisie
+    ui->lineEditObjectName->clear();
+    tableAjoutee->redraw();
+    setSaved( false );
 }
-void MainWindow::ajouteTable(Entite * lEntite)
+void MainWindow::ajouteTable( Entite* lEntite )
 {
-    qDebug()<<"void MainWindow::ajouteTable(Entite * lEntite)"<<endl;
-    vectTable.append(lEntite);
-    ui->listWidgetObjects->addItem(lEntite);
-    prochainX=lEntite->pos().x()+lEntite->boundingRect().width()+10;
-    lEntite->setFlag(QGraphicsItem::ItemIsSelectable);
-    lEntite->setFlag(QGraphicsItem::ItemIsMovable);
-    setSaved(false);
+    qDebug() << "void MainWindow::ajouteTable(Entite * lEntite)" << endl;
+    vectTable.append( lEntite );
+    ui->listWidgetObjects->addItem( lEntite );
+    prochainX = lEntite->pos().x() + lEntite->boundingRect().width() + 10;
+    lEntite->setFlag( QGraphicsItem::ItemIsSelectable );
+    lEntite->setFlag( QGraphicsItem::ItemIsMovable );
+    setSaved( false );
 }
 
-void MainWindow::tableAjouterChamp(Entite * lEntite,QString nomDuChamp,QString typeDuChamp, QString roleDuChamp,QString tailleDuChamp)
+void MainWindow::tableAjouterChamp( Entite* lEntite,
+                                    QString nomDuChamp,
+                                    QString typeDuChamp,
+                                    QString roleDuChamp,
+                                    QString tailleDuChamp )
 {
-    //but:Ajouter une propriété à l'entité
-   qDebug()<<"void MainWindow::tableAjouterChamp()";
+    // but:Ajouter une propriété à l'entité
+    qDebug() << "void MainWindow::tableAjouterChamp()";
 
-    Property* nouveauChamp=new Property(this,nomDuChamp,typeDuChamp,roleDuChamp,tailleDuChamp,lEntite);
-    //les données du champ
-    nouveauChamp->setData(32,"Field");
-    nouveauChamp->setData(33,lEntite->nomEntite+"."+nomDuChamp);
-    //ajout du nouveau champ au vecteur des champs de l'entité
-    lEntite->vecteurChamps.append(nouveauChamp);
+    Property* nouveauChamp = new Property( this,
+                                           nomDuChamp,
+                                           typeDuChamp,
+                                           roleDuChamp,
+                                           tailleDuChamp,
+                                           lEntite );
+    // les données du champ
+    nouveauChamp->setData( 32, "Field" );
+    nouveauChamp->setData( 33, lEntite->nomEntite + "." + nomDuChamp );
+    // ajout du nouveau champ au vecteur des champs de l'entité
+    lEntite->vecteurChamps.append( nouveauChamp );
     lEntite->redraw();
-    setSaved(false);
-    //selection dans la liste des objets pour mettre à jour les propriétés de celui-ci
-    on_listWidgetObjects_itemActivated(lEntite);
+    setSaved( false );
+    // selection dans la liste des objets pour mettre à jour les
+    // propriétés de celui-ci
+    on_listWidgetObjects_itemActivated( lEntite );
 }
 
-void MainWindow::setFileName(QFileInfo fn)
+void MainWindow::setFileName( QFileInfo fn )
 {
-    openedFileName=fn.absoluteFilePath();
-    setWindowTitle("GapMea "+fn.fileName());
+    openedFileName = fn.absoluteFilePath();
+    setWindowTitle( "GapMea " + fn.fileName() );
 }
-void MainWindow::selectionne(Entite* lEntite)
+void MainWindow::selectionne( Entite* lEntite )
 {
-    qDebug()<<"void MainWindow::selectionne(Entite* lEntite)"<<endl;
-    //selection dans la liste des objets
-    ui->listWidgetObjects->setCurrentItem(lEntite);
-    //on fait comme si l'utilisateur l'avait sélectionné à la main dans la liste
-    on_listWidgetObjects_itemActivated(lEntite);
-}
-
-void MainWindow::selectionne(Property * laPropriete)
-{
-    qDebug("void MainWindow::selectionne(Property * laPropriete)");
-    selectionne(laPropriete->lEntite);
-    ui->tableWidgetProperties->selectRow(laPropriete->lEntite->vecteurChamps.indexOf(laPropriete));
-    //desactivation du bouton modifier
-    ui->pushButtonModifyProperty->setEnabled(false);
+    qDebug() << "void MainWindow::selectionne(Entite* lEntite)" << endl;
+    // selection dans la liste des objets
+    ui->listWidgetObjects->setCurrentItem( lEntite );
+    // on fait comme si l'utilisateur l'avait sélectionné à la main dans
+    // la liste
+    on_listWidgetObjects_itemActivated( lEntite );
 }
 
-void MainWindow::editProperty(Property* laPropriete)
+void MainWindow::selectionne( Property* laPropriete )
 {
-   ui->lineEditPropertyName->setText(laPropriete->nom);
-   ui->lineEditPropertyRole->setText(laPropriete->role);
-   ui->lineEditTaille->setText(laPropriete->taille);
-   ui->comboBoxPropertyType->setCurrentText(laPropriete->sonType);
-   ui->lineEditPropertyName->setFocus();
+    qDebug( "void MainWindow::selectionne(Property * laPropriete)" );
+    selectionne( laPropriete->lEntite );
+    ui->tableWidgetProperties->selectRow(
+      laPropriete->lEntite->vecteurChamps.indexOf( laPropriete ) );
+    // desactivation du bouton modifier
+    ui->pushButtonModifyProperty->setEnabled( false );
 }
-bool MainWindow::alreadyAsObject(QString objectName)
+
+void MainWindow::editProperty( Property* laPropriete )
 {
-    return ui->listWidgetObjects->findItems(objectName,Qt::MatchExactly).count()>0;
+    ui->lineEditPropertyName->setText( laPropriete->nom );
+    ui->lineEditPropertyRole->setText( laPropriete->role );
+    ui->lineEditTaille->setText( laPropriete->taille );
+    ui->comboBoxPropertyType->setCurrentText( laPropriete->sonType );
+    ui->lineEditPropertyName->setFocus();
+}
+bool MainWindow::alreadyAsObject( QString objectName )
+{
+    return ui->listWidgetObjects
+             ->findItems( objectName, Qt::MatchExactly )
+             .count()
+           > 0;
 }
 
 void MainWindow::on_pushButtonAddObject_clicked()
 {
-    //ajout de l'objet à la liste
-    QString leNom=ui->lineEditObjectName->text();
-    //s'il n'est pas vide et qu'il n'existe pas déjà
-    if(leNom!="" && !alreadyAsObject(leNom) )
+    // ajout de l'objet à la liste
+    QString leNom = ui->lineEditObjectName->text();
+    // s'il n'est pas vide et qu'il n'existe pas déjà
+    if ( leNom != "" && !alreadyAsObject( leNom ) )
     {
         on_action_Add_Entity_triggered();
-        setSaved(false);
+        setSaved( false );
     }
     else
     {
-        statusBar()->showMessage(tr("Sorry but Object already exists"),2000);
+        statusBar()->showMessage( tr( "Sorry but Object already exists" ),
+                                  2000 );
     }
 }
 /**
@@ -234,9 +290,9 @@ void MainWindow::on_pushButtonAddObject_clicked()
  * appui sur le bouton voir la liste des objets
  * cache ou montre le dockwidget liste des objets
  */
-void MainWindow::on_action_Object_list_triggered(bool checked)
+void MainWindow::on_action_Object_list_triggered( bool checked )
 {
-    if(checked)
+    if ( checked )
     {
         ui->dockWidgetObjects->show();
     }
@@ -252,367 +308,466 @@ void MainWindow::on_action_Object_list_triggered(bool checked)
  * Sélection d'un objet dans la liste
  * On affiche ses propriétés dans la tableWidget
  */
-void MainWindow::on_listWidgetObjects_itemActivated(QListWidgetItem *item)
+void MainWindow::on_listWidgetObjects_itemActivated( QListWidgetItem* item )
 {
-    Entite* lEntite=(Entite*)item;
-    //affichage du nom de l'entité dans le titre de la groupBoxProperties
-    ui->groupBoxProperties->setTitle(lEntite->nomEntite+'-'+tr("Properties"));
-    //recup et affichage des propriétés de l'entité
-    QVector<Property*>vectChamps=lEntite->vecteurChamps;
-    ui->tableWidgetProperties->setRowCount(vectChamps.size());
-    //affichage dans la table des champs de l'entité
-    for(int no=0;no<vectChamps.size();no++)
+    Entite* lEntite = ( Entite* )item;
+    // affichage du nom de l'entité dans le titre de la groupBoxProperties
+    ui->groupBoxProperties->setTitle( lEntite->nomEntite + '-'
+                                      + tr( "Properties" ) );
+    // recup et affichage des propriétés de l'entité
+    QVector< Property* > vectChamps = lEntite->vecteurChamps;
+    ui->tableWidgetProperties->setRowCount( vectChamps.size() );
+    // affichage dans la table des champs de l'entité
+    for ( int no = 0; no < vectChamps.size(); no++ )
     {
-        ui->tableWidgetProperties->setItem(no,0,new QTableWidgetItem(vectChamps[no]->getNomComplet()));
-        ui->tableWidgetProperties->setItem(no,1,new QTableWidgetItem(vectChamps[no]->sonType));
-        ui->tableWidgetProperties->setItem(no,2,new QTableWidgetItem(vectChamps[no]->taille));
-        ui->tableWidgetProperties->setItem(no,3,new QTableWidgetItem(vectChamps[no]->role));
+        ui->tableWidgetProperties->setItem(
+          no,
+          0,
+          new QTableWidgetItem( vectChamps[no]->getNomComplet() ) );
+        ui->tableWidgetProperties->setItem( no,
+                                            1,
+                                            new QTableWidgetItem(
+                                              vectChamps[no]->sonType ) );
+        ui->tableWidgetProperties->setItem( no,
+                                            2,
+                                            new QTableWidgetItem(
+                                              vectChamps[no]->taille ) );
+        ui->tableWidgetProperties->setItem( no,
+                                            3,
+                                            new QTableWidgetItem(
+                                              vectChamps[no]->role ) );
     }
-    //met à jour la zone de modif des propriétés
+    // met à jour la zone de modif des propriétés
     on_tableWidgetProperties_itemSelectionChanged();
-    //essais de selection dans la view
-    ((QGraphicsItem*)lEntite)->setSelected(true);
+    // essais de selection dans la view
+    ( ( QGraphicsItem* )lEntite )->setSelected( true );
 }
 void MainWindow::on_pushButtonModifyProperty_clicked()
 {
-    //click sur apply
-    int index=ui->tableWidgetProperties->currentRow();
-    if(index!=-1)
+    // click sur apply
+    int index = ui->tableWidgetProperties->currentRow();
+    if ( index != -1 )
     {
-         Property* laPropriete=((Entite*)ui->listWidgetObjects->currentItem())->vecteurChamps[index];
-         //on récupère les informations saisies
-         QString nomDuChamp=ui->lineEditPropertyName->text();
-         QString typeDuChamp=ui->comboBoxPropertyType->currentText();
-         QString roleDuChamp=ui->lineEditPropertyRole->text();
-         QString tailleDuChamp=ui->lineEditTaille->text();
-         //quelques contrôles indispensables:
-         if(typeDuChamp=="VARCHAR" && tailleDuChamp.isEmpty())
-         {
-             QMessageBox::warning(this,tr("Add property"),tr("VARCHAR must have a size"),QMessageBox::Ok,QMessageBox::Ok);
-         }
-         else if(typeDuChamp=="BLOB" && tailleDuChamp.isEmpty())
-         {
-             QMessageBox::warning(this,tr("Add property"),tr("BLOB must have a size"),QMessageBox::Ok,QMessageBox::Ok);
-         }
-         else if(typeDuChamp=="NUMERIC" && tailleDuChamp.isEmpty())
-         {
-             QMessageBox::warning(this,tr("Add property"),tr("NUMERIC must have a size"),QMessageBox::Ok,QMessageBox::Ok);
-         }
-         else//quand tout est bon
-         {
-             //on récupère les informations saisies
-             laPropriete->nom=nomDuChamp;
-             laPropriete->sonType=typeDuChamp;
-             laPropriete->role=roleDuChamp;
-             laPropriete->taille=tailleDuChamp;
-             //on fait comme si on avait cliqué sur l'entité de façon à  actualiser l'affichage
-             on_listWidgetObjects_itemActivated(laPropriete->lEntite);
-             //on redessine l'entité
-             laPropriete->lEntite->redraw();
-             //désactivation du bouton modifier
-             ui->pushButtonModifyProperty->setEnabled(false);
-             setSaved(false);
-         }
+        Property* laPropriete
+          = ( ( Entite* )ui->listWidgetObjects->currentItem() )
+              ->vecteurChamps[index];
+        // on récupère les informations saisies
+        QString nomDuChamp    = ui->lineEditPropertyName->text();
+        QString typeDuChamp   = ui->comboBoxPropertyType->currentText();
+        QString roleDuChamp   = ui->lineEditPropertyRole->text();
+        QString tailleDuChamp = ui->lineEditTaille->text();
+        // quelques contrôles indispensables:
+        if ( typeDuChamp == "VARCHAR" && tailleDuChamp.isEmpty() )
+        {
+            QMessageBox::warning( this,
+                                  tr( "Add property" ),
+                                  tr( "VARCHAR must have a size" ),
+                                  QMessageBox::Ok,
+                                  QMessageBox::Ok );
+        }
+        else if ( typeDuChamp == "BLOB" && tailleDuChamp.isEmpty() )
+        {
+            QMessageBox::warning( this,
+                                  tr( "Add property" ),
+                                  tr( "BLOB must have a size" ),
+                                  QMessageBox::Ok,
+                                  QMessageBox::Ok );
+        }
+        else if ( typeDuChamp == "NUMERIC" && tailleDuChamp.isEmpty() )
+        {
+            QMessageBox::warning( this,
+                                  tr( "Add property" ),
+                                  tr( "NUMERIC must have a size" ),
+                                  QMessageBox::Ok,
+                                  QMessageBox::Ok );
+        }
+        else // quand tout est bon
+        {
+            // on récupère les informations saisies
+            laPropriete->nom     = nomDuChamp;
+            laPropriete->sonType = typeDuChamp;
+            laPropriete->role    = roleDuChamp;
+            laPropriete->taille  = tailleDuChamp;
+            // on fait comme si on avait cliqué sur l'entité de façon à
+            // actualiser l'affichage
+            on_listWidgetObjects_itemActivated( laPropriete->lEntite );
+            // on redessine l'entité
+            laPropriete->lEntite->redraw();
+            // désactivation du bouton modifier
+            ui->pushButtonModifyProperty->setEnabled( false );
+            setSaved( false );
+        }
     }
     else
     {
-        statusBar()->showMessage(tr("Please select an object first"),2000);
+        statusBar()->showMessage( tr( "Please select an object first" ),
+                                  2000 );
     }
 }
 
 void MainWindow::on_pushButtonAddProperty_clicked()
 {
-    qDebug()<<"void MainWindow::on_pushButtonAddProperty_clicked()"<<endl;
-    //ajout de propriété à l'entité en cours d'édition
-    //s'il y a une entité sélectionnée
-    if(ui->listWidgetObjects->selectedItems().count()==1)
+    qDebug() << "void MainWindow::on_pushButtonAddProperty_clicked()"
+             << endl;
+    // ajout de propriété à l'entité en cours d'édition
+    // s'il y a une entité sélectionnée
+    if ( ui->listWidgetObjects->selectedItems().count() == 1 )
     {
-         Entite* lEntite=(Entite*)(ui->listWidgetObjects->selectedItems()).at(0);
-         //on récupère les informations saisies
-         QString nomDuChamp=ui->lineEditPropertyName->text();
-         QString typeDuChamp=ui->comboBoxPropertyType->currentText();
-         QString roleDuChamp=ui->lineEditPropertyRole->text();
-         QString tailleDuChamp=ui->lineEditTaille->text();
-         //quelques contrôles indispensables:
-         if(typeDuChamp=="VARCHAR" && tailleDuChamp.isEmpty())
-         {
-             QMessageBox::warning(this,tr("Add property"),tr("VARCHAR must have a size"),QMessageBox::Ok,QMessageBox::Ok);
-         }
-         else if(typeDuChamp=="BLOB" && tailleDuChamp.isEmpty())
-         {
-             QMessageBox::warning(this,tr("Add property"),tr("BLOB must have a size"),QMessageBox::Ok,QMessageBox::Ok);
-         }
-         else if(typeDuChamp=="NUMERIC" && tailleDuChamp.isEmpty())
-         {
-             QMessageBox::warning(this,tr("Add property"),tr("NUMERIC must have a size"),QMessageBox::Ok,QMessageBox::Ok);
-         }
-         else
-         {
-             tableAjouterChamp(lEntite,nomDuChamp,typeDuChamp,roleDuChamp,tailleDuChamp);
-             //ajout dans la grille
-             int nbChamp=lEntite->vecteurChamps.size();
-             ui->tableWidgetProperties->setRowCount(nbChamp);
-             ui->tableWidgetProperties->setItem(nbChamp-1,0,new QTableWidgetItem(nomDuChamp));
-             ui->tableWidgetProperties->setItem(nbChamp-1,1,new QTableWidgetItem(typeDuChamp));
-             ui->tableWidgetProperties->setItem(nbChamp-1,2,new QTableWidgetItem(tailleDuChamp));
-             ui->tableWidgetProperties->setItem(nbChamp-1,3,new QTableWidgetItem(roleDuChamp));
-             //puis on efface les zones de saisie
-             ui->lineEditPropertyName->clear();
-             ui->lineEditPropertyRole->clear();
-             //ui->comboBoxPropertyType->clear();
-             //desactivation du bouton ajouter
+        Entite* lEntite
+          = ( Entite* )( ui->listWidgetObjects->selectedItems() ).at( 0 );
+        // on récupère les informations saisies
+        QString nomDuChamp    = ui->lineEditPropertyName->text();
+        QString typeDuChamp   = ui->comboBoxPropertyType->currentText();
+        QString roleDuChamp   = ui->lineEditPropertyRole->text();
+        QString tailleDuChamp = ui->lineEditTaille->text();
+        // quelques contrôles indispensables:
+        if ( typeDuChamp == "VARCHAR" && tailleDuChamp.isEmpty() )
+        {
+            QMessageBox::warning( this,
+                                  tr( "Add property" ),
+                                  tr( "VARCHAR must have a size" ),
+                                  QMessageBox::Ok,
+                                  QMessageBox::Ok );
+        }
+        else if ( typeDuChamp == "BLOB" && tailleDuChamp.isEmpty() )
+        {
+            QMessageBox::warning( this,
+                                  tr( "Add property" ),
+                                  tr( "BLOB must have a size" ),
+                                  QMessageBox::Ok,
+                                  QMessageBox::Ok );
+        }
+        else if ( typeDuChamp == "NUMERIC" && tailleDuChamp.isEmpty() )
+        {
+            QMessageBox::warning( this,
+                                  tr( "Add property" ),
+                                  tr( "NUMERIC must have a size" ),
+                                  QMessageBox::Ok,
+                                  QMessageBox::Ok );
+        }
+        else
+        {
+            tableAjouterChamp( lEntite,
+                               nomDuChamp,
+                               typeDuChamp,
+                               roleDuChamp,
+                               tailleDuChamp );
+            // ajout dans la grille
+            int nbChamp = lEntite->vecteurChamps.size();
+            ui->tableWidgetProperties->setRowCount( nbChamp );
+            ui->tableWidgetProperties->setItem( nbChamp - 1,
+                                                0,
+                                                new QTableWidgetItem(
+                                                  nomDuChamp ) );
+            ui->tableWidgetProperties->setItem( nbChamp - 1,
+                                                1,
+                                                new QTableWidgetItem(
+                                                  typeDuChamp ) );
+            ui->tableWidgetProperties->setItem( nbChamp - 1,
+                                                2,
+                                                new QTableWidgetItem(
+                                                  tailleDuChamp ) );
+            ui->tableWidgetProperties->setItem( nbChamp - 1,
+                                                3,
+                                                new QTableWidgetItem(
+                                                  roleDuChamp ) );
+            // puis on efface les zones de saisie
+            ui->lineEditPropertyName->clear();
+            ui->lineEditPropertyRole->clear();
+            // ui->comboBoxPropertyType->clear();
+            // desactivation du bouton ajouter
 
-             setSaved(false);
-         }
+            setSaved( false );
+        }
     }
     else
     {
-        statusBar()->showMessage(tr("Please select an object first"),2000);
+        statusBar()->showMessage( tr( "Please select an object first" ),
+                                  2000 );
     }
 }
 
-void MainWindow::on_tableWidgetProperties_cellChanged(int row, int column)
+void MainWindow::on_tableWidgetProperties_cellChanged( int row,
+                                                       int column )
 {
-    qDebug()<<"void MainWindow::on_tableWidgetProperties_cellChanged(int row, int column)";
-    //modification du nom du type ou du role du champ
-    if(ui->listWidgetObjects->selectedItems().count()==1)
+    qDebug() << "void "
+                "MainWindow::on_tableWidgetProperties_cellChanged(int "
+                "row, int column)";
+    // modification du nom du type ou du role du champ
+    if ( ui->listWidgetObjects->selectedItems().count() == 1 )
     {
-        Entite* lEntite=(Entite*)(ui->listWidgetObjects->selectedItems()).at(0);
-        Property * laPropriete=lEntite->vecteurChamps.at(row);
-        QString nouvelleValeur=ui->tableWidgetProperties->item(row,column)->text();
+        Entite* lEntite
+          = ( Entite* )( ui->listWidgetObjects->selectedItems() ).at( 0 );
+        Property* laPropriete = lEntite->vecteurChamps.at( row );
+        QString nouvelleValeur
+          = ui->tableWidgetProperties->item( row, column )->text();
 
-        switch(column)
+        switch ( column )
         {
-          case 0:
+            case 0:
 
-             laPropriete->nom=nouvelleValeur;
-             break;
-        case 1:
-            laPropriete->sonType=nouvelleValeur;
-            break;
-        case 2:
-            laPropriete->taille=nouvelleValeur;
-            break;
-        case 3:
-            laPropriete->role=nouvelleValeur;
-            break;
+                laPropriete->nom = nouvelleValeur;
+                break;
+            case 1:
+                laPropriete->sonType = nouvelleValeur;
+                break;
+            case 2:
+                laPropriete->taille = nouvelleValeur;
+                break;
+            case 3:
+                laPropriete->role = nouvelleValeur;
+                break;
         }
         lEntite->redraw();
-        setSaved(false);
+        setSaved( false );
     }
-    else statusBar()->showMessage(tr("Select an object first"),2000);
+    else
+        statusBar()->showMessage( tr( "Select an object first" ), 2000 );
 }
-void MainWindow::tableSupprimer(Entite* laTableASupprimer,bool demanderConfirmation)
+void MainWindow::tableSupprimer( Entite* laTableASupprimer,
+                                 bool demanderConfirmation )
 {
-    qDebug()<<"void MainWindow::tableSupprimer(Entite* laTableASupprimer)";
-    if(demanderConfirmation && QMessageBox::question(this,this->windowTitle(),tr("Do you confirm deleting Object:")+laTableASupprimer->nomEntite,QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes)
+    qDebug() << "void MainWindow::tableSupprimer(Entite* "
+                "laTableASupprimer)";
+    if ( demanderConfirmation
+         && QMessageBox::question( this,
+                                   this->windowTitle(),
+                                   tr( "Do you confirm deleting Object:" )
+                                     + laTableASupprimer->nomEntite,
+                                   QMessageBox::Yes | QMessageBox::No )
+              == QMessageBox::Yes )
     {
-        int no=vectTable.indexOf(laTableASupprimer);
-        vectTable.remove(no,1);
-        //enlever de la liste
-        ui->listWidgetObjects->takeItem(no);
-        //enlever de la scene
-        ui->graphicsView->scene()->removeItem(laTableASupprimer);
+        int no = vectTable.indexOf( laTableASupprimer );
+        vectTable.remove( no, 1 );
+        // enlever de la liste
+        ui->listWidgetObjects->takeItem( no );
+        // enlever de la scene
+        ui->graphicsView->scene()->removeItem( laTableASupprimer );
         delete laTableASupprimer;
-        setSaved(false);
-        //raffraichir la liste des propriétés
-
+        setSaved( false );
+        // raffraichir la liste des propriétés
     }
-    else//soit sans confirm soit il a confirmé la supression
+    else // soit sans confirm soit il a confirmé la supression
     {
-        //si c'est une supression sans confirmation
-        if(!demanderConfirmation)
+        // si c'est une supression sans confirmation
+        if ( !demanderConfirmation )
         {
-            int no=vectTable.indexOf(laTableASupprimer);
-            vectTable.remove(no,1);
-            //enlever de la liste
-            ui->listWidgetObjects->takeItem(no);
-            //enlever de la scene
-            ui->graphicsView->scene()->removeItem(laTableASupprimer);
+            int no = vectTable.indexOf( laTableASupprimer );
+            vectTable.remove( no, 1 );
+            // enlever de la liste
+            ui->listWidgetObjects->takeItem( no );
+            // enlever de la scene
+            ui->graphicsView->scene()->removeItem( laTableASupprimer );
             delete laTableASupprimer;
-            setSaved(false);
+            setSaved( false );
         }
     }
 }
 
-void MainWindow::on_lineEditObjectName_textChanged(const QString &arg1)
+void MainWindow::on_lineEditObjectName_textChanged( const QString& arg1 )
 {
-    //activation/desactivation du bouton add
-    QString nettoyee=arg1;
-    nettoyee.remove('`');//supression des caractères dangereux
-    nettoyee.remove(' ');//supression des espaces
-    if(arg1.contains('`')||arg1.contains(' ')) ui->lineEditObjectName->setText(nettoyee);
-    ui->pushButtonAddObject->setEnabled(!nettoyee.isEmpty());
+    // activation/desactivation du bouton add
+    QString nettoyee = arg1;
+    nettoyee.remove( '`' ); // supression des caractères dangereux
+    nettoyee.remove( ' ' ); // supression des espaces
+    if ( arg1.contains( '`' ) || arg1.contains( ' ' ) )
+        ui->lineEditObjectName->setText( nettoyee );
+    ui->pushButtonAddObject->setEnabled( !nettoyee.isEmpty() );
 }
 
 void MainWindow::on_actionMove_triggered()
 {
-    qDebug()<<"void dialogRelation::on_toolButtonMove_clicked()";
-    //Choix de l'outil move
-    maScene->outil="move";
-    ui->graphicsView->setCursor(QCursor(Qt::ArrowCursor));
-    ui->actionLink->setEnabled(true);
-    ui->actionMove->setEnabled(false);
+    qDebug() << "void dialogRelation::on_toolButtonMove_clicked()";
+    // Choix de l'outil move
+    maScene->outil = "move";
+    ui->graphicsView->setCursor( QCursor( Qt::ArrowCursor ) );
+    ui->actionLink->setEnabled( true );
+    ui->actionMove->setEnabled( false );
 }
 
 void MainWindow::on_actionLink_triggered()
 {
-    qDebug()<<"void dialogRelation::on_toolButtonJoin_clicked()";
-    //choix de l'outil drag
-    maScene->outil="drag";
-    ui->graphicsView->setCursor(QCursor(Qt::PointingHandCursor));
-    ui->actionLink->setEnabled(false);
-    ui->actionMove->setEnabled(true);
+    qDebug() << "void dialogRelation::on_toolButtonJoin_clicked()";
+    // choix de l'outil drag
+    maScene->outil = "drag";
+    ui->graphicsView->setCursor( QCursor( Qt::PointingHandCursor ) );
+    ui->actionLink->setEnabled( false );
+    ui->actionMove->setEnabled( true );
 }
-void MainWindow::jointure(Entite* t1,Entite* t2)
+void MainWindow::jointure( Entite* t1, Entite* t2 )
 {
-    qDebug()<<"void MainWindow::jointure(Entite* t1,Entite* t2)";
-    //j'affiche une boite de dialogue pour saisir le type de jointure
-    DialogTypeJointure dtj(this);
-    //si t1=t2 df ou assoc enlever la CIF la patte et l'entité faible
-    if(t1==t2)
+    qDebug() << "void MainWindow::jointure(Entite* t1,Entite* t2)";
+    // j'affiche une boite de dialogue pour saisir le type de jointure
+    DialogTypeJointure dtj( this );
+    // si t1=t2 df ou assoc enlever la CIF la patte et l'entité faible
+    if ( t1 == t2 )
     {
-        dtj.m_ui->comboBoxType->removeItem(0);//cif
-        dtj.m_ui->comboBoxType->removeItem(1);//leg
-        dtj.m_ui->comboBoxType->removeItem(1);//leak relation
+        dtj.m_ui->comboBoxType->removeItem( 0 ); // cif
+        dtj.m_ui->comboBoxType->removeItem( 1 ); // leg
+        dtj.m_ui->comboBoxType->removeItem( 1 ); // leak relation
     }
-    //puis je trouve les deux tables dans le vecteur et ajoute le lien dans la table des liens
-    if(dtj.exec())
+    // puis je trouve les deux tables dans le vecteur et ajoute le lien
+    // dans la table des liens
+    if ( dtj.exec() )
     {
-        int typJointure=dtj.m_ui->comboBoxType->currentIndex();
+        int typJointure = dtj.m_ui->comboBoxType->currentIndex();
         QString typ;
-        switch(typJointure)
+        switch ( typJointure )
         {
-          case 0: typ="Cif"; break;
-          case 1: typ="Df";break;
-          case 2: typ=LEG;break;
-          case 3: typ=LEAKRELATION;break;
-          case 4: typ=RELATION;break;
+            case 0:
+                typ = "Cif";
+                break;
+            case 1:
+                typ = "Df";
+                break;
+            case 2:
+                typ = LEG;
+                break;
+            case 3:
+                typ = LEAKRELATION;
+                break;
+            case 4:
+                typ = RELATION;
+                break;
         }
 
-
-        QString relationName=dtj.m_ui->lineEditRelationName->text();
-        if(t1!=t2 || typ==RELATION)
-        {         
-            Lien * nouveauLien=new Lien(t1,t2,0,typ,relationName);
-            maScene->addItem(nouveauLien);
-            //on ajoute les éléments du groupe
+        QString relationName = dtj.m_ui->lineEditRelationName->text();
+        if ( t1 != t2 || typ == RELATION )
+        {
+            Lien* nouveauLien = new Lien( t1, t2, 0, typ, relationName );
+            maScene->addItem( nouveauLien );
+            // on ajoute les éléments du groupe
             nouveauLien->ajouteElementsAuGroupe();
         }
-        else//t1=t2 et df reflexive
+        else // t1=t2 et df reflexive
         {
-            //reflexive donc attention a ne pas ajouter deux fois le lien
-            //demander le role
-            QString leRole="";
-            LienReflexif * nouveauLien=new LienReflexif(t1,t2,0,typ,relationName,leRole);
-            maScene->addItem(nouveauLien);
-            //on ajoute les éléments du groupe
+            // reflexive donc attention a ne pas ajouter deux fois le lien
+            // demander le role
+            QString leRole = "";
+            LienReflexif* nouveauLien
+              = new LienReflexif( t1, t2, 0, typ, relationName, leRole );
+            maScene->addItem( nouveauLien );
+            // on ajoute les éléments du groupe
             nouveauLien->LienReflexif::ajouteElementsAuGroupe();
         }
-        //on a modifié le modèle
-        setSaved(false);
+        // on a modifié le modèle
+        setSaved( false );
     }
 }
 
-
-void MainWindow::supprimerLien(Lien * leLien)
+void MainWindow::supprimerLien( Lien* leLien )
 {
-    qDebug()<<"void MainWindow::supprimerLien(lien * leLien)";
-    if(leLien==NULL) return;
-    //effacement du lien dans le vecteur central de la mainWindow:
-    int index=vectLiens.indexOf(leLien);
-    if(index!=-1)
+    qDebug() << "void MainWindow::supprimerLien(lien * leLien)";
+    if ( leLien == NULL )
+        return;
+    // effacement du lien dans le vecteur central de la mainWindow:
+    int index = vectLiens.indexOf( leLien );
+    if ( index != -1 )
     {
-      leLien->t1->vectLiens.remove(leLien->t1->vectLiens.indexOf(leLien));
-      //version qt supérieure: leLien->t1->vectLiens.removeOne(leLien);
-      if(leLien->t1 != leLien->t2) leLien->t2->vectLiens.remove(leLien->t2->vectLiens.indexOf(leLien));
+        leLien->t1->vectLiens.remove(
+          leLien->t1->vectLiens.indexOf( leLien ) );
+        // version qt supérieure: leLien->t1->vectLiens.removeOne(leLien);
+        if ( leLien->t1 != leLien->t2 )
+            leLien->t2->vectLiens.remove(
+              leLien->t2->vectLiens.indexOf( leLien ) );
     }
-    index=vectLiens.indexOf(leLien);
-    if(index!=-1) vectLiens.remove(index);
-    if(leLien!=NULL) delete leLien;
-    leLien=NULL;
-    //on a modifié le modèle
-    setSaved(false);
+    index = vectLiens.indexOf( leLien );
+    if ( index != -1 )
+        vectLiens.remove( index );
+    if ( leLien != NULL )
+        delete leLien;
+    leLien = NULL;
+    // on a modifié le modèle
+    setSaved( false );
 }
 
 void MainWindow::on_actionSave_triggered()
 {
-    QString nomFichier=openedFileName;
-    //QString nomFichier=QFileDialog::getSaveFileName(this,tr("Save xmea file"),fichierOuvert,tr("MEA Files (*.mea *.xml)"));
-    //sauver dans un fichier xml
-    QFile monFichierXMea(nomFichier);
-    QFileInfo fi(nomFichier);
-    bool ouvertureReussie=monFichierXMea.open(QIODevice::WriteOnly);
-    if(ouvertureReussie)
+    QString nomFichier = openedFileName;
+    // QString nomFichier=QFileDialog::getSaveFileName(this,tr("Save xmea
+    // file"),fichierOuvert,tr("MEA Files (*.mea *.xml)")); sauver dans un
+    // fichier xml
+    QFile monFichierXMea( nomFichier );
+    QFileInfo fi( nomFichier );
+    bool ouvertureReussie = monFichierXMea.open( QIODevice::WriteOnly );
+    if ( ouvertureReussie )
     {
-        XMeaWriter* monWriter=new XMeaWriter(this);
-        QString message=tr("Error occured saving file");
-        if(monWriter->writeFile(&monFichierXMea))
+        XMeaWriter* monWriter = new XMeaWriter( this );
+        QString message       = tr( "Error occured saving file" );
+        if ( monWriter->writeFile( &monFichierXMea ) )
         {
-            message=tr("File was succesfully saved.");
-            setSaved(true);
+            message = tr( "File was succesfully saved." );
+            setSaved( true );
         }
-        statusBar()->showMessage(message,2000);
+        statusBar()->showMessage( message, 2000 );
         delete monWriter;
     }
     else
     {
-        statusBar()->showMessage(tr("Error occured while saving\r\n Please check your filesystem."),2000);
+        statusBar()->showMessage( tr( "Error occured while saving\r\n "
+                                      "Please check your filesystem." ),
+                                  2000 );
     }
 }
 
 void MainWindow::on_action_Open_triggered()
 {
-    //ouverture d'un fichier xml
+    // ouverture d'un fichier xml
 
-         QString fileName =
-                 QFileDialog::getOpenFileName(this, tr("Open MEA File"),
-                                              QDir::currentPath(),
-                                         tr("MEA Files (*.mea *.xml)"));
-         QFileInfo fi(fileName) ;
-         if (fileName.isEmpty())
-             return;
+    QString fileName
+      = QFileDialog::getOpenFileName( this,
+                                      tr( "Open MEA File" ),
+                                      QDir::currentPath(),
+                                      tr( "MEA Files (*.mea *.xml)" ) );
+    QFileInfo fi( fileName );
+    if ( fileName.isEmpty() )
+        return;
 
-         QFile file(fileName);
-         if (!file.open(QFile::ReadOnly | QFile::Text)) {
-             QMessageBox::warning(this, "GAP MEA",
-                                  tr("Cannot read file %1:\n%2.")
-                                  .arg(fileName)
-                                  .arg(file.errorString()));
-             return;
-         }
-         XMeaReader* monMeaReader=new XMeaReader(this);
-         if (monMeaReader->readFile(&file))
-         {
-             statusBar()->showMessage(tr("File loaded"), 2000);
-             setSaved(true);
-             setFileName(fi);
-             //vider le sql
-             ui->textEditSql->clear();
-             //effacement de la zone du sql
-             ui->textEditSql->setVisible(false);
-             ui->action_sql->setChecked(false);
-             //centrer sur les éléments de la scene
-             ui->graphicsView->centerOn(ui->graphicsView->scene()->itemsBoundingRect().center());
-             ui->graphicsView->ensureVisible(ui->graphicsView->scene()->itemsBoundingRect());
-             ui->lineEditPropertyName->clear();
-             ui->lineEditPropertyRole->clear();
-             ui->lineEditTaille->clear();
-             //activation de l'export et du print et du saveas
-             ui->action_Export->setEnabled(true);
-             ui->action_Imprimer->setEnabled(true);
-             ui->actionSaveAs->setEnabled(true);
-         }
-         else
-             statusBar()->showMessage(tr("Error reading File"), 2000);
-         delete monMeaReader;//liberation
+    QFile file( fileName );
+    if ( !file.open( QFile::ReadOnly | QFile::Text ) )
+    {
+        QMessageBox::warning( this,
+                              "GAP MEA",
+                              tr( "Cannot read file %1:\n%2." )
+                                .arg( fileName )
+                                .arg( file.errorString() ) );
+        return;
+    }
+    XMeaReader* monMeaReader = new XMeaReader( this );
+    if ( monMeaReader->readFile( &file ) )
+    {
+        statusBar()->showMessage( tr( "File loaded" ), 2000 );
+        setSaved( true );
+        setFileName( fi );
+        // vider le sql
+        ui->textEditSql->clear();
+        // effacement de la zone du sql
+        ui->textEditSql->setVisible( false );
+        ui->action_sql->setChecked( false );
+        // centrer sur les éléments de la scene
+        ui->graphicsView->centerOn(
+          ui->graphicsView->scene()->itemsBoundingRect().center() );
+        ui->graphicsView->ensureVisible(
+          ui->graphicsView->scene()->itemsBoundingRect() );
+        ui->lineEditPropertyName->clear();
+        ui->lineEditPropertyRole->clear();
+        ui->lineEditTaille->clear();
+        // activation de l'export et du print et du saveas
+        ui->action_Export->setEnabled( true );
+        ui->action_Imprimer->setEnabled( true );
+        ui->actionSaveAs->setEnabled( true );
+    }
+    else
+        statusBar()->showMessage( tr( "Error reading File" ), 2000 );
+    delete monMeaReader; // liberation
 }
 
 void MainWindow::on_actionZoom_Best_triggered()
 {
-  ui->graphicsView->fitInView(ui->graphicsView->scene()->itemsBoundingRect(),Qt::KeepAspectRatio);
+    ui->graphicsView->fitInView(
+      ui->graphicsView->scene()->itemsBoundingRect(),
+      Qt::KeepAspectRatio );
 }
-
 
 void MainWindow::on_actionZoom_2_triggered()
 {
@@ -621,103 +776,111 @@ void MainWindow::on_actionZoom_2_triggered()
 
 void MainWindow::on_actionZoom_triggered()
 {
-     ui->graphicsView->zoomIn();
+    ui->graphicsView->zoomIn();
 }
 
-void MainWindow::on_action_sql_triggered(bool checked)
+void MainWindow::on_action_sql_triggered( bool checked )
 {
-    QVector <Entite*> entitesAProbleme;
-    ui->textEditSql->setVisible(checked);
-    ui->action_sql->setChecked(checked);
-    if(checked)
+    QVector< Entite* > entitesAProbleme;
+    ui->textEditSql->setVisible( checked );
+    ui->action_sql->setChecked( checked );
+    if ( checked )
     {
         ui->textEditSql->clear();
-        QVector<Entite*>entitesGeneres;
-        int nbDEntites=vectTable.count();
-        int nbEGDsLeTour=180;
-        while(!(entitesGeneres.count()==nbDEntites || nbEGDsLeTour==0))
+        QVector< Entite* > entitesGeneres;
+        int nbDEntites   = vectTable.count();
+        int nbEGDsLeTour = 180;
+        while (
+          !( entitesGeneres.count() == nbDEntites || nbEGDsLeTour == 0 ) )
         {
-            nbEGDsLeTour=0;
-            foreach(Entite* lEntite ,vectTable)
+            nbEGDsLeTour = 0;
+            foreach ( Entite* lEntite, vectTable )
             {
-                if(lEntite->canBeWriten(entitesGeneres))
+                if ( lEntite->canBeWriten( entitesGeneres ) )
                 {
-                    if(!entitesGeneres.contains(lEntite))
+                    if ( !entitesGeneres.contains( lEntite ) )
                     {
-                        ui->textEditSql->append(lEntite->toSql());
-                        //plus une ligne vide
-                        ui->textEditSql->append("");
-                        entitesGeneres.append(lEntite);
+                        ui->textEditSql->append( lEntite->toSql() );
+                        // plus une ligne vide
+                        ui->textEditSql->append( "" );
+                        entitesGeneres.append( lEntite );
                         nbEGDsLeTour++;
                     }
                 }
             }
         }
-        if(!(entitesGeneres.count()==nbDEntites))
+        if ( !( entitesGeneres.count() == nbDEntites ) )
         {
-            statusBar()->showMessage(tr("Loop was detected please correct problem first"));
-            //demander à l'utilisateur s'il veut tout de même créer le modèle
+            statusBar()->showMessage( tr( "Loop was detected please "
+                                          "correct problem first" ) );
+            // demander à l'utilisateur s'il veut tout de même créer le
+            // modèle
             QMessageBox msg;
-            msg.setText(tr("A loop as been detected while trying to generate SQL"));
-            msg.setInformativeText(tr("Your model may contain error\r\n You can try to correct problem or to force generation\r\nDo you want to force SQL generation?"));
-            msg.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-            msg.setDefaultButton(QMessageBox::No);
-            int ret=msg.exec();
-            if(ret==QMessageBox::Yes)
+            msg.setText( tr( "A loop as been detected while trying to "
+                             "generate SQL" ) );
+            msg.setInformativeText(
+              tr( "Your model may contain error\r\n You can try to "
+                  "correct problem or to force generation\r\nDo you want "
+                  "to force SQL generation?" ) );
+            msg.setStandardButtons( QMessageBox::Yes | QMessageBox::No );
+            msg.setDefaultButton( QMessageBox::No );
+            int ret = msg.exec();
+            if ( ret == QMessageBox::Yes )
             {
-                //generation des tables(sans fk) puis des alter pour les foreign keys
-                foreach(Entite* lEntite ,vectTable)
+                // generation des tables(sans fk) puis des alter pour les
+                // foreign keys
+                foreach ( Entite* lEntite, vectTable )
                 {
-
-                    if(!entitesGeneres.contains(lEntite))
+                    if ( !entitesGeneres.contains( lEntite ) )
                     {
-                        entitesAProbleme.push_back(lEntite);
-                        ui->textEditSql->append(lEntite->toSql(true));
-                        //plus une ligne vide
-                        ui->textEditSql->append("");
-                        entitesGeneres.append(lEntite);
-
+                        entitesAProbleme.push_back( lEntite );
+                        ui->textEditSql->append( lEntite->toSql( true ) );
+                        // plus une ligne vide
+                        ui->textEditSql->append( "" );
+                        entitesGeneres.append( lEntite );
                     }
-                }//fin fdu foreach
-                //on reprend les entités à problème
-                foreach(Entite* lEntite, entitesAProbleme)
+                } // fin fdu foreach
+                // on reprend les entités à problème
+                foreach ( Entite* lEntite, entitesAProbleme )
                 {
-                    QStringList lesClefsEtrangeres=lEntite->renvoieClefsEtrangeres(false);
-                    foreach (QString laClef, lesClefsEtrangeres) {
-                        ui->textEditSql->append(laClef);
+                    QStringList lesClefsEtrangeres
+                      = lEntite->renvoieClefsEtrangeres( false );
+                    foreach ( QString laClef, lesClefsEtrangeres )
+                    {
+                        ui->textEditSql->append( laClef );
                     }
                 }
-            }//fin du il veut forcer
+            } // fin du il veut forcer
 
-        }//fin du il ya eu un pb de generation
-        else//c'est ok
+        }    // fin du il ya eu un pb de generation
+        else // c'est ok
         {
-            statusBar()->showMessage(tr("SQL was successfully generated."));
+            statusBar()->showMessage( tr( "SQL was successfully "
+                                          "generated." ) );
         }
-        //réglage des proportions du splitter
-        ui->splitterMeaSql->setStretchFactor(0,3);
-        ui->splitterMeaSql->setStretchFactor(1,0);
-    }//fin du if checked
+        // réglage des proportions du splitter
+        ui->splitterMeaSql->setStretchFactor( 0, 3 );
+        ui->splitterMeaSql->setStretchFactor( 1, 0 );
+    } // fin du if checked
 }
 
-
-Entite *MainWindow::getEntiteByName(QString nom)
+Entite* MainWindow::getEntiteByName( QString nom )
 {
-    qDebug()<<"Entite *MainWindow::getEntiteByName(QString nom)"<<endl;
-    int no=0;
-    while(!(no==vectTable.size()|| vectTable.at(no)->nomEntite==nom))
+    qDebug() << "Entite *MainWindow::getEntiteByName(QString nom)"
+             << endl;
+    int no = 0;
+    while ( !( no == vectTable.size()
+               || vectTable.at( no )->nomEntite == nom ) )
     {
         no++;
     }
-    if(no!=vectTable.size())
+    if ( no != vectTable.size() )
     {
-        return vectTable.at(no);
+        return vectTable.at( no );
     }
     else
-    return NULL;
+        return NULL;
 }
-
-
 
 void MainWindow::on_actionAbout_Qt_triggered()
 {
@@ -730,277 +893,357 @@ void MainWindow::on_action_About_triggered()
     aboutMe.exec();
 }
 
-
-
-void MainWindow::on_action_Properties_triggered(bool checked)
+void MainWindow::on_action_Properties_triggered( bool checked )
 {
-    ui->dockWidgetProperties->setVisible(checked);
+    ui->dockWidgetProperties->setVisible( checked );
 }
 
-void MainWindow::setSaved(bool ok)
+void MainWindow::setSaved( bool ok )
 {
-    saved=ok;
-    ui->actionSave->setEnabled(!ok);
+    saved = ok;
+    ui->actionSave->setEnabled( !ok );
 }
 
 void MainWindow::on_tableWidgetProperties_itemSelectionChanged()
 {
-    qDebug()<<"void MainWindow::on_tableWidgetProperties_itemSelectionChanged()";
-    //si la selection n'est pas vide
-    int numeroDeLigne=ui->tableWidgetProperties->currentRow();
-    if(numeroDeLigne!=-1)
+    qDebug() << "void "
+                "MainWindow::on_tableWidgetProperties_"
+                "itemSelectionChanged()";
+    // si la selection n'est pas vide
+    int numeroDeLigne = ui->tableWidgetProperties->currentRow();
+    if ( numeroDeLigne != -1 )
     {
-        if(ui->listWidgetObjects->currentItem()!=NULL)
+        if ( ui->listWidgetObjects->currentItem() != NULL )
         {
-            editProperty(((Entite*)ui->listWidgetObjects->currentItem())->vecteurChamps[numeroDeLigne]);
-            ui->pushButtonDeleteProperty->setEnabled(true);
+            editProperty(
+              ( ( Entite* )ui->listWidgetObjects->currentItem() )
+                ->vecteurChamps[numeroDeLigne] );
+            ui->pushButtonDeleteProperty->setEnabled( true );
         }
         else
         {
-            ui->pushButtonDeleteProperty->setEnabled(false);
+            ui->pushButtonDeleteProperty->setEnabled( false );
         }
     }
-    else//pas de selection de propriété
+    else // pas de selection de propriété
     {
-
-        ui->lineEditPropertyName->setText("");
-        ui->lineEditPropertyRole->setText("");
-        ui->lineEditTaille->setText("");
-        ui->pushButtonAddProperty->setEnabled(false);
-        ui->pushButtonModifyProperty->setEnabled(false);
-        ui->pushButtonDeleteProperty->setEnabled(false);
+        ui->lineEditPropertyName->setText( "" );
+        ui->lineEditPropertyRole->setText( "" );
+        ui->lineEditTaille->setText( "" );
+        ui->pushButtonAddProperty->setEnabled( false );
+        ui->pushButtonModifyProperty->setEnabled( false );
+        ui->pushButtonDeleteProperty->setEnabled( false );
     }
 }
 
 void MainWindow::on_actionNew_Document_triggered()
 {
-    //regarder s'il faut sauver
-    if (!saved)
+    // regarder s'il faut sauver
+    if ( !saved )
     {
-        if(QMessageBox::question(this,this->windowTitle(),tr("Your model is not saved, do you want to save it before ?"),QMessageBox::Yes|QMessageBox::No)==QMessageBox::Yes)
+        if ( QMessageBox::question( this,
+                                    this->windowTitle(),
+                                    tr( "Your model is not saved, do you "
+                                        "want to save it before ?" ),
+                                    QMessageBox::Yes | QMessageBox::No )
+             == QMessageBox::Yes )
         {
             on_actionSave_triggered();
         }
     }
-    //nouveau document
+    // nouveau document
     effaceTout();
-    setFileName(tr("New_Model.mea"));
-    setSaved(true);
-    //vider le sql
+    setFileName( tr( "New_Model.mea" ) );
+    setSaved( true );
+    // vider le sql
     ui->textEditSql->clear();
-    //le rendre invisible
-    on_action_sql_triggered(false);
+    // le rendre invisible
+    on_action_sql_triggered( false );
     ui->lineEditPropertyName->clear();
     ui->lineEditPropertyRole->clear();
     ui->lineEditTaille->clear();
-    //desactivation de l'export et du print
-    ui->action_Export->setEnabled(false);
-    ui->action_Imprimer->setEnabled(false);
+    // desactivation de l'export et du print
+    ui->action_Export->setEnabled( false );
+    ui->action_Imprimer->setEnabled( false );
 }
 
 void MainWindow::activeDesactiveBoutonApply()
 {
-  qDebug()<<"void MainWindow::activeDesactiveBoutonApply()";
-  bool activerApply,activerAdd;
-  //comparaison entre ce qu'il y a dans la table et ce qu'il ya dans le formulaire
-  int noLigne=ui->tableWidgetProperties->currentRow();
-  if(noLigne!=-1)//s'il y a une propriété sélectionnée
-  {
-      bool nomDif=ui->tableWidgetProperties->item(noLigne,0)->text()!=ui->lineEditPropertyName->text();
-      bool typeDif=ui->tableWidgetProperties->item(noLigne,1)->text()!=ui->comboBoxPropertyType->currentText();
-      bool tailleDif=ui->tableWidgetProperties->item(noLigne,2)->text()!=ui->lineEditTaille->text();
-      bool roleDif=ui->tableWidgetProperties->item(noLigne,3)->text()!=ui->lineEditPropertyRole->text();
-      activerApply=(!ui->lineEditPropertyName->text().isEmpty())&&(nomDif||typeDif||tailleDif||roleDif);
-  }
-  else activerApply=false;//pas de modification de propriété possible
-  //act/desact bouton ajouter
-  activerAdd=ui->listWidgetObjects->currentRow()!=-1;
-  for(int noL=0;noL<ui->tableWidgetProperties->rowCount();noL++)
-  {
-      qDebug()<<ui->tableWidgetProperties->item(noL,0)->text();
-      if(ui->tableWidgetProperties->item(noL,0)->text()==ui->lineEditPropertyName->text())
-      {
-          activerAdd=false;
-      }
-  }
-  ui->pushButtonModifyProperty->setEnabled(activerApply);
-  ui->pushButtonAddProperty->setEnabled(ui->lineEditPropertyName->text()!=""&& activerAdd);
+    qDebug() << "void MainWindow::activeDesactiveBoutonApply()";
+    bool activerApply, activerAdd;
+    // comparaison entre ce qu'il y a dans la table et ce qu'il ya dans le
+    // formulaire
+    int noLigne = ui->tableWidgetProperties->currentRow();
+    if ( noLigne != -1 ) // s'il y a une propriété sélectionnée
+    {
+        bool nomDif = ui->tableWidgetProperties->item( noLigne, 0 )->text()
+                      != ui->lineEditPropertyName->text();
+        bool typeDif
+          = ui->tableWidgetProperties->item( noLigne, 1 )->text()
+            != ui->comboBoxPropertyType->currentText();
+        bool tailleDif
+          = ui->tableWidgetProperties->item( noLigne, 2 )->text()
+            != ui->lineEditTaille->text();
+        bool roleDif
+          = ui->tableWidgetProperties->item( noLigne, 3 )->text()
+            != ui->lineEditPropertyRole->text();
+        activerApply = ( !ui->lineEditPropertyName->text().isEmpty() )
+                       && ( nomDif || typeDif || tailleDif || roleDif );
+    }
+    else
+        activerApply = false; // pas de modification de propriété possible
+    // act/desact bouton ajouter
+    activerAdd = ui->listWidgetObjects->currentRow() != -1;
+    for ( int noL = 0; noL < ui->tableWidgetProperties->rowCount();
+          noL++ )
+    {
+        qDebug() << ui->tableWidgetProperties->item( noL, 0 )->text();
+        if ( ui->tableWidgetProperties->item( noL, 0 )->text()
+             == ui->lineEditPropertyName->text() )
+        {
+            activerAdd = false;
+        }
+    }
+    ui->pushButtonModifyProperty->setEnabled( activerApply );
+    ui->pushButtonAddProperty->setEnabled(
+      ui->lineEditPropertyName->text() != "" && activerAdd );
 }
 void MainWindow::activeDesactiveInputTaille()
 {
-    qDebug()<<"void MainWindow::activeDesactiveInputTaille()"<<endl;
-    QString typ=ui->comboBoxPropertyType->currentText();
-    bool active= typ=="VARCHAR"|| typ=="NUMERIC" ||typ=="SET" || typ== "ENUM";
-    ui->lineEditTaille->setEnabled(active);
-    if(!(active)) ui->lineEditTaille->setText("");//on vide l'input taille
+    qDebug() << "void MainWindow::activeDesactiveInputTaille()" << endl;
+    QString typ = ui->comboBoxPropertyType->currentText();
+    bool active = typ == "VARCHAR" || typ == "NUMERIC" || typ == "SET"
+                  || typ == "ENUM";
+    ui->lineEditTaille->setEnabled( active );
+    if ( !( active ) )
+        ui->lineEditTaille->setText( "" ); // on vide l'input taille
 }
 
 void MainWindow::on_listWidgetObjects_itemSelectionChanged()
 {
-    if(ui->listWidgetObjects->selectedItems().count()==1)
+    if ( ui->listWidgetObjects->selectedItems().count() == 1 )
     {
-        on_listWidgetObjects_itemActivated(ui->listWidgetObjects->currentItem());
-       //ui->pushButtonAddProperty->setEnabled(ui->listWidgetObjects->selectedItems().count()==1);
+        on_listWidgetObjects_itemActivated(
+          ui->listWidgetObjects->currentItem() );
+        // ui->pushButtonAddProperty->setEnabled(ui->listWidgetObjects->selectedItems().count()==1);
     }
     else
     {
-        //vider les zones propriétés
-        ui->groupBoxProperties->setTitle(tr("Properties"));
-        ui->tableWidgetProperties->setRowCount(0);
-        //met à jour la zone de modif des propriétés
+        // vider les zones propriétés
+        ui->groupBoxProperties->setTitle( tr( "Properties" ) );
+        ui->tableWidgetProperties->setRowCount( 0 );
+        // met à jour la zone de modif des propriétés
         on_tableWidgetProperties_itemSelectionChanged();
     }
 }
 
-void MainWindow::on_lineEditPropertyName_textChanged(const QString &arg1)
+void MainWindow::on_lineEditPropertyName_textChanged( const QString& arg1 )
 {
-    QString nettoyee=arg1;
-    nettoyee.replace('`',"");
-    nettoyee.replace('<',"");
-    nettoyee.replace('>',"");
-    nettoyee.replace(' ',"_");
-    if(arg1.contains('`')||arg1.contains('<')||arg1.contains('>')||arg1.contains(' '))ui->lineEditPropertyName->setText(nettoyee);
+    QString nettoyee = arg1;
+    nettoyee.replace( '`', "" );
+    nettoyee.replace( '<', "" );
+    nettoyee.replace( '>', "" );
+    nettoyee.replace( ' ', "_" );
+    if ( arg1.contains( '`' ) || arg1.contains( '<' )
+         || arg1.contains( '>' ) || arg1.contains( ' ' ) )
+        ui->lineEditPropertyName->setText( nettoyee );
     activeDesactiveBoutonApply();
 }
-void MainWindow::renameEntity(Entite* lEntite)
+void MainWindow::renameEntity( Entite* lEntite )
 {
-    if(lEntite!=NULL)
+    if ( lEntite != NULL )
     {
         bool ok;
-        QString nouveauNom = QInputDialog::getText(this, tr("Rename Object"),
-                                             tr("Object name:"), QLineEdit::Normal,
-                                             lEntite->getNomEntite(), &ok);
-        if (ok && !nouveauNom.isEmpty()&& !ui->listWidgetObjects->findItems(nouveauNom,Qt::MatchCaseSensitive).count()>0)
+        QString nouveauNom
+          = QInputDialog::getText( this,
+                                   tr( "Rename Object" ),
+                                   tr( "Object name:" ),
+                                   QLineEdit::Normal,
+                                   lEntite->getNomEntite(),
+                                   &ok );
+        if ( ok && !nouveauNom.isEmpty()
+             && !ui->listWidgetObjects
+                    ->findItems( nouveauNom, Qt::MatchCaseSensitive )
+                    .count()
+                  > 0 )
         {
-            //contrôler la validité du nouveau nom
+            // contrôler la validité du nouveau nom
 
-            QString ancienNom=lEntite->getNomEntite();
-            qDebug()<<"entite renommée";
-            lEntite->setNomEntite(nouveauNom);
-            //rafaraichissement de la liste des entités
-            ui->listWidgetObjects->findItems(ancienNom,Qt::MatchCaseSensitive).at(0)->setText(nouveauNom);
+            QString ancienNom = lEntite->getNomEntite();
+            qDebug() << "entite renommée";
+            lEntite->setNomEntite( nouveauNom );
+            // rafaraichissement de la liste des entités
+            ui->listWidgetObjects
+              ->findItems( ancienNom, Qt::MatchCaseSensitive )
+              .at( 0 )
+              ->setText( nouveauNom );
         }
 
-        else//affichage d'un message d'erreur
+        else // affichage d'un message d'erreur
         {
-            QString error1=tr("Error object name cannot be empty");
-            QString error2=tr("An object with this name already exists");
-            QString error=error2;
-            if(nouveauNom.isEmpty()) error=error1;
-            QMessageBox::warning(this,tr("Rename Object"),error,QMessageBox::Ok,QMessageBox::Ok);
+            QString error1 = tr( "Error object name cannot be empty" );
+            QString error2 = tr( "An object with this name already "
+                                 "exists" );
+            QString error  = error2;
+            if ( nouveauNom.isEmpty() )
+                error = error1;
+            QMessageBox::warning( this,
+                                  tr( "Rename Object" ),
+                                  error,
+                                  QMessageBox::Ok,
+                                  QMessageBox::Ok );
         }
-
     }
 }
 
-
-
 void MainWindow::on_actionSaveAs_triggered()
 {
-    QString fichierOuvert=openedFileName;
-    QString nomFichier=QFileDialog::getSaveFileName(this,tr("Save xmea file"),fichierOuvert,tr("MEA Files (*.mea *.xml)"));
-    //sauver dans un fichier xml
-    QFile monFichierXMea(nomFichier);
-    QFileInfo fi(nomFichier);
-    bool ouvertureReussie=monFichierXMea.open(QIODevice::WriteOnly);
-    if(ouvertureReussie)
+    QString fichierOuvert = openedFileName;
+    QString nomFichier
+      = QFileDialog::getSaveFileName( this,
+                                      tr( "Save xmea file" ),
+                                      fichierOuvert,
+                                      tr( "MEA Files (*.mea *.xml)" ) );
+    // sauver dans un fichier xml
+    QFile monFichierXMea( nomFichier );
+    QFileInfo fi( nomFichier );
+    bool ouvertureReussie = monFichierXMea.open( QIODevice::WriteOnly );
+    if ( ouvertureReussie )
     {
-        XMeaWriter* monWriter=new XMeaWriter(this);
-        QString message=tr("Error occured saving file");
-        if(monWriter->writeFile(&monFichierXMea))
+        XMeaWriter* monWriter = new XMeaWriter( this );
+        QString message       = tr( "Error occured saving file" );
+        if ( monWriter->writeFile( &monFichierXMea ) )
         {
-            message=tr("File was succesfully saved.");
-            setSaved(true);
-            setFileName(fi);
+            message = tr( "File was succesfully saved." );
+            setSaved( true );
+            setFileName( fi );
         }
-        statusBar()->showMessage(message,2000);
+        statusBar()->showMessage( message, 2000 );
         delete monWriter;
     }
     else
     {
-        statusBar()->showMessage(tr("Saving is aborted"),2000);
+        statusBar()->showMessage( tr( "Saving is aborted" ), 2000 );
     }
 }
 
 void MainWindow::on_pushButtonDeleteProperty_clicked()
 {
-    //click sur apply
-    int index=ui->tableWidgetProperties->currentRow();
-    if(index!=-1)
+    // click sur apply
+    int index = ui->tableWidgetProperties->currentRow();
+    if ( index != -1 )
     {
-        Entite* entiteConcernee=(Entite*)ui->listWidgetObjects->currentItem();
-        ui->tableWidgetProperties->removeRow(index);     
-        //liberation de la propriété
+        Entite* entiteConcernee
+          = ( Entite* )ui->listWidgetObjects->currentItem();
+        ui->tableWidgetProperties->removeRow( index );
+        // liberation de la propriété
         delete entiteConcernee->vecteurChamps[index];
-        //enlever la propriété du vecteur de l'entité
-        entiteConcernee->vecteurChamps.remove(index);
-        //vider les champs du formulaire
-        ui->lineEditPropertyName->setText("");
-        ui->lineEditTaille->setText("");
-        ui->lineEditPropertyRole->setText("");
-        ui->pushButtonAddProperty->setEnabled(false);
-        ui->pushButtonDeleteProperty->setEnabled(false);
-        ui->pushButtonModifyProperty->setEnabled(false);
-        //on fait comme si on avait cliqué sur l'entité de façon à  actualiser l'affichage
-             on_listWidgetObjects_itemActivated(entiteConcernee);
-        //on redessine l'entité
+        // enlever la propriété du vecteur de l'entité
+        entiteConcernee->vecteurChamps.remove( index );
+        // vider les champs du formulaire
+        ui->lineEditPropertyName->setText( "" );
+        ui->lineEditTaille->setText( "" );
+        ui->lineEditPropertyRole->setText( "" );
+        ui->pushButtonAddProperty->setEnabled( false );
+        ui->pushButtonDeleteProperty->setEnabled( false );
+        ui->pushButtonModifyProperty->setEnabled( false );
+        // on fait comme si on avait cliqué sur l'entité de façon à
+        // actualiser l'affichage
+        on_listWidgetObjects_itemActivated( entiteConcernee );
+        // on redessine l'entité
         entiteConcernee->redraw();
-        setSaved(false);
-        statusBar()->showMessage(tr("Property was successfully deleted"),2000);
+        setSaved( false );
+        statusBar()->showMessage( tr( "Property was successfully "
+                                      "deleted" ),
+                                  2000 );
     }
     else
     {
-        statusBar()->showMessage(tr("Please select an object first"),2000);
+        statusBar()->showMessage( tr( "Please select an object first" ),
+                                  2000 );
     }
 }
 
 void MainWindow::on_action_Export_triggered()
 {
-    //exportation au format png
-    statusBar()->showMessage(tr("Exporting document to png"),2000);
-    QString fichierOuvert=getOpenedFileName().replace(".mea",".png");
-    QString nomFichier=QFileDialog::getSaveFileName(this,tr("Export mea file"),fichierOuvert,tr("Image Files (*.png)"));
-    //sauver dans une image
-    QFileInfo fi(nomFichier);
-    QImage monImage(maScene->width(),maScene->height(),QImage::Format_ARGB32_Premultiplied);
-    QPainter monPainter(&monImage);
-    maScene->render(&monPainter);
-    bool ouvertureReussie=monImage.save(fi.absoluteFilePath());
-    if(ouvertureReussie)
+    // exportation au format png
+    statusBar()->showMessage( tr( "Exporting document to png" ), 2000 );
+    QString fichierOuvert = getOpenedFileName().replace( ".mea", ".png" );
+    QString nomFichier
+      = QFileDialog::getSaveFileName( this,
+                                      tr( "Export mea file" ),
+                                      fichierOuvert,
+                                      tr( "Image Files (*.png)" ) );
+    // sauver dans une image
+    QFileInfo fi( nomFichier );
+    QImage monImage( maScene->width(),
+                     maScene->height(),
+                     QImage::Format_ARGB32_Premultiplied );
+    QPainter monPainter( &monImage );
+    maScene->render( &monPainter );
+    bool ouvertureReussie = monImage.save( fi.absoluteFilePath() );
+    if ( ouvertureReussie )
     {
-        QString message=tr("File was succesfully exported.");
-        statusBar()->showMessage(message,2000);
+        QString message = tr( "File was succesfully exported." );
+        statusBar()->showMessage( message, 2000 );
     }
     else
     {
-        statusBar()->showMessage(tr("Export failed check your filesystem"),2000);
+        statusBar()->showMessage( tr( "Export failed check your "
+                                      "filesystem" ),
+                                  2000 );
     }
 }
 
 void MainWindow::on_action_Imprimer_triggered()
 {
-    //impression
-    statusBar()->showMessage(tr("Printing document"),2000);
-    //tout déselectionner
-    QPrinter printer(QPrinter::HighResolution);
-    QPrintDialog dialog(&printer, this);
-    if(dialog.exec())
+    // impression
+    statusBar()->showMessage( tr( "Printing document" ), 2000 );
+    // tout déselectionner
+    QPrinter printer( QPrinter::HighResolution );
+    QPrintDialog dialog( &printer, this );
+    if ( dialog.exec() )
     {
-      QPainter painter(&printer);
-      maScene->render(&painter);
+        QPainter painter( &printer );
+        maScene->render( &painter );
     }
     else
     {
-        statusBar()->showMessage(tr("Print canceled"),2000);
+        statusBar()->showMessage( tr( "Print canceled" ), 2000 );
     }
 }
 
-void MainWindow::on_dockWidgetObjects_visibilityChanged(bool visible)
+void MainWindow::on_dockWidgetObjects_visibilityChanged( bool visible )
 {
-    ui->action_Object_list->setChecked(visible);
+    ui->action_Object_list->setChecked( visible );
 }
 
-void MainWindow::on_dockWidgetProperties_visibilityChanged(bool visible)
+void MainWindow::on_dockWidgetProperties_visibilityChanged( bool visible )
 {
-    ui->action_Properties->setChecked(visible);
+    ui->action_Properties->setChecked( visible );
+}
+
+void MainWindow::on_action_recharger_config_triggered()
+{
+    config->refresh();
+
+    foreach ( Entite* lEntite, vectTable )
+    {
+        // Redraw all entities when config refreshed.
+        lEntite->redraw();
+    }
+
+    foreach ( Lien* lLien, vectLiens )
+    {
+        // Redraw all links when config refreshed.
+        lLien->refreshColors();
+    }
+
+    QPalette palette;
+    QColor couleurFond( config->getPaletteBackgroundColor() );
+    QColor couleurTexte( config->getPaletteTextColor() );
+
+    palette.setColor( QPalette::Base, couleurFond );
+    palette.setColor( QPalette::Text, couleurTexte );
+    ui->textEditSql->setPalette( palette );
 }

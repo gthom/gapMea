@@ -21,6 +21,7 @@
 #include <QGraphicsLineItem>
 #include <QGraphicsRectItem>
 #include <QGraphicsScene>
+#include <QLineF>
 #include "entite.h"
 #include <QColor>
 #include "types.h"
@@ -155,5 +156,10 @@ public:
      * @return the smallest polygon wich contains the link
      */
     QPainterPath shape() const;
+    /**
+     * @brief refreshColors
+     * permits to refresh colors
+     */
+    virtual void refreshColors();
 };
 #endif // LIEN_H
