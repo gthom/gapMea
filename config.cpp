@@ -28,7 +28,7 @@ Config* Config::singleton()
 }
 
 Config::Config( const QString& fileName )
- : _entityColor(), _fileName( fileName )
+    : _entityColor(), _fileName( fileName )
 {
     refresh();
 }
@@ -75,6 +75,8 @@ void Config::getValues()
     GET_VALUE_COLOR( cardinal2Color );
     GET_VALUE_COLOR( roleColor );
     GET_VALUE_COLOR( lineColor );
+    GET_VALUE_COLOR( paletteBackgroundColor );
+    GET_VALUE_COLOR( paletteTextColor );
 }
 
 void Config::setValues()
@@ -97,6 +99,8 @@ void Config::setValues()
     SET_VALUE_COLOR( cardinal2Color );
     SET_VALUE_COLOR( roleColor );
     SET_VALUE_COLOR( lineColor );
+    SET_VALUE_COLOR( paletteBackgroundColor );
+    SET_VALUE_COLOR( paletteTextColor );
 }
 
 EntityColor Config::entityColor() const
@@ -219,4 +223,25 @@ QColor Config::getCardinal2Color() const
 void Config::setCardinal2Color( const QColor& cardinal2Color )
 {
     _cardinal2Color = cardinal2Color;
+}
+
+
+QColor Config::getPaletteBackgroundColor() const
+{
+    return _paletteBackgroundColor;
+}
+
+void Config::setPaletteBackgroundColor(const QColor& paletteBackgroundColor)
+{
+    _paletteBackgroundColor = paletteBackgroundColor;
+}
+
+QColor Config::getPaletteTextColor() const
+{
+    return _paletteTextColor;
+}
+
+void Config::setPaletteTextColor(const QColor& paletteTextColor)
+{
+    _paletteTextColor = paletteTextColor;
 }

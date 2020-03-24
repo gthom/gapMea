@@ -57,7 +57,7 @@ class Config
     /**
      * @brief _lineColor
      */
-    QColor _lineColor =Qt::white;
+    QColor _lineColor = Qt::white;
     /**
      * @brief _roleColor
      */
@@ -70,6 +70,14 @@ class Config
      * @brief _cardinal2Color
      */
     QColor _cardinal2Color = Qt::white;
+    /**
+     * @brief _paletteBackgroundColor
+     */
+    QColor _paletteBackgroundColor = Qt::lightGray;
+    /**
+     * @brief _paletteTextColor
+     */
+    QColor _paletteTextColor = Qt::black;
 
   public:
     /**
@@ -123,8 +131,7 @@ class Config
     void setReflectiveLinkBackgroundColor(
       const QColor& reflectiveLinkBackgroundColor );
     QColor getReflectiveLinkTextColor() const;
-    void
-    setReflectiveLinkTextColor( const QColor& reflectiveLinkTextColor );
+    void setReflectiveLinkTextColor( const QColor& reflectiveLinkTextColor );
     QColor getAssocGradientColor1() const;
     void setAssocGradientColor1( const QColor& assocGradientColor1 );
     QColor getAssocGradientColor2() const;
@@ -139,6 +146,10 @@ class Config
     void setCardinal1Color(const QColor& cardinal1Color);
     QColor getCardinal2Color() const;
     void setCardinal2Color(const QColor& cardinal2Color);
+    QColor getPaletteBackgroundColor() const;
+    void setPaletteBackgroundColor(const QColor& paletteBackgroundColor);
+    QColor getPaletteTextColor() const;
+    void setPaletteTextColor(const QColor& paletteTextColor);
 };
 
 extern Config *g_pConfig, *config;

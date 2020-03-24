@@ -26,6 +26,8 @@
 #include "entite.h"
 #include "lien.h"
 #include <QFileInfo>
+#include "config.h"
+
 class Entite;
 class Lien;
 class Property;
