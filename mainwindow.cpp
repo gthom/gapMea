@@ -70,8 +70,8 @@ MainWindow::MainWindow( QWidget* parent )
     ui->textEditSql->setVisible( false );
 
     QPalette palette;
-    QColor couleurFond( Qt::lightGray );
-    QColor couleurTexte( Qt::white );
+    QColor couleurFond( config->getPaletteBackgroundColor() );
+    QColor couleurTexte( config->getPaletteTextColor() );
 
     palette.setColor( QPalette::Base, couleurFond );
     palette.setColor( QPalette::Text, couleurTexte );
